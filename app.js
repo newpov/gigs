@@ -31,8 +31,10 @@ const state = {
   dateRange: "today",
   customDate: null,
   selectedEventKey: null,
-  expressHidden: false
+  expressHidden: false,
+  shortlisted: new Set()
 };
+let mobileListScrollY = 0;
 
 const eventsEl = document.querySelector("#events");
 const emptyEl = document.querySelector("#emptyState");
@@ -41,6 +43,8 @@ const genreEl = document.querySelector("#genreFilters");
 const genrePickerEl = document.querySelector("#genrePicker");
 const genreSelectionEl = document.querySelector("#genreSelection");
 const calendarDateEl = document.querySelector("#calendarDate");
+const postcodePickerEl = document.querySelector("#postcodePicker");
+const postcodeSelectionEl = document.querySelector("#postcodeSelection");
 const postcodeEl = document.querySelector("#postcodeFilters");
 const excludeGenreEl = document.querySelector("#excludeGenreFilters");
 const excludeCountEl = document.querySelector("#excludeCount");
@@ -78,6 +82,13 @@ const urlExcludedGenres = new URLSearchParams(window.location.search).get("exclu
 if (urlExcludedGenres !== null) savedExcludedGenres = urlExcludedGenres ? urlExcludedGenres.split("|").filter(Boolean) : [];
 state.excludedGenres = new Set(savedExcludedGenres);
 
+const SHORTLIST_STORAGE_KEY = "gig-planner-shortlisted-events";
+try {
+  state.shortlisted = new Set(JSON.parse(localStorage.getItem(SHORTLIST_STORAGE_KEY) || "[]"));
+} catch {
+  state.shortlisted = new Set();
+}
+
 function dateAtOffset(offset) {
   const date = new Date(today);
   date.setDate(date.getDate() + offset);
@@ -102,9 +113,6 @@ function postcodeArea(postcode) {
   return String(postcode || "").toUpperCase().match(/^([A-Z]{1,2})\d/)?.[1] || "";
 }
 
-const allPostcodeAreas = [...new Set(events.map((event) => postcodeArea(event.postcode)).filter(Boolean))].sort();
-postcodeEl.innerHTML = allPostcodeAreas.map((area) => `<button class="postcode-filter" data-postcode-area="${escapeHtml(area)}">${escapeHtml(area)}</button>`).join("");
-
 function saveExcludedGenres() {
   localStorage.setItem(EXCLUDED_GENRES_STORAGE_KEY, JSON.stringify([...state.excludedGenres].sort()));
   const url = new URL(window.location.href);
@@ -112,6 +120,10 @@ function saveExcludedGenres() {
   if (value) url.searchParams.set("exclude", value);
   else url.searchParams.delete("exclude");
   window.history.replaceState({}, "", url);
+}
+
+function saveShortlisted() {
+  localStorage.setItem(SHORTLIST_STORAGE_KEY, JSON.stringify([...state.shortlisted]));
 }
 
 genreEl.addEventListener("click", (event) => {
@@ -183,16 +195,34 @@ document.querySelector("#includeLarge").addEventListener("change", (event) => {
   render();
 });
 
+eventsEl.addEventListener("change", (event) => {
+  const checkbox = event.target.closest(".shortlist-checkbox");
+  if (!checkbox) return;
+  if (checkbox.checked) state.shortlisted.add(checkbox.dataset.eventKey);
+  else state.shortlisted.delete(checkbox.dataset.eventKey);
+  saveShortlisted();
+  render();
+});
+
+detailEl.addEventListener("change", (event) => {
+  const checkbox = event.target.closest(".shortlist-checkbox");
+  if (!checkbox) return;
+  if (checkbox.checked) state.shortlisted.add(checkbox.dataset.eventKey);
+  else state.shortlisted.delete(checkbox.dataset.eventKey);
+  saveShortlisted();
+  render();
+});
+
 eventsEl.addEventListener("click", (event) => {
   const item = event.target.closest("[data-event-key]");
-  if (!item || event.target.closest("a, button, iframe")) return;
+  if (!item || event.target.closest("a, button, input, label, iframe")) return;
   openEvent(item.dataset.eventKey);
 });
 
 eventsEl.addEventListener("keydown", (event) => {
   if (event.key !== "Enter" && event.key !== " ") return;
   const item = event.target.closest("[data-event-key]");
-  if (!item || event.target.closest("a, button, iframe")) return;
+  if (!item || event.target.closest("a, button, input, label, iframe")) return;
   event.preventDefault();
   openEvent(item.dataset.eventKey);
 });
@@ -212,8 +242,10 @@ expressContentEl.addEventListener("keydown", (event) => {
 });
 
 document.querySelector("#closeDetail").addEventListener("click", () => {
+  const shouldRestoreScroll = window.matchMedia("(max-width: 700px)").matches;
   state.selectedEventKey = null;
   render();
+  if (shouldRestoreScroll) setTimeout(() => window.scrollTo({ top: mobileListScrollY, behavior: "instant" }), 0);
 });
 
 document.querySelectorAll(".date-pill").forEach((button) => {
@@ -235,7 +267,7 @@ calendarDateEl.addEventListener("change", (event) => {
   render();
 });
 
-function filteredEvents() {
+function filteredEvents({ includePostcode = true } = {}) {
   return events.filter((event) => {
     if (state.dateRange === "today" && event.date !== todayKey) return false;
     if (state.dateRange === "tomorrow" && event.date !== dateAtOffset(1)) return false;
@@ -243,14 +275,19 @@ function filteredEvents() {
     if (state.dateRange === "custom" && event.date !== state.customDate) return false;
     if (!state.includeLarge && event.venue_type === "Large") return false;
     if (state.venueType !== "all" && event.venue_type !== state.venueType) return false;
-    if (state.postcodeAreas.size && !state.postcodeAreas.has(postcodeArea(event.postcode))) return false;
+    if (includePostcode && state.postcodeAreas.size && !state.postcodeAreas.has(postcodeArea(event.postcode))) return false;
     if ((event.genres || []).some((genre) => state.excludedGenres.has(genre))) return false;
     if (state.genres.size && !(event.genres || []).some((genre) => state.genres.has(genre))) return false;
     return true;
-  });
+  }).sort((a, b) => Number(state.shortlisted.has(eventKey(b))) - Number(state.shortlisted.has(eventKey(a))));
 }
 
 function render() {
+  const postcodeScope = filteredEvents({ includePostcode: false });
+  const availablePostcodeAreas = new Set(postcodeScope.map((event) => postcodeArea(event.postcode)).filter(Boolean));
+  state.postcodeAreas = new Set([...state.postcodeAreas].filter((area) => availablePostcodeAreas.has(area)));
+  postcodeEl.innerHTML = [...availablePostcodeAreas].sort().map((area) => `<button class="postcode-filter" data-postcode-area="${escapeHtml(area)}">${escapeHtml(area)}</button>`).join("");
+  postcodeSelectionEl.textContent = state.postcodeAreas.size ? `(${state.postcodeAreas.size} selected)` : `(${availablePostcodeAreas.size} available)`;
   const visible = filteredEvents();
   countEl.textContent = `${visible.length} ${visible.length === 1 ? "event" : "events"}`;
   emptyEl.hidden = visible.length > 0;
@@ -272,7 +309,7 @@ function card(event) {
   const booking = bookingLink(event);
   const selectedClass = state.selectedEventKey === eventKey(event) ? " selected" : "";
   return `<article class="event-card${selectedClass}" data-event-key="${escapeAttribute(eventKey(event))}" tabindex="0" role="button" aria-label="Open details for ${escapeAttribute(event.event_name)}">
-    <div class="event-top"><span class="venue-type">${escapeHtml(event.venue_type)} ${status}</span><span class="event-time">${escapeHtml(formatDate(event.date))} · ${escapeHtml(formatTime(event.time))}</span></div>
+    <div class="event-top"><span class="venue-type">${escapeHtml(event.venue_type)} ${status}</span><span class="event-time">${escapeHtml(formatDate(event.date))} · ${escapeHtml(formatTime(event.time))}</span><label class="shortlist-toggle"><input class="shortlist-checkbox" data-event-key="${escapeAttribute(eventKey(event))}" type="checkbox" ${state.shortlisted.has(eventKey(event)) ? "checked" : ""} /><span>Shortlist</span></label></div>
     <div class="media-slot">${mediaMarkup(event)}</div>
     <h3>${escapeHtml(event.event_name)}</h3>
     <div class="venue-block"><div class="venue">${escapeHtml(event.venue)}</div><div class="location">${escapeHtml(event.borough)} · ${escapeHtml(event.postcode)}</div></div>
@@ -299,11 +336,9 @@ function eventKey(event) {
 }
 
 function openEvent(key) {
+  if (window.matchMedia("(max-width: 700px)").matches) mobileListScrollY = window.scrollY;
   state.selectedEventKey = key;
   render();
-  if (window.matchMedia("(max-width: 700px)").matches) {
-    setTimeout(() => detailEl.scrollIntoView({ behavior: "smooth", block: "start" }), 0);
-  }
 }
 
 function expressMediaLinks(event) {
@@ -361,7 +396,7 @@ function renderDetail(visible) {
   }
   const price = selected.price == null ? "Price not listed" : `£${selected.price.toFixed(2)}`;
   const booking = bookingLink(selected);
-  detailContentEl.innerHTML = `<div class="detail-media">${mediaMarkup(selected)}</div><p class="detail-kicker">${escapeHtml(selected.venue_type)} · ${escapeHtml(formatDate(selected.date))} · ${escapeHtml(formatTime(selected.time))}</p><h3>${escapeHtml(selected.event_name)}</h3><div class="venue-block"><div class="venue">${escapeHtml(selected.venue)}</div><div class="location">${escapeHtml(selected.borough)} · ${escapeHtml(selected.postcode)}</div></div><p class="description">${escapeHtml(selected.description || "Details available on the source listing.")}</p><div class="genre-list">${(selected.genres || []).map((genre) => `<span class="genre-tag">${escapeHtml(genre)}</span>`).join("")}</div><div class="detail-footer"><span class="price">${price}</span><a class="ticket-link" href="${escapeAttribute(booking.url)}" target="_blank" rel="noreferrer">${escapeHtml(booking.label)} ↗</a></div>`;
+  detailContentEl.innerHTML = `<div class="detail-media">${mediaMarkup(selected)}</div><div class="detail-meta"><p class="detail-kicker">${escapeHtml(selected.venue_type)} · ${escapeHtml(formatDate(selected.date))} · ${escapeHtml(formatTime(selected.time))}</p><label class="shortlist-toggle"><input class="shortlist-checkbox" data-event-key="${escapeAttribute(eventKey(selected))}" type="checkbox" ${state.shortlisted.has(eventKey(selected)) ? "checked" : ""} /><span>Shortlist</span></label></div><h3>${escapeHtml(selected.event_name)}</h3><div class="venue-block"><div class="venue">${escapeHtml(selected.venue)}</div><div class="location">${escapeHtml(selected.borough)} · ${escapeHtml(selected.postcode)}</div></div><p class="description">${escapeHtml(selected.description || "Details available on the source listing.")}</p><div class="genre-list">${(selected.genres || []).map((genre) => `<span class="genre-tag">${escapeHtml(genre)}</span>`).join("")}</div><div class="detail-footer"><span class="price">${price}</span><a class="ticket-link" href="${escapeAttribute(booking.url)}" target="_blank" rel="noreferrer">${escapeHtml(booking.label)} ↗</a></div>`;
 }
 
 function instagramResearchUrl(name, role = "artist") {
