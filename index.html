@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Gig Scout — London grassroots music</title>
+    <title>Gig planner — London grassroots music</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
@@ -14,8 +14,7 @@
       <header class="masthead">
         <div>
           <p class="eyebrow">LONDON / LIVE MUSIC</p>
-          <h1>Find a gig<br /><em>worth leaving home for.</em></h1>
-          <p class="intro">A cleaner starting point for small rooms, pubs and the artists who are easy to miss.</p>
+          <h1>Gig planner</h1>
         </div>
         <div class="source-badge"><span class="live-dot"></span> Halibuts live feed</div>
       </header>
@@ -48,17 +47,21 @@
             <button class="date-pill" data-range="tomorrow">Tomorrow</button>
             <button class="date-pill" data-range="week">Next 7 days</button>
           </div>
-          <div class="genre-wrap">
-            <span class="label">Genres</span>
+          <details id="genrePicker" class="genre-picker">
+            <summary>Genres <span id="genreSelection"></span></summary>
             <div id="genreFilters" class="genre-filters"></div>
-          </div>
+          </details>
         </div>
         <details class="exclude-genres">
           <summary>Hide genres by default <span id="excludeCount"></span></summary>
           <div class="exclude-inner">
-            <p>Click a genre to hide it from the planner. Hidden genres are saved in this browser and can be restored at any time.</p>
+            <p>Click a genre to hide it from the planner. Saved locally in this browser; copy a settings link to carry them to another device.</p>
             <div id="excludeGenreFilters" class="genre-filters"></div>
-            <button id="resetExcluded" class="reset-button" type="button">Restore default exclusions</button>
+            <div class="preference-actions">
+              <button id="resetExcluded" class="reset-button" type="button">Restore defaults</button>
+              <button id="copyPreferences" class="reset-button" type="button">Copy settings link</button>
+              <span id="copyStatus" class="copy-status" role="status"></span>
+            </div>
           </div>
         </details>
       </section>
@@ -70,10 +73,7 @@
         </div>
         <div class="results-actions">
           <p id="resultCount" class="result-count"></p>
-          <div class="view-switcher" role="group" aria-label="View mode">
-            <button class="view-button active" data-view="list">List</button>
-            <button class="view-button" data-view="cards">Cards</button>
-          </div>
+          <p class="results-hint">Select an event for details</p>
         </div>
       </section>
 
@@ -89,12 +89,20 @@
       </section>
       <button id="showExpress" class="show-express" type="button" hidden>Show express view</button>
 
-      <section id="events" class="event-grid list-view" aria-live="polite"></section>
-      <p id="emptyState" class="empty-state" hidden>No gigs match those filters. Try widening the venue type or genre selection.</p>
+      <div class="results-layout">
+        <div class="results-list">
+          <section id="events" class="event-grid list-view" aria-live="polite"></section>
+          <p id="emptyState" class="empty-state" hidden>No gigs match those filters. Try widening the venue type or genre selection.</p>
+        </div>
+        <aside id="eventDetail" class="event-detail" aria-label="Selected event" hidden>
+          <button id="closeDetail" class="close-detail" type="button">Close details</button>
+          <div id="detailContent"></div>
+        </aside>
+      </div>
 
       <footer class="footer">
         <span>Source: Halibuts · direct venue/promoter links where available</span>
-        <span>Cards include artist-first media searches; verified embeds come next</span>
+        <span>Select an event to open the full card</span>
       </footer>
     </main>
     <script src="app.js" type="module"></script>

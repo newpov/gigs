@@ -29,7 +29,7 @@ const state = {
   genres: new Set(),
   postcodeAreas: new Set(),
   dateRange: "today",
-  viewMode: "list",
+  selectedEventKey: null,
   expressHidden: false
 };
 
@@ -37,6 +37,8 @@ const eventsEl = document.querySelector("#events");
 const emptyEl = document.querySelector("#emptyState");
 const countEl = document.querySelector("#resultCount");
 const genreEl = document.querySelector("#genreFilters");
+const genrePickerEl = document.querySelector("#genrePicker");
+const genreSelectionEl = document.querySelector("#genreSelection");
 const postcodeEl = document.querySelector("#postcodeFilters");
 const excludeGenreEl = document.querySelector("#excludeGenreFilters");
 const excludeCountEl = document.querySelector("#excludeCount");
@@ -45,6 +47,8 @@ const dateLabelEl = document.querySelector("#dateLabel");
 const expressPanelEl = document.querySelector("#expressPanel");
 const expressContentEl = document.querySelector("#expressContent");
 const showExpressEl = document.querySelector("#showExpress");
+const detailEl = document.querySelector("#eventDetail");
+const detailContentEl = document.querySelector("#detailContent");
 
 const firstEventDate = events.map((event) => event.date).filter(Boolean).sort()[0];
 const today = firstEventDate ? new Date(`${firstEventDate}T12:00:00`) : new Date();
@@ -61,6 +65,8 @@ try {
 } catch {
   savedExcludedGenres = DEFAULT_EXCLUDED_GENRES;
 }
+const urlExcludedGenres = new URLSearchParams(window.location.search).get("exclude");
+if (urlExcludedGenres !== null) savedExcludedGenres = urlExcludedGenres ? urlExcludedGenres.split("|").filter(Boolean) : [];
 state.excludedGenres = new Set(savedExcludedGenres);
 
 function dateAtOffset(offset) {
@@ -92,6 +98,11 @@ postcodeEl.innerHTML = allPostcodeAreas.map((area) => `<button class="postcode-f
 
 function saveExcludedGenres() {
   localStorage.setItem(EXCLUDED_GENRES_STORAGE_KEY, JSON.stringify([...state.excludedGenres].sort()));
+  const url = new URL(window.location.href);
+  const value = [...state.excludedGenres].sort().join("|");
+  if (value) url.searchParams.set("exclude", value);
+  else url.searchParams.delete("exclude");
+  window.history.replaceState({}, "", url);
 }
 
 genreEl.addEventListener("click", (event) => {
@@ -129,6 +140,20 @@ document.querySelector("#resetExcluded").addEventListener("click", () => {
   render();
 });
 
+document.querySelector("#copyPreferences").addEventListener("click", async () => {
+  const url = new URL(window.location.href);
+  const value = [...state.excludedGenres].sort().join("|");
+  if (value) url.searchParams.set("exclude", value);
+  else url.searchParams.delete("exclude");
+  try {
+    await navigator.clipboard.writeText(url.toString());
+    document.querySelector("#copyStatus").textContent = "Copied";
+  } catch {
+    document.querySelector("#copyStatus").textContent = "Copy the URL above";
+  }
+  setTimeout(() => { document.querySelector("#copyStatus").textContent = ""; }, 2200);
+});
+
 document.querySelector("#venueType").addEventListener("change", (event) => {
   state.venueType = event.target.value;
   render();
@@ -136,12 +161,12 @@ document.querySelector("#venueType").addEventListener("change", (event) => {
 
 document.querySelector("#hideExpress").addEventListener("click", () => {
   state.expressHidden = true;
-  renderExpress();
+  renderExpress(filteredEvents());
 });
 
 showExpressEl.addEventListener("click", () => {
   state.expressHidden = false;
-  renderExpress();
+  renderExpress(filteredEvents());
 });
 
 document.querySelector("#includeLarge").addEventListener("change", (event) => {
@@ -149,12 +174,37 @@ document.querySelector("#includeLarge").addEventListener("change", (event) => {
   render();
 });
 
-document.querySelectorAll(".view-button").forEach((button) => {
-  button.addEventListener("click", () => {
-    state.viewMode = button.dataset.view;
-    document.querySelectorAll(".view-button").forEach((item) => item.classList.toggle("active", item === button));
-    render();
-  });
+eventsEl.addEventListener("click", (event) => {
+  const item = event.target.closest("[data-event-key]");
+  if (!item || event.target.closest("a, button, iframe")) return;
+  openEvent(item.dataset.eventKey);
+});
+
+eventsEl.addEventListener("keydown", (event) => {
+  if (event.key !== "Enter" && event.key !== " ") return;
+  const item = event.target.closest("[data-event-key]");
+  if (!item || event.target.closest("a, button, iframe")) return;
+  event.preventDefault();
+  openEvent(item.dataset.eventKey);
+});
+
+expressContentEl.addEventListener("click", (event) => {
+  const item = event.target.closest("[data-event-key]");
+  if (!item || event.target.closest("a, button, iframe")) return;
+  openEvent(item.dataset.eventKey);
+});
+
+expressContentEl.addEventListener("keydown", (event) => {
+  if (event.key !== "Enter" && event.key !== " ") return;
+  const item = event.target.closest("[data-event-key]");
+  if (!item || event.target.closest("a, button, iframe")) return;
+  event.preventDefault();
+  openEvent(item.dataset.eventKey);
+});
+
+document.querySelector("#closeDetail").addEventListener("click", () => {
+  state.selectedEventKey = null;
+  render();
 });
 
 document.querySelectorAll(".date-pill").forEach((button) => {
@@ -162,7 +212,7 @@ document.querySelectorAll(".date-pill").forEach((button) => {
     document.querySelectorAll(".date-pill").forEach((item) => item.classList.remove("active"));
     button.classList.add("active");
     state.dateRange = button.dataset.range;
-    document.querySelector("#resultTitle").textContent = state.dateRange === "today" ? "Tonight in London" : button.textContent;
+    resultTitleEl.textContent = state.dateRange === "today" ? "Tonight in London" : button.textContent;
     render();
   });
 });
@@ -183,24 +233,25 @@ function filteredEvents() {
 
 function render() {
   const visible = filteredEvents();
-  eventsEl.classList.toggle("list-view", state.viewMode === "list");
-  eventsEl.classList.toggle("card-view", state.viewMode === "cards");
   countEl.textContent = `${visible.length} ${visible.length === 1 ? "event" : "events"}`;
   emptyEl.hidden = visible.length > 0;
   eventsEl.innerHTML = visible.map(card).join("");
+  genreSelectionEl.textContent = state.genres.size ? `(${state.genres.size} selected)` : "";
   excludeCountEl.textContent = state.excludedGenres.size ? `(${state.excludedGenres.size} hidden)` : "";
   excludeGenreEl.querySelectorAll("button[data-genre]").forEach((button) => button.classList.toggle("active", state.excludedGenres.has(button.dataset.genre)));
   postcodeEl.querySelectorAll("button[data-postcode-area]").forEach((button) => button.classList.toggle("active", state.postcodeAreas.has(button.dataset.postcodeArea)));
   const selectedDate = state.dateRange === "tomorrow" ? dateAtOffset(1) : todayKey;
   dateLabelEl.textContent = state.dateRange === "week" ? `FROM ${formatHeaderDate(todayKey)} · 7 DAYS` : formatHeaderDate(selectedDate);
-  renderExpress();
+  renderExpress(visible);
+  renderDetail(visible);
 }
 
 function card(event) {
   const price = event.price == null ? "Price not listed" : `£${event.price.toFixed(2)}`;
   const status = event.status !== "listed" ? `<span class="status">${escapeHtml(event.status)}</span>` : "";
   const booking = bookingLink(event);
-  return `<article class="event-card">
+  const selectedClass = state.selectedEventKey === eventKey(event) ? " selected" : "";
+  return `<article class="event-card${selectedClass}" data-event-key="${escapeAttribute(eventKey(event))}" tabindex="0" role="button" aria-label="Open details for ${escapeAttribute(event.event_name)}">
     <div class="event-top"><span class="venue-type">${escapeHtml(event.venue_type)} ${status}</span><span class="event-time">${escapeHtml(formatDate(event.date))} · ${escapeHtml(formatTime(event.time))}</span></div>
     <div class="media-slot">${mediaMarkup(event)}</div>
     <h3>${escapeHtml(event.event_name)}</h3>
@@ -223,11 +274,23 @@ function primaryArtist(event) {
   return eventArtistNames(event).map((name) => artistByName.get(mediaKey(name))).find(Boolean) || null;
 }
 
+function eventKey(event) {
+  return event.source_url || [event.date, event.time, event.event_name, event.venue].filter(Boolean).join("|");
+}
+
+function openEvent(key) {
+  state.selectedEventKey = key;
+  render();
+  if (window.matchMedia("(max-width: 700px)").matches) {
+    setTimeout(() => detailEl.scrollIntoView({ behavior: "smooth", block: "start" }), 0);
+  }
+}
+
 function expressMediaLinks(event) {
   const artist = primaryArtist(event);
   if (!artist) {
     const fallbackName = event.promoter || event.venue;
-    return fallbackName ? `<a href="${escapeAttribute(instagramSearchUrl(fallbackName))}" target="_blank" rel="noreferrer">Instagram ↗</a>` : "";
+    return fallbackName ? `<a href="${escapeAttribute(instagramResearchUrl(fallbackName, event.promoter ? "promoter" : "venue"))}" target="_blank" rel="noreferrer">Instagram research ↗</a>` : "";
   }
   const video = artist.youtube?.videos?.[0];
   const youtubeUrl = video?.url || artist.youtube?.live_search_url || artist.youtube?.search_url;
@@ -238,15 +301,15 @@ function expressMediaLinks(event) {
   ].join("");
 }
 
-function renderExpress() {
+function renderExpress(visible) {
   const selectedGenres = [...state.genres];
   const shouldShow = selectedGenres.length > 0;
   expressPanelEl.hidden = !shouldShow || state.expressHidden;
   showExpressEl.hidden = !shouldShow || !state.expressHidden;
   if (!shouldShow) return;
   expressContentEl.innerHTML = selectedGenres.map((genre) => {
-    const picks = filteredEvents().filter((event) => (event.genres || []).includes(genre)).slice(0, 3);
-    return `<section class="express-group"><div class="express-group-title"><h4>${escapeHtml(genre)}</h4><span>${picks.length} picks</span></div>${picks.length ? `<ol>${picks.map((event) => `<li><div><strong>${escapeHtml(event.event_name)}</strong><span>${escapeHtml(event.venue)} · ${escapeHtml(formatTime(event.time))}</span></div><div class="express-links">${expressMediaLinks(event)}</div></li>`).join("")}</ol>` : `<p class="express-empty">No matching events in the current view.</p>`}</section>`;
+    const picks = visible.filter((event) => (event.genres || []).includes(genre)).slice(0, 3);
+    return `<section class="express-group"><div class="express-group-title"><h4>${escapeHtml(genre)}</h4><span>${picks.length} picks</span></div>${picks.length ? `<ol>${picks.map((event) => `<li class="express-pick" data-event-key="${escapeAttribute(eventKey(event))}" tabindex="0" role="button" aria-label="Open details for ${escapeAttribute(event.event_name)}"><div><strong>${escapeHtml(event.event_name)}</strong><span>${escapeHtml(event.venue)} · ${escapeHtml(formatTime(event.time))}</span></div><div class="express-links">${expressMediaLinks(event)}</div></li>`).join("")}</ol>` : `<p class="express-empty">No matching events in the current view.</p>`}</section>`;
   }).join("");
 }
 
@@ -254,8 +317,8 @@ function mediaMarkup(event) {
   const artist = primaryArtist(event);
   if (!artist) {
     const fallbackName = event.promoter || event.venue;
-    const fallbackUrl = fallbackName ? instagramSearchUrl(fallbackName) : "";
-    return `<div class="media-content"><span class="media-label">Artist not identified in source</span>${fallbackUrl ? `<div class="media-actions"><a href="${escapeAttribute(fallbackUrl)}" target="_blank" rel="noreferrer">Search ${escapeHtml(event.promoter ? "promoter" : "venue")} Instagram ↗</a></div>` : ""}</div>`;
+    const fallbackUrl = fallbackName ? instagramResearchUrl(fallbackName, event.promoter ? "promoter" : "venue") : "";
+    return `<div class="media-content"><span class="media-label">Artist details not listed</span>${fallbackUrl ? `<div class="media-actions"><a href="${escapeAttribute(fallbackUrl)}" target="_blank" rel="noreferrer">Research ${escapeHtml(event.promoter ? "promoter" : "venue")} Instagram ↗</a></div>` : ""}</div>`;
   }
 
   const videos = artist.youtube?.videos || [];
@@ -264,12 +327,26 @@ function mediaMarkup(event) {
     : `<div class="media-actions"><a href="${escapeAttribute(artist.youtube?.search_url || `https://www.youtube.com/results?search_query=${encodeURIComponent(artist.name)}`)}" target="_blank" rel="noreferrer">YouTube artist search ↗</a></div>`;
   const instagram = artist.instagram_url
     ? { label: "Instagram profile", url: artist.instagram_url }
-    : artist.instagram_candidates?.[0] || { label: "Search on Instagram", url: `https://www.instagram.com/explore/search/keyword/?q=${encodeURIComponent(artist.name)}` };
+    : artist.instagram_candidates?.[0] || { label: "Research Instagram", url: instagramResearchUrl(artist.name, "artist") };
   return `<div class="media-content"><span class="media-label">${escapeHtml(artist.name)} · media</span>${videoBlock}<div class="media-actions"><a href="${escapeAttribute(instagram.url)}" target="_blank" rel="noreferrer">${escapeHtml(instagram.label)} ↗</a></div></div>`;
 }
 
-function instagramSearchUrl(name) {
-  return `https://www.instagram.com/explore/search/keyword/?q=${encodeURIComponent(name)}`;
+function renderDetail(visible) {
+  const selected = visible.find((event) => eventKey(event) === state.selectedEventKey);
+  detailEl.hidden = !selected;
+  detailEl.parentElement.classList.toggle("detail-open", Boolean(selected));
+  if (!selected) {
+    detailContentEl.innerHTML = "";
+    return;
+  }
+  const price = selected.price == null ? "Price not listed" : `£${selected.price.toFixed(2)}`;
+  const booking = bookingLink(selected);
+  detailContentEl.innerHTML = `<div class="detail-media">${mediaMarkup(selected)}</div><p class="detail-kicker">${escapeHtml(selected.venue_type)} · ${escapeHtml(formatDate(selected.date))} · ${escapeHtml(formatTime(selected.time))}</p><h3>${escapeHtml(selected.event_name)}</h3><div class="venue-block"><div class="venue">${escapeHtml(selected.venue)}</div><div class="location">${escapeHtml(selected.borough)} · ${escapeHtml(selected.postcode)}</div></div><p class="description">${escapeHtml(selected.description || "Details available on the source listing.")}</p><div class="genre-list">${(selected.genres || []).map((genre) => `<span class="genre-tag">${escapeHtml(genre)}</span>`).join("")}</div><div class="detail-footer"><span class="price">${price}</span><a class="ticket-link" href="${escapeAttribute(booking.url)}" target="_blank" rel="noreferrer">${escapeHtml(booking.label)} ↗</a></div>`;
+}
+
+function instagramResearchUrl(name, role = "artist") {
+  const suffix = role === "artist" ? "musician" : role === "promoter" ? "music promoter" : "London music venue";
+  return `https://www.google.com/search?q=${encodeURIComponent(`site:instagram.com "${name}" ${suffix}`)}`;
 }
 
 function bookingLink(event) {
