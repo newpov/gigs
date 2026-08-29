@@ -29,6 +29,7 @@ const state = {
   genres: new Set(),
   postcodeAreas: new Set(),
   dateRange: "today",
+  customDate: null,
   selectedEventKey: null,
   expressHidden: false
 };
@@ -39,6 +40,7 @@ const countEl = document.querySelector("#resultCount");
 const genreEl = document.querySelector("#genreFilters");
 const genrePickerEl = document.querySelector("#genrePicker");
 const genreSelectionEl = document.querySelector("#genreSelection");
+const calendarDateEl = document.querySelector("#calendarDate");
 const postcodeEl = document.querySelector("#postcodeFilters");
 const excludeGenreEl = document.querySelector("#excludeGenreFilters");
 const excludeCountEl = document.querySelector("#excludeCount");
@@ -50,11 +52,18 @@ const showExpressEl = document.querySelector("#showExpress");
 const detailEl = document.querySelector("#eventDetail");
 const detailContentEl = document.querySelector("#detailContent");
 
-const firstEventDate = events.map((event) => event.date).filter(Boolean).sort()[0];
-const today = firstEventDate ? new Date(`${firstEventDate}T12:00:00`) : new Date();
-today.setHours(0, 0, 0, 0);
+const londonTodayParts = Object.fromEntries(new Intl.DateTimeFormat("en-GB", {
+  timeZone: "Europe/London",
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit"
+}).formatToParts(new Date()).filter(({ type }) => type !== "literal").map(({ type, value }) => [type, value]));
+const today = new Date(`${londonTodayParts.year}-${londonTodayParts.month}-${londonTodayParts.day}T12:00:00`);
 const dateKey = (date) => `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
 const todayKey = dateKey(today);
+const importedDates = events.map((event) => event.date).filter(Boolean).sort();
+calendarDateEl.min = importedDates[0] || todayKey;
+calendarDateEl.max = importedDates.at(-1) || todayKey;
 
 const DEFAULT_EXCLUDED_GENRES = ["Comedy", "Family", "Musical Theatre"];
 const EXCLUDED_GENRES_STORAGE_KEY = "gig-scout-excluded-genres";
@@ -212,16 +221,26 @@ document.querySelectorAll(".date-pill").forEach((button) => {
     document.querySelectorAll(".date-pill").forEach((item) => item.classList.remove("active"));
     button.classList.add("active");
     state.dateRange = button.dataset.range;
-    resultTitleEl.textContent = state.dateRange === "today" ? "Tonight in London" : button.textContent;
+    state.customDate = null;
+    calendarDateEl.value = "";
     render();
   });
+});
+
+calendarDateEl.addEventListener("change", (event) => {
+  if (!event.target.value) return;
+  document.querySelectorAll(".date-pill").forEach((item) => item.classList.remove("active"));
+  state.dateRange = "custom";
+  state.customDate = event.target.value;
+  render();
 });
 
 function filteredEvents() {
   return events.filter((event) => {
     if (state.dateRange === "today" && event.date !== todayKey) return false;
     if (state.dateRange === "tomorrow" && event.date !== dateAtOffset(1)) return false;
-    if (state.dateRange === "week" && (!event.date || event.date < todayKey || event.date > dateAtOffset(6))) return false;
+    if (state.dateRange === "week" && (!event.date || event.date <= todayKey || event.date > dateAtOffset(7))) return false;
+    if (state.dateRange === "custom" && event.date !== state.customDate) return false;
     if (!state.includeLarge && event.venue_type === "Large") return false;
     if (state.venueType !== "all" && event.venue_type !== state.venueType) return false;
     if (state.postcodeAreas.size && !state.postcodeAreas.has(postcodeArea(event.postcode))) return false;
@@ -240,8 +259,9 @@ function render() {
   excludeCountEl.textContent = state.excludedGenres.size ? `(${state.excludedGenres.size} hidden)` : "";
   excludeGenreEl.querySelectorAll("button[data-genre]").forEach((button) => button.classList.toggle("active", state.excludedGenres.has(button.dataset.genre)));
   postcodeEl.querySelectorAll("button[data-postcode-area]").forEach((button) => button.classList.toggle("active", state.postcodeAreas.has(button.dataset.postcodeArea)));
-  const selectedDate = state.dateRange === "tomorrow" ? dateAtOffset(1) : todayKey;
-  dateLabelEl.textContent = state.dateRange === "week" ? `FROM ${formatHeaderDate(todayKey)} · 7 DAYS` : formatHeaderDate(selectedDate);
+  const selectedDate = state.dateRange === "tomorrow" ? dateAtOffset(1) : state.dateRange === "custom" ? state.customDate : todayKey;
+  resultTitleEl.textContent = state.dateRange === "today" ? "Tonight in London" : state.dateRange === "tomorrow" ? "Tomorrow in London" : state.dateRange === "week" ? "Next 7 days" : formatDate(state.customDate);
+  dateLabelEl.textContent = state.dateRange === "week" ? `FROM ${formatHeaderDate(dateAtOffset(1))} · 7 DAYS` : formatHeaderDate(selectedDate);
   renderExpress(visible);
   renderDetail(visible);
 }

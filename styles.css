@@ -187,3 +187,8 @@ h1 { margin-bottom: 0; }
   .event-detail h3 { font-size: 27px; }
   .detail-media { margin-top: 13px; }
 }
+
+.calendar-picker { display: flex; align-items: center; }
+.calendar-picker input { min-width: 145px; border: 1px solid var(--line); background: #faf8f3; color: var(--teal); border-radius: 99px; padding: 9px 11px; font: 500 11px "DM Mono", monospace; }
+.calendar-picker input:focus { border-color: var(--orange); outline: 0; box-shadow: 0 0 0 3px rgba(227,93,62,.12); }
+@media (max-width: 580px) { .calendar-picker input { width: 100%; } }

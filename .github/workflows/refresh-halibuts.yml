@@ -18,8 +18,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Refresh the seven-day feed
-        run: node scripts/halibuts_extractor.mjs --days 7 --output data/halibuts-live.json
+      - name: Refresh today plus the next seven days
+        run: node scripts/halibuts_extractor.mjs --days 8 --output data/halibuts-live.json
       - name: Rebuild media assignments
         run: node scripts/enrich_media.mjs --youtube-limit 25
         env:

@@ -18,10 +18,10 @@ The UI is intentionally dependency-free: it is plain HTML, CSS and JavaScript, s
 The extractor discovers Halibuts event-detail URLs from the main listing page and extracts the fields that are consistently available on an event detail page. The Node version runs in the current workspace without third-party packages.
 
 ```powershell
-node scripts\halibuts_extractor.mjs --days 7 --output data\halibuts-live.json
+node scripts\halibuts_extractor.mjs --days 8 --output data\halibuts-live.json
 ```
 
-The default import window is the next seven calendar days. Use `--days 1` for today's listings only, or `--limit 100` while testing. The importer uses Halibuts' public event-search feed, then visits each event detail page for genres, venue classification, dates/times and booking links.
+The default import window is today plus the next seven calendar days, so the planner can show a full seven-day forward window without including today. Use `--days 1` for today's listings only, or `--limit 100` while testing. The importer uses Halibuts' public event-search feed, then visits each event detail page for genres, venue classification, dates/times and booking links.
 
 `halibuts_extractor.py` documents the same adapter using only Python's standard library for environments where Python is available.
 
@@ -55,7 +55,7 @@ Pass a different window when needed, for example `.\rebuild.ps1 -Days 1` for tod
 
 The equivalent shortcuts are `npm run refresh`, `npm run enrich` and `npm run check` on a machine with npm configured.
 
-The repository includes two GitHub Actions workflows. `refresh-halibuts.yml` refreshes the seven-day JSON feed once every 24 hours at 03:17 UTC, rebuilds the media assignments, and can be run manually from the Actions tab. `pages.yml` deploys the static app whenever `main` changes. After pushing the folder to a GitHub repository, select **GitHub Actions** as the Pages source in the repository's Settings → Pages.
+The repository includes two GitHub Actions workflows. `refresh-halibuts.yml` refreshes today plus the next seven days once every 24 hours at 03:17 UTC, rebuilds the media assignments, and can be run manually from the Actions tab. `pages.yml` deploys the static app whenever `main` changes. After pushing the folder to a GitHub repository, select **GitHub Actions** as the Pages source in the repository's Settings → Pages.
 
 The site itself is static, so GitHub Pages can serve it without a server or database. The scheduled workflow is what keeps `data/halibuts-live.json` current; it commits only when the listings change, which then triggers a new Pages deployment.
 

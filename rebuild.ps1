@@ -1,5 +1,5 @@
 param(
-  [int]$Days = 7
+  [int]$Days = 8
 )
 
 $ErrorActionPreference = "Stop"
