@@ -5,6 +5,7 @@
   "scripts": {
     "start": "node server.mjs",
     "refresh": "node scripts/halibuts_extractor.mjs --days 7 --output data/halibuts-live.json",
+    "enrich": "node scripts/enrich_media.mjs",
     "check": "node --check app.js && node --check scripts/halibuts_extractor.mjs && node --check server.mjs"
   }
 }

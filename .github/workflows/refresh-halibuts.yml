@@ -20,10 +20,14 @@ jobs:
           node-version: 22
       - name: Refresh the seven-day feed
         run: node scripts/halibuts_extractor.mjs --days 7 --output data/halibuts-live.json
+      - name: Rebuild media assignments
+        run: node scripts/enrich_media.mjs --youtube-limit 25
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
       - name: Commit changed listings
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/halibuts-live.json
+          git add data/halibuts-live.json data/artists.json
           git diff --cached --quiet || git commit -m "chore(data): refresh Halibuts listings"
           git push

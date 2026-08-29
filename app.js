@@ -9,6 +9,20 @@ for (const dataSource of ["data/halibuts-live.json", "data/events.json"]) {
 }
 events ||= [];
 
+let artists = [];
+try {
+  const response = await fetch("data/artists.json");
+  if (response.ok) artists = await response.json();
+} catch {
+  // Media enrichment is optional; the event list remains usable without it.
+}
+
+function mediaKey(value) {
+  return String(value || "").toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, " ").trim();
+}
+
+const artistByName = new Map(artists.map((artist) => [mediaKey(artist.name), artist]));
+
 const state = {
   search: "",
   venueType: "all",
@@ -163,7 +177,7 @@ function card(event) {
   const booking = bookingLink(event);
   return `<article class="event-card">
     <div class="event-top"><span class="venue-type">${escapeHtml(event.venue_type)} ${status}</span><span class="event-time">${escapeHtml(formatDate(event.date))} · ${escapeHtml(formatTime(event.time))}</span></div>
-    <div class="media-slot">Media enrichment coming next</div>
+    <div class="media-slot">${mediaMarkup(event)}</div>
     <h3>${escapeHtml(event.event_name)}</h3>
     <div class="venue">${escapeHtml(event.venue)}</div>
     <div class="location">${escapeHtml(event.borough)} · ${escapeHtml(event.postcode)}</div>
@@ -171,6 +185,21 @@ function card(event) {
     <div class="genre-list">${(event.genres || []).map((genre) => `<span class="genre-tag">${escapeHtml(genre)}</span>`).join("")}</div>
     <div class="card-footer"><span class="price">${price}</span><a class="ticket-link" href="${escapeAttribute(booking.url)}" target="_blank" rel="noreferrer">${escapeHtml(booking.label)} ↗</a></div>
   </article>`;
+}
+
+function mediaMarkup(event) {
+  const names = String(event.artist || event.event_name).split(/\s*[,;|]\s*/).map((name) => name.trim()).filter(Boolean);
+  const artist = names.map((name) => artistByName.get(mediaKey(name))).find(Boolean);
+  if (!artist) return `<span class="media-label">Media search unavailable</span>`;
+
+  const videos = artist.youtube?.videos || [];
+  const videoBlock = videos.length
+    ? `<div class="media-video-grid">${videos.slice(0, 2).map((video) => `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(video.video_id)}" title="${escapeAttribute(video.title)}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`).join("")}</div>`
+    : `<div class="media-actions"><a href="${escapeAttribute(artist.youtube?.live_search_url || `https://www.youtube.com/results?search_query=${encodeURIComponent(`${artist.name} live`)}`)}" target="_blank" rel="noreferrer">YouTube: ${escapeHtml(artist.name)} live ↗</a><a href="${escapeAttribute(artist.youtube?.search_url || `https://www.youtube.com/results?search_query=${encodeURIComponent(artist.name)}`)}" target="_blank" rel="noreferrer">Artist search ↗</a></div>`;
+  const instagram = artist.instagram_url
+    ? { label: "Instagram profile", url: artist.instagram_url }
+    : artist.instagram_candidates?.[0] || { label: "Search artist Instagram", url: `https://www.google.com/search?q=${encodeURIComponent(`site:instagram.com "${artist.name}" musician`)}` };
+  return `<div class="media-content"><span class="media-label">${escapeHtml(artist.name)} · media</span>${videoBlock}<div class="media-actions"><a href="${escapeAttribute(instagram.url)}" target="_blank" rel="noreferrer">${escapeHtml(instagram.label)} ↗</a></div></div>`;
 }
 
 function bookingLink(event) {

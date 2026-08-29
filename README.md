@@ -53,9 +53,9 @@ For a local refresh after the source data changes:
 
 Pass a different window when needed, for example `.\rebuild.ps1 -Days 1` for today only.
 
-The equivalent shortcuts are `npm run refresh` and `npm run check` on a machine with npm configured.
+The equivalent shortcuts are `npm run refresh`, `npm run enrich` and `npm run check` on a machine with npm configured.
 
-The repository includes two GitHub Actions workflows. `refresh-halibuts.yml` refreshes the seven-day JSON feed once every 24 hours at 03:17 UTC (and can be run manually from the Actions tab). `pages.yml` deploys the static app whenever `main` changes. After pushing the folder to a GitHub repository, select **GitHub Actions** as the Pages source in the repository's Settings → Pages.
+The repository includes two GitHub Actions workflows. `refresh-halibuts.yml` refreshes the seven-day JSON feed once every 24 hours at 03:17 UTC, rebuilds the media assignments, and can be run manually from the Actions tab. `pages.yml` deploys the static app whenever `main` changes. After pushing the folder to a GitHub repository, select **GitHub Actions** as the Pages source in the repository's Settings → Pages.
 
 The site itself is static, so GitHub Pages can serve it without a server or database. The scheduled workflow is what keeps `data/halibuts-live.json` current; it commits only when the listings change, which then triggers a new Pages deployment.
 
@@ -78,6 +78,8 @@ Replace the remote with the repository URL you create on GitHub. The Actions wor
 The next layer should normalise each event's artist lineup into a separate artist table, then attach verified Instagram profiles and two or three YouTube video IDs to the artist record. YouTube searches should try `<artist name> live` first, then fall back to `<artist name>` if needed. Venue and promoter names are useful disambiguation signals for YouTube, but they should not be used as the artist identity.
 
 Instagram matching should prioritise the artist profile, then the event promoter, and use the venue only as a last-resort fallback. Low-confidence matches should be shown for confirmation before being saved, because both Instagram and YouTube contain many same-name artists.
+
+Run `node scripts\enrich_media.mjs` to rebuild `data/artists.json` from the current event feed. Without a `YOUTUBE_API_KEY`, it generates artist-first YouTube and Instagram review links. With a key, pass `--youtube-limit 25` (or another controlled batch size) to fetch up to three candidate video IDs per artist; this avoids spending the entire API quota on one large refresh. Verified assignments can then be saved into `artists.json` and rendered as privacy-enhanced YouTube embeds in Cards view.
 
 Instagram profile URLs and YouTube links can be stored directly in the static JSON. YouTube embeds can use privacy-enhanced `youtube-nocookie.com` URLs; Instagram's latest-post/story data is more restricted and is best treated as an optional link/embed rather than something the public Pages site tries to scrape live.
 
