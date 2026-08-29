@@ -1,0 +1,10 @@
+{
+  "name": "london-gig-planner",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "refresh": "node scripts/halibuts_extractor.mjs --days 7 --output data/halibuts-live.json",
+    "check": "node --check app.js && node --check scripts/halibuts_extractor.mjs && node --check server.mjs"
+  }
+}

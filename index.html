@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gig Scout — London grassroots music</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="masthead">
+        <div>
+          <p class="eyebrow">LONDON / LIVE MUSIC</p>
+          <h1>Find a gig<br /><em>worth leaving home for.</em></h1>
+          <p class="intro">A cleaner starting point for small rooms, pubs and the artists who are easy to miss.</p>
+        </div>
+        <div class="source-badge"><span class="live-dot"></span> Halibuts live feed</div>
+      </header>
+
+      <section class="control-panel" aria-label="Gig filters">
+        <div class="control-row top-row">
+          <label class="search-box">
+            <span class="sr-only">Search events</span>
+            <span class="search-icon">⌕</span>
+            <input id="search" type="search" placeholder="Search artist, venue or area" />
+          </label>
+          <label class="select-box">
+            <span class="sr-only">Venue type</span>
+            <select id="venueType">
+              <option value="all">All venue types</option>
+              <option value="Pub">Pubs</option>
+              <option value="Grassroots">Grassroots</option>
+              <option value="Small">Small venues</option>
+              <option value="Large">Large venues</option>
+            </select>
+          </label>
+          <label class="toggle">
+            <input id="includeLarge" type="checkbox" />
+            <span class="toggle-track"><span></span></span>
+            <span>Include larger venues</span>
+          </label>
+        </div>
+        <div class="control-row bottom-row">
+          <div class="date-pills" role="group" aria-label="Date range">
+            <button class="date-pill active" data-range="today">Today</button>
+            <button class="date-pill" data-range="tomorrow">Tomorrow</button>
+            <button class="date-pill" data-range="week">Next 7 days</button>
+          </div>
+          <div class="genre-wrap">
+            <span class="label">Genres</span>
+            <div id="genreFilters" class="genre-filters"></div>
+          </div>
+        </div>
+        <details class="exclude-genres">
+          <summary>Hide genres by default <span id="excludeCount"></span></summary>
+          <div class="exclude-inner">
+            <p>Click a genre to hide it from the planner. Hidden genres are saved in this browser and can be restored at any time.</p>
+            <div id="excludeGenreFilters" class="genre-filters"></div>
+            <button id="resetExcluded" class="reset-button" type="button">Restore default exclusions</button>
+          </div>
+        </details>
+      </section>
+
+      <section class="results-head">
+        <div>
+          <p id="dateLabel" class="eyebrow"></p>
+          <h2 id="resultTitle">Tonight in London</h2>
+        </div>
+        <div class="results-actions">
+          <p id="resultCount" class="result-count"></p>
+          <div class="view-switcher" role="group" aria-label="View mode">
+            <button class="view-button active" data-view="list">List</button>
+            <button class="view-button" data-view="cards">Cards</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="events" class="event-grid list-view" aria-live="polite"></section>
+      <p id="emptyState" class="empty-state" hidden>No gigs match those filters. Try widening the venue type or genre selection.</p>
+
+      <footer class="footer">
+        <span>Source: Halibuts · direct venue/promoter links where available</span>
+        <span>Instagram + YouTube enrichment comes next</span>
+      </footer>
+    </main>
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
