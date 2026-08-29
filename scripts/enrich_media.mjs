@@ -32,8 +32,8 @@ function inferredPromoter(event) {
   return match ? cleanName(match[1]) : null;
 }
 
-function googleSearch(query) {
-  return `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+function instagramSearch(name) {
+  return `https://www.instagram.com/explore/search/keyword/?q=${encodeURIComponent(name)}`;
 }
 
 function youtubeSearch(name, live = false) {
@@ -43,24 +43,24 @@ function youtubeSearch(name, live = false) {
 function instagramCandidates({ name, promoters, venues }) {
   const candidates = [{
     role: "artist",
-    label: "Search artist Instagram",
-    query: `site:instagram.com "${name}" musician`,
-    url: googleSearch(`site:instagram.com "${name}" musician`)
+    label: "Search on Instagram",
+    query: name,
+    url: instagramSearch(name)
   }];
   for (const promoter of promoters) {
     candidates.push({
       role: "promoter",
       label: `Search ${promoter} Instagram`,
-      query: `site:instagram.com "${promoter}" music promoter`,
-      url: googleSearch(`site:instagram.com "${promoter}" music promoter`)
+      query: promoter,
+      url: instagramSearch(promoter)
     });
   }
   for (const venue of venues) {
     candidates.push({
       role: "venue",
       label: `Search ${venue} Instagram`,
-      query: `site:instagram.com "${venue}" London music`,
-      url: googleSearch(`site:instagram.com "${venue}" London music`)
+      query: venue,
+      url: instagramSearch(venue)
     });
   }
   return candidates;

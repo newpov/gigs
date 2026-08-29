@@ -12,10 +12,11 @@
 }
 
 * { box-sizing: border-box; }
+html, body { max-width: 100%; overflow-x: hidden; }
 body { margin: 0; background: var(--paper); color: var(--ink); font-family: "DM Sans", sans-serif; }
 button, input, select { font: inherit; }
 button { cursor: pointer; }
-.shell { max-width: 1240px; margin: 0 auto; padding: 42px 34px 30px; }
+.shell { max-width: 1240px; min-width: 0; margin: 0 auto; padding: 42px 34px 30px; }
 .masthead { display: flex; justify-content: space-between; gap: 30px; align-items: flex-start; padding-bottom: 40px; }
 .eyebrow { color: var(--orange-dark); font: 500 11px/1.2 "DM Mono", monospace; letter-spacing: .15em; margin: 0 0 15px; }
 h1, h2, p { margin-top: 0; }
@@ -28,6 +29,10 @@ h1 em { color: var(--orange); font-style: normal; }
 .control-row { display: flex; gap: 12px; align-items: center; }
 .top-row { padding-bottom: 18px; border-bottom: 1px solid var(--line); }
 .bottom-row { padding-top: 18px; align-items: flex-start; }
+.postcode-wrap { display: flex; align-items: flex-start; gap: 10px; flex: 1; min-width: 0; }
+.postcode-filters { display: flex; flex-wrap: wrap; gap: 6px; }
+.postcode-filter { color: var(--muted); border: 1px solid var(--line); background: transparent; border-radius: 99px; padding: 8px 10px; font: 500 11px "DM Mono", monospace; }
+.postcode-filter.active, .postcode-filter:hover { color: #fff; border-color: var(--teal); background: var(--teal); }
 .search-box, .select-box { position: relative; display: block; }
 .search-box { flex: 1; }
 .search-box input, .select-box select { width: 100%; border: 1px solid var(--line); background: #faf8f3; color: var(--ink); border-radius: 10px; padding: 12px 14px; outline: none; }
@@ -61,15 +66,15 @@ h1 em { color: var(--orange); font-style: normal; }
 .results-head { display: flex; justify-content: space-between; align-items: end; margin: 48px 0 19px; }
 h2 { font: 700 38px/.98 "Playfair Display", serif; letter-spacing: -.035em; margin-bottom: 0; }
 .result-count { color: var(--muted); font: 500 12px "DM Mono", monospace; margin: 0 0 4px; }
-.event-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.event-card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 20px; display: flex; flex-direction: column; min-height: 318px; transition: transform .18s, box-shadow .18s; }
+.event-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; min-width: 0; }
+.event-card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 20px; display: flex; flex-direction: column; min-height: 318px; min-width: 0; transition: transform .18s, box-shadow .18s; }
 .event-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
 .event-top { display: flex; justify-content: space-between; gap: 10px; align-items: flex-start; margin-bottom: 23px; }
 .venue-type { color: var(--teal); font: 500 10px "DM Mono", monospace; text-transform: uppercase; letter-spacing: .08em; }
 .event-time { color: var(--orange-dark); font: 500 12px "DM Mono", monospace; }
-.event-card h3 { font: 700 25px/1.04 "Playfair Display", serif; margin: 0 0 9px; letter-spacing: -.02em; }
-.venue { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
-.location { color: var(--muted); font: 11px "DM Mono", monospace; }
+.event-card h3 { font: 700 25px/1.04 "Playfair Display", serif; margin: 0 0 9px; letter-spacing: -.02em; overflow-wrap: anywhere; }
+.venue { font-size: 14px; font-weight: 600; margin-bottom: 4px; overflow-wrap: anywhere; }
+.location { color: var(--muted); font: 11px "DM Mono", monospace; overflow-wrap: anywhere; }
 .description { color: var(--muted); font-size: 13px; line-height: 1.45; margin: 19px 0; }
 .genre-list { display: flex; flex-wrap: wrap; gap: 5px; margin-top: auto; margin-bottom: 17px; }
 .genre-tag { background: #eef0ea; color: var(--teal); border-radius: 5px; padding: 5px 7px; font: 500 10px "DM Mono", monospace; }
@@ -84,19 +89,42 @@ h2 { font: 700 38px/.98 "Playfair Display", serif; letter-spacing: -.035em; marg
 .view-switcher { display: flex; border: 1px solid var(--line); border-radius: 9px; padding: 3px; background: var(--card); }
 .view-button { color: var(--muted); border: 0; background: transparent; border-radius: 6px; padding: 7px 11px; font: 500 11px "DM Mono", monospace; }
 .view-button.active { color: var(--ink); background: var(--cream); }
+.express-panel { background: var(--teal); color: #fff; border-radius: 16px; padding: 18px; margin: 0 0 16px; }
+.express-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 15px; margin-bottom: 14px; }
+.express-header .eyebrow { color: #f8b35a; margin-bottom: 6px; }
+.express-header h3 { font: 700 28px/1 "Playfair Display", serif; margin: 0; }
+.panel-button, .show-express { color: var(--teal); border: 0; background: var(--cream); border-radius: 99px; padding: 8px 11px; font: 500 11px "DM Mono", monospace; }
+.panel-button:hover, .show-express:hover { background: #fff; }
+.express-content { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.express-group { background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.15); border-radius: 11px; padding: 12px; min-width: 0; }
+.express-group-title { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; border-bottom: 1px solid rgba(255,255,255,.18); padding-bottom: 8px; }
+.express-group-title h4 { margin: 0; font: 600 17px/1.1 "DM Sans", sans-serif; }
+.express-group-title span { color: #c9d9d3; font: 10px "DM Mono", monospace; white-space: nowrap; }
+.express-group ol { margin: 8px 0 0; padding-left: 20px; }
+.express-group li { padding: 7px 0 7px 3px; border-bottom: 1px solid rgba(255,255,255,.11); }
+.express-group li:last-child { border-bottom: 0; }
+.express-group li > div:first-child { display: grid; gap: 3px; }
+.express-group strong { font-size: 12px; line-height: 1.2; }
+.express-group li span { color: #c9d9d3; font: 10px "DM Mono", monospace; }
+.express-links { display: flex; gap: 7px; margin-top: 6px; }
+.express-links a { color: #f8b35a; font: 10px "DM Mono", monospace; text-decoration: none; }
+.express-links a:hover { text-decoration: underline; }
+.express-empty { color: #c9d9d3; font-size: 12px; margin: 10px 0 0; }
+.show-express { margin: 0 0 16px; }
 .list-view { display: flex; flex-direction: column; gap: 7px; }
-.list-view .event-card { display: grid; grid-template-columns: 112px minmax(230px, 1.4fr) minmax(160px, .9fr) minmax(150px, .9fr) 105px 140px; align-items: center; gap: 16px; min-height: 0; padding: 13px 16px; border-radius: 11px; }
-.list-view .event-top { display: contents; }
-.list-view .venue-type { grid-column: 1; grid-row: 1; order: 1; }
-.list-view .event-time { grid-column: 1; grid-row: 1; order: 2; align-self: end; margin-top: 27px; }
-.list-view .event-card h3 { grid-column: 2; grid-row: 1; order: 3; font: 600 18px/1.12 "DM Sans", sans-serif; margin: 0; }
-.list-view .venue { grid-column: 3; grid-row: 1; order: 4; margin: 0; }
-.list-view .location { grid-column: 3; grid-row: 1; order: 5; align-self: end; margin-top: 27px; }
-.list-view .description { grid-column: 2; grid-row: 1; order: 6; color: var(--muted); margin: 27px 0 0; font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.list-view .genre-list { grid-column: 4; grid-row: 1; order: 7; margin: 0; }
-.list-view .card-footer { display: contents; }
-.list-view .price { grid-column: 5; grid-row: 1; order: 8; text-align: right; }
-.list-view .ticket-link { grid-column: 6; grid-row: 1; order: 9; text-align: right; }
+.list-view .event-card { display: grid; grid-template-columns: 126px minmax(0, 1.45fr) minmax(150px, .95fr) minmax(130px, .9fr) minmax(150px, auto); align-items: center; gap: 14px; min-height: 0; padding: 13px 16px; border-radius: 11px; }
+.list-view .event-top { grid-column: 1; grid-row: 1; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; margin: 0; }
+.list-view .venue-type, .list-view .event-time { grid-column: auto; grid-row: auto; order: 0; margin: 0; }
+.list-view .event-time { white-space: nowrap; }
+.list-view .event-card h3 { grid-column: 2; grid-row: 1; order: 0; font: 600 18px/1.12 "DM Sans", sans-serif; margin: 0; min-width: 0; }
+.list-view .venue-block { grid-column: 3; grid-row: 1; order: 0; min-width: 0; }
+.list-view .venue { margin: 0 0 4px; }
+.list-view .location { margin: 0; }
+.list-view .description { display: none; }
+.list-view .genre-list { grid-column: 4; grid-row: 1; order: 0; margin: 0; }
+.list-view .card-footer { grid-column: 5; grid-row: 1; order: 0; display: flex; gap: 12px; justify-content: space-between; align-items: center; min-width: 0; }
+.list-view .price { text-align: left; white-space: nowrap; }
+.list-view .ticket-link { text-align: right; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .card-view { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .card-view .event-card { min-height: 350px; }
 .media-slot { display: none; }
@@ -109,6 +137,8 @@ h2 { font: 700 38px/.98 "Playfair Display", serif; letter-spacing: -.035em; marg
 .media-video-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 7px; }
 .media-video-grid iframe { width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: 6px; }
 .status { color: var(--orange-dark); margin-left: 4px; }
-@media (max-width: 1050px) { .list-view .event-card { grid-template-columns: 104px minmax(200px, 1.3fr) minmax(140px, .9fr) minmax(125px, .8fr) 90px 120px; gap: 11px; } .list-view .description { display: none; } }
-@media (max-width: 900px) { .event-grid { grid-template-columns: repeat(2, 1fr); } .top-row { flex-wrap: wrap; } .search-box { min-width: 100%; } .bottom-row { flex-direction: column; } }
-@media (max-width: 580px) { .shell { padding: 28px 17px; } .masthead { flex-direction: column; } h1 { font-size: 52px; } .control-row { align-items: stretch; } .select-box { min-width: 0; flex: 1; } .toggle { white-space: normal; } .event-grid, .card-view { grid-template-columns: 1fr; } .results-head, .footer { align-items: flex-start; flex-direction: column; gap: 10px; } .results-actions { width: 100%; justify-content: space-between; } .list-view .event-card { display: grid; grid-template-columns: 1fr auto; gap: 7px 12px; padding: 16px; } .list-view .venue-type, .list-view .event-time, .list-view .event-card h3, .list-view .venue, .list-view .location, .list-view .description, .list-view .genre-list, .list-view .price, .list-view .ticket-link { grid-column: auto; grid-row: auto; margin: 0; text-align: left; } .list-view .venue-type { order: 1; } .list-view .event-time { order: 2; text-align: right; } .list-view .event-card h3 { order: 3; grid-column: 1 / -1; } .list-view .venue { order: 4; } .list-view .location { order: 5; text-align: right; } .list-view .description { order: 6; grid-column: 1 / -1; display: block; white-space: normal; } .list-view .genre-list { order: 7; grid-column: 1 / -1; } .list-view .price { order: 8; } .list-view .ticket-link { order: 9; text-align: right; } }
+@media (max-width: 1050px) { .list-view .event-card { grid-template-columns: 116px minmax(0, 1.3fr) minmax(130px, .9fr) minmax(110px, .8fr) minmax(140px, auto); gap: 10px; } }
+@media (max-width: 900px) { .event-grid { grid-template-columns: repeat(2, 1fr); } .top-row { flex-wrap: wrap; } .postcode-wrap { flex-basis: 100%; } .bottom-row { flex-direction: column; } }
+@media (max-width: 900px) { .express-content { grid-template-columns: 1fr; } }
+@media (max-width: 700px) { .event-grid, .card-view { grid-template-columns: 1fr; } .list-view .event-card { grid-template-columns: 1fr auto; gap: 9px 12px; padding: 14px; } .list-view .event-top { grid-column: 1 / -1; grid-row: auto; flex-direction: row; justify-content: space-between; align-items: center; width: 100%; } .list-view .event-card h3 { grid-column: 1 / -1; grid-row: auto; } .list-view .venue-block { grid-column: 1 / -1; grid-row: auto; } .list-view .genre-list { grid-column: 1 / -1; grid-row: auto; } .list-view .card-footer { grid-column: 1 / -1; grid-row: auto; } }
+@media (max-width: 580px) { .shell { padding: 26px 14px; } .masthead { flex-direction: column; gap: 18px; padding-bottom: 28px; } h1 { font-size: 50px; } .control-row { align-items: stretch; } .top-row { flex-direction: column; } .select-box { min-width: 0; width: 100%; } .postcode-wrap { flex-direction: column; gap: 8px; } .toggle { white-space: normal; } .bottom-row .genre-wrap { display: block; min-width: 0; } .bottom-row .genre-wrap .label { display: block; padding-top: 0; margin-bottom: 7px; } .bottom-row .genre-filters { max-height: 104px; overflow-y: auto; align-content: flex-start; padding: 2px 4px 4px 0; } .exclude-inner .genre-filters { max-height: 150px; } .results-head, .footer { align-items: flex-start; flex-direction: column; gap: 10px; } .results-actions { width: 100%; justify-content: space-between; } .express-header { align-items: flex-start; flex-direction: column; } .panel-button { align-self: flex-start; } .list-view .event-time { white-space: normal; text-align: right; } .list-view .ticket-link { font-size: 12px; } .card-view .event-card { min-height: 0; padding: 15px; } .card-view .media-slot { margin-bottom: 13px; } .card-view .event-card h3 { font-size: 23px; } }

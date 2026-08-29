@@ -22,11 +22,6 @@
 
       <section class="control-panel" aria-label="Gig filters">
         <div class="control-row top-row">
-          <label class="search-box">
-            <span class="sr-only">Search events</span>
-            <span class="search-icon">⌕</span>
-            <input id="search" type="search" placeholder="Search artist, venue or area" />
-          </label>
           <label class="select-box">
             <span class="sr-only">Venue type</span>
             <select id="venueType">
@@ -37,6 +32,10 @@
               <option value="Large">Large venues</option>
             </select>
           </label>
+          <div class="postcode-wrap">
+            <span class="label">Postcode area</span>
+            <div id="postcodeFilters" class="postcode-filters"></div>
+          </div>
           <label class="toggle">
             <input id="includeLarge" type="checkbox" />
             <span class="toggle-track"><span></span></span>
@@ -77,6 +76,18 @@
           </div>
         </div>
       </section>
+
+      <section id="expressPanel" class="express-panel" hidden>
+        <div class="express-header">
+          <div>
+            <p class="eyebrow">QUICK PICKS</p>
+            <h3>Three to start with</h3>
+          </div>
+          <button id="hideExpress" class="panel-button" type="button">Hide express view</button>
+        </div>
+        <div id="expressContent" class="express-content"></div>
+      </section>
+      <button id="showExpress" class="show-express" type="button" hidden>Show express view</button>
 
       <section id="events" class="event-grid list-view" aria-live="polite"></section>
       <p id="emptyState" class="empty-state" hidden>No gigs match those filters. Try widening the venue type or genre selection.</p>
