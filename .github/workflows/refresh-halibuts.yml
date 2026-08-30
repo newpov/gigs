@@ -4,6 +4,14 @@ on:
   schedule:
     - cron: "17 3 * * *"
   workflow_dispatch:
+    inputs:
+      recheck:
+        description: "Re-check already-matched YouTube videos with the stricter rules"
+        type: boolean
+        default: false
+      youtube_limit:
+        description: "Maximum YouTube lookups this run"
+        default: "25"
 
 permissions:
   contents: write
@@ -21,7 +29,7 @@ jobs:
       - name: Refresh today plus the next seven days
         run: node scripts/halibuts_extractor.mjs --days 8 --output data/halibuts-live.json
       - name: Rebuild media assignments
-        run: node scripts/enrich_media.mjs --youtube-limit 25
+        run: node scripts/enrich_media.mjs --youtube-limit ${{ github.event.inputs.youtube_limit || '25' }} ${{ github.event.inputs.recheck == 'true' && '--recheck' || '' }}
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
       - name: Commit changed listings
