@@ -599,6 +599,23 @@ function primaryArtist(event) {
   return eventArtistNames(event).map((name) => artistByName.get(mediaKey(name))).find(Boolean) || null;
 }
 
+// Matched artist records for a lineup, de-duplicated, capped so multi-act
+// bills surface a couple of different performers rather than only the headliner.
+function eventArtists(event, limit = 3) {
+  const seen = new Set();
+  const matched = [];
+  for (const name of eventArtistNames(event)) {
+    const artist = artistByName.get(mediaKey(name));
+    if (!artist) continue;
+    const key = mediaKey(artist.name);
+    if (seen.has(key)) continue;
+    seen.add(key);
+    matched.push(artist);
+    if (matched.length >= limit) break;
+  }
+  return matched;
+}
+
 function eventKey(event) {
   return event.source_url || [event.date, event.time, event.event_name, event.venue].filter(Boolean).join("|");
 }
@@ -639,22 +656,27 @@ function renderExpress(visible) {
   }).join("");
 }
 
-function mediaMarkup(event) {
-  const artist = primaryArtist(event);
-  if (!artist) {
-    const fallbackName = event.promoter || event.venue;
-    const fallbackUrl = fallbackName ? instagramResearchUrl(fallbackName, event.promoter ? "promoter" : "venue") : "";
-    return `<div class="media-content"><span class="media-label">Artist details not listed</span>${fallbackUrl ? `<div class="media-actions"><a href="${escapeAttribute(fallbackUrl)}" target="_blank" rel="noreferrer">Research ${escapeHtml(event.promoter ? "promoter" : "venue")} Instagram ↗</a></div>` : ""}</div>`;
-  }
-
+function artistMediaBlock(artist, maxVideos) {
   const videos = artist.youtube?.videos || [];
   const videoBlock = videos.length
-    ? `<div class="media-video-grid">${videos.slice(0, 2).map((video) => `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(video.video_id)}" title="${escapeAttribute(video.title)}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`).join("")}</div>`
+    ? `<div class="media-video-grid">${videos.slice(0, maxVideos).map((video) => `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(video.video_id)}" title="${escapeAttribute(video.title)}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`).join("")}</div>`
     : `<div class="media-actions"><a href="${escapeAttribute(artist.youtube?.search_url || `https://www.youtube.com/results?search_query=${encodeURIComponent(artist.name)}`)}" target="_blank" rel="noreferrer">YouTube artist search ↗</a></div>`;
   const instagram = artist.instagram_url
     ? { label: "Instagram profile", url: artist.instagram_url }
     : artist.instagram_candidates?.[0] || { label: "Research Instagram", url: instagramResearchUrl(artist.name, "artist") };
-  return `<div class="media-content"><span class="media-label">${escapeText(artist.name)} · media</span>${videoBlock}<div class="media-actions"><a href="${escapeAttribute(instagram.url)}" target="_blank" rel="noreferrer">${escapeHtml(instagram.label)} ↗</a></div></div>`;
+  return `<div class="media-artist"><span class="media-label">${escapeText(artist.name)} · media</span>${videoBlock}<div class="media-actions"><a href="${escapeAttribute(instagram.url)}" target="_blank" rel="noreferrer">${escapeHtml(instagram.label)} ↗</a></div></div>`;
+}
+
+function mediaMarkup(event) {
+  const artists = eventArtists(event, 3);
+  if (!artists.length) {
+    const fallbackName = event.promoter || event.venue;
+    const fallbackUrl = fallbackName ? instagramResearchUrl(fallbackName, event.promoter ? "promoter" : "venue") : "";
+    return `<div class="media-content"><span class="media-label">Artist details not listed</span>${fallbackUrl ? `<div class="media-actions"><a href="${escapeAttribute(fallbackUrl)}" target="_blank" rel="noreferrer">Research ${escapeHtml(event.promoter ? "promoter" : "venue")} Instagram ↗</a></div>` : ""}</div>`;
+  }
+  // One clip each across a multi-act bill; a solo act keeps two clips.
+  const maxVideos = artists.length > 1 ? 1 : 2;
+  return `<div class="media-content">${artists.map((artist) => artistMediaBlock(artist, maxVideos)).join("")}</div>`;
 }
 
 function renderDetail(visible) {
