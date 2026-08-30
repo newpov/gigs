@@ -129,7 +129,8 @@ const state = {
   customDate: null,
   selectedEventKey: null,
   expressHidden: false,
-  shortlisted: new Set()
+  shortlisted: new Set(),
+  view: "list"
 };
 let mobileListScrollY = 0;
 
@@ -190,6 +191,10 @@ try {
 } catch {
   state.shortlisted = new Set();
 }
+
+// View is intentionally NOT persisted: the planner always opens in List so the
+// landing experience stays predictable, especially on mobile.
+const VIEW_MODES = ["list", "tonight", "cards"];
 
 function dateAtOffset(offset) {
   const date = new Date(today);
@@ -328,6 +333,23 @@ document.querySelector("#includeLarge").addEventListener("change", (event) => {
   render();
 });
 
+const viewButtons = [...document.querySelectorAll(".view-button")];
+function syncViewButtons() {
+  viewButtons.forEach((button) => {
+    const active = button.dataset.view === state.view;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-pressed", active ? "true" : "false");
+  });
+}
+viewButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    if (!VIEW_MODES.includes(button.dataset.view) || state.view === button.dataset.view) return;
+    state.view = button.dataset.view;
+    syncViewButtons();
+    render();
+  });
+});
+
 eventsEl.addEventListener("change", (event) => {
   const checkbox = event.target.closest(".shortlist-checkbox");
   if (!checkbox) return;
@@ -456,7 +478,10 @@ function render() {
   const visible = filteredEvents();
   countEl.textContent = `${visible.length} ${visible.length === 1 ? "event" : "events"}`;
   emptyEl.hidden = visible.length > 0;
-  eventsEl.innerHTML = visible.map(card).join("");
+  eventsEl.className = state.view === "cards" ? "event-grid card-view"
+    : state.view === "tonight" ? "tonight-view"
+    : "event-grid list-view";
+  eventsEl.innerHTML = state.view === "tonight" ? renderTimeline(visible) : visible.map(card).join("");
   genreSelectionEl.textContent = state.genres.size ? `(${state.genres.size} selected)` : "";
   excludeCountEl.textContent = state.excludedGenres.size ? `(${state.excludedGenres.size} hidden)` : "";
   const favouriteArtists = activeFavouriteArtists();
@@ -487,11 +512,58 @@ function card(event) {
   return `<article class="event-card${selectedClass}${favouriteClass}${deprioritisedClass}" data-event-key="${escapeAttribute(eventKey(event))}" tabindex="0" role="button" aria-label="Open details for ${escapeAttribute(event.event_name)}${favourite ? ` · favourite artist ${escapeAttribute(favourite.name)}` : ""}">
     <div class="event-top"><span class="venue-type">${escapeHtml(event.venue_type)} ${status}${eventFlagsMarkup}</span><span class="event-time">${escapeHtml(formatDate(event.date))} · ${escapeHtml(formatTime(event.time))}</span><label class="shortlist-toggle"><input class="shortlist-checkbox" data-event-key="${escapeAttribute(eventKey(event))}" type="checkbox" ${state.shortlisted.has(eventKey(event)) ? "checked" : ""} /><span>Shortlist</span></label></div>
     <div class="media-slot">${mediaMarkup(event)}</div>
-    <div class="event-title-line">${favouriteMark}<h3>${escapeHtml(event.event_name)}</h3></div>
-    <div class="venue-block"><div class="venue">${escapeHtml(event.venue)}</div><div class="location">${escapeHtml(event.borough)} · ${escapeHtml(event.postcode)}</div></div>
-    <p class="description">${escapeHtml(event.description || "Details available on the source listing.")}</p>
-    <div class="genre-list">${(event.genres || []).map((genre) => `<span class="genre-tag">${escapeHtml(genre)}</span>`).join("")}</div>
+    <div class="event-title-line">${favouriteMark}<h3>${escapeText(event.event_name)}</h3></div>
+    <div class="venue-block"><div class="venue">${escapeText(event.venue)}</div><div class="location">${escapeText(event.borough)} · ${escapeHtml(event.postcode)}</div></div>
+    <p class="description">${escapeText(event.description || "Details available on the source listing.")}</p>
+    <div class="genre-list">${(event.genres || []).map((genre) => `<span class="genre-tag">${escapeText(genre)}</span>`).join("")}</div>
     <div class="card-footer"><span class="price">${price}</span><a class="ticket-link" href="${escapeAttribute(booking.url)}" target="_blank" rel="noreferrer">${escapeHtml(booking.label)} ↗</a></div>
+  </article>`;
+}
+
+function timeBand(event) {
+  if (!event.time) return { key: 5, label: "Time to be confirmed", note: "" };
+  const hour = Number(event.time.split(":")[0]);
+  if (Number.isNaN(hour)) return { key: 5, label: "Time to be confirmed", note: "" };
+  if (hour < 17) return { key: 1, label: "Daytime", note: "before 5pm" };
+  if (hour < 19) return { key: 2, label: "Early evening", note: "5–7pm" };
+  if (hour < 21) return { key: 3, label: "Prime time", note: "7–9pm" };
+  return { key: 4, label: "Late", note: "9pm onward" };
+}
+
+function renderTimeline(visible) {
+  if (!visible.length) return "";
+  const sorted = [...visible].sort((a, b) =>
+    (a.time || "99:99").localeCompare(b.time || "99:99") || eventSortRank(a) - eventSortRank(b));
+  const bands = new Map();
+  for (const event of sorted) {
+    const band = timeBand(event);
+    if (!bands.has(band.key)) bands.set(band.key, { meta: band, items: [] });
+    bands.get(band.key).items.push(event);
+  }
+  return [...bands.keys()].sort((a, b) => a - b).map((key) => {
+    const { meta, items } = bands.get(key);
+    const note = meta.note ? `<span class="tl-note">${escapeHtml(meta.note)}</span>` : "";
+    return `<section class="tl-band"><header class="tl-head"><span class="tl-label">${escapeHtml(meta.label)}</span>${note}<span class="tl-rule"></span><span class="tl-count">${items.length} ${items.length === 1 ? "gig" : "gigs"}</span></header><div class="tl-rows">${items.map(timelineRow).join("")}</div></section>`;
+  }).join("");
+}
+
+function timelineRow(event) {
+  const favourite = favouriteArtistForEvent(event);
+  const flags = eventFlags(event);
+  const booking = bookingLink(event);
+  const selectedClass = state.selectedEventKey === eventKey(event) ? " selected" : "";
+  const favouriteClass = favourite ? " favourite-event" : "";
+  const deprioritisedClass = flags.soldOut || flags.tribute ? " deprioritised-event" : "";
+  const favouriteMark = favourite ? `<span class="favourite-star" title="Favourite artist: ${escapeAttribute(favourite.name)}" aria-label="Favourite artist ${escapeAttribute(favourite.name)}">★</span>` : "";
+  const eventFlagsMarkup = [flags.soldOut ? `<span class="event-flag sold-out-flag">Sold out</span>` : "", flags.tribute ? `<span class="event-flag tribute-flag">Tribute</span>` : ""].join("");
+  return `<article class="tl-row${selectedClass}${favouriteClass}${deprioritisedClass}" data-event-key="${escapeAttribute(eventKey(event))}" tabindex="0" role="button" aria-label="Open details for ${escapeAttribute(event.event_name)}${favourite ? ` · favourite artist ${escapeAttribute(favourite.name)}` : ""}">
+    <div class="tl-time"><span class="tl-hour">${escapeHtml(formatTime(event.time))}</span><span class="tl-type">${escapeHtml(event.venue_type)}</span></div>
+    <div class="tl-body">
+      <div class="tl-title">${favouriteMark}<h3>${escapeText(event.event_name)}</h3>${eventFlagsMarkup}</div>
+      <div class="tl-where">${escapeText(event.venue)} · ${escapeText(event.borough)} · ${escapeHtml(event.postcode)}</div>
+      <div class="tl-tags">${(event.genres || []).map((genre) => `<span class="genre-tag">${escapeText(genre)}</span>`).join("")}</div>
+    </div>
+    <a class="tl-book ticket-link" href="${escapeAttribute(booking.url)}" target="_blank" rel="noreferrer">${escapeHtml(booking.label)} ↗</a>
   </article>`;
 }
 
@@ -563,7 +635,7 @@ function renderExpress(visible) {
   if (!shouldShow) return;
   expressContentEl.innerHTML = selectedGenres.map((genre) => {
     const picks = visible.filter((event) => (event.genres || []).includes(genre)).slice(0, 3);
-    return `<section class="express-group"><div class="express-group-title"><h4>${escapeHtml(genre)}</h4><span>${picks.length} picks</span></div>${picks.length ? `<ol>${picks.map((event) => `<li class="express-pick" data-event-key="${escapeAttribute(eventKey(event))}" tabindex="0" role="button" aria-label="Open details for ${escapeAttribute(event.event_name)}"><div><strong>${escapeHtml(event.event_name)}</strong><span>${escapeHtml(event.venue)} · ${escapeHtml(formatTime(event.time))}</span></div><div class="express-links">${expressMediaLinks(event)}</div></li>`).join("")}</ol>` : `<p class="express-empty">No matching events in the current view.</p>`}</section>`;
+    return `<section class="express-group"><div class="express-group-title"><h4>${escapeHtml(genre)}</h4><span>${picks.length} picks</span></div>${picks.length ? `<ol>${picks.map((event) => `<li class="express-pick" data-event-key="${escapeAttribute(eventKey(event))}" tabindex="0" role="button" aria-label="Open details for ${escapeAttribute(event.event_name)}"><div><strong>${escapeText(event.event_name)}</strong><span>${escapeText(event.venue)} · ${escapeHtml(formatTime(event.time))}</span></div><div class="express-links">${expressMediaLinks(event)}</div></li>`).join("")}</ol>` : `<p class="express-empty">No matching events in the current view.</p>`}</section>`;
   }).join("");
 }
 
@@ -582,7 +654,7 @@ function mediaMarkup(event) {
   const instagram = artist.instagram_url
     ? { label: "Instagram profile", url: artist.instagram_url }
     : artist.instagram_candidates?.[0] || { label: "Research Instagram", url: instagramResearchUrl(artist.name, "artist") };
-  return `<div class="media-content"><span class="media-label">${escapeHtml(artist.name)} · media</span>${videoBlock}<div class="media-actions"><a href="${escapeAttribute(instagram.url)}" target="_blank" rel="noreferrer">${escapeHtml(instagram.label)} ↗</a></div></div>`;
+  return `<div class="media-content"><span class="media-label">${escapeText(artist.name)} · media</span>${videoBlock}<div class="media-actions"><a href="${escapeAttribute(instagram.url)}" target="_blank" rel="noreferrer">${escapeHtml(instagram.label)} ↗</a></div></div>`;
 }
 
 function renderDetail(visible) {
@@ -598,7 +670,7 @@ function renderDetail(visible) {
   const booking = bookingLink(selected);
   const favourite = favouriteArtistForEvent(selected);
   const favouriteMark = favourite ? `<span class="favourite-star" title="Favourite artist: ${escapeAttribute(favourite.name)}" aria-label="Favourite artist ${escapeAttribute(favourite.name)}">★</span>` : "";
-  detailContentEl.innerHTML = `<div class="detail-media">${mediaMarkup(selected)}</div><div class="detail-meta"><p class="detail-kicker">${escapeHtml(selected.venue_type)} · ${escapeHtml(formatDate(selected.date))} · ${escapeHtml(formatTime(selected.time))}</p><label class="shortlist-toggle"><input class="shortlist-checkbox" data-event-key="${escapeAttribute(eventKey(selected))}" type="checkbox" ${state.shortlisted.has(eventKey(selected)) ? "checked" : ""} /><span>Shortlist</span></label></div><div class="detail-title-line">${favouriteMark}<h3>${escapeHtml(selected.event_name)}</h3></div><div class="venue-block"><div class="venue">${escapeHtml(selected.venue)}</div><div class="location">${escapeHtml(selected.borough)} · ${escapeHtml(selected.postcode)}</div></div><p class="description">${escapeHtml(selected.description || "Details available on the source listing.")}</p><div class="genre-list">${(selected.genres || []).map((genre) => `<span class="genre-tag">${escapeHtml(genre)}</span>`).join("")}</div><div class="detail-footer"><span class="price">${price}</span><a class="ticket-link" href="${escapeAttribute(booking.url)}" target="_blank" rel="noreferrer">${escapeHtml(booking.label)} ↗</a></div>`;
+  detailContentEl.innerHTML = `<div class="detail-media">${mediaMarkup(selected)}</div><div class="detail-meta"><p class="detail-kicker">${escapeHtml(selected.venue_type)} · ${escapeHtml(formatDate(selected.date))} · ${escapeHtml(formatTime(selected.time))}</p><label class="shortlist-toggle"><input class="shortlist-checkbox" data-event-key="${escapeAttribute(eventKey(selected))}" type="checkbox" ${state.shortlisted.has(eventKey(selected)) ? "checked" : ""} /><span>Shortlist</span></label></div><div class="detail-title-line">${favouriteMark}<h3>${escapeText(selected.event_name)}</h3></div><div class="venue-block"><div class="venue">${escapeText(selected.venue)}</div><div class="location">${escapeText(selected.borough)} · ${escapeHtml(selected.postcode)}</div></div><p class="description">${escapeText(selected.description || "Details available on the source listing.")}</p><div class="genre-list">${(selected.genres || []).map((genre) => `<span class="genre-tag">${escapeText(genre)}</span>`).join("")}</div><div class="detail-footer"><span class="price">${price}</span><a class="ticket-link" href="${escapeAttribute(booking.url)}" target="_blank" rel="noreferrer">${escapeHtml(booking.label)} ↗</a></div>`;
 }
 
 function instagramResearchUrl(name, role = "artist") {
@@ -628,4 +700,16 @@ function escapeHtml(value) {
 
 function escapeAttribute(value) { return escapeHtml(value); }
 
+const entityDecoder = document.createElement("textarea");
+function decodeEntities(value) {
+  const raw = String(value ?? "");
+  if (!raw.includes("&")) return raw;
+  entityDecoder.innerHTML = raw;
+  return entityDecoder.value;
+}
+// Source listings carry HTML entities (e.g. &ldquo; &oacute;). Decode to real
+// characters, then re-escape for safe insertion — never inject decoded markup.
+function escapeText(value) { return escapeHtml(decodeEntities(value)); }
+
+syncViewButtons();
 render();

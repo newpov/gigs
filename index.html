@@ -93,8 +93,12 @@
           <h2 id="resultTitle">Tonight in London</h2>
         </div>
         <div class="results-actions">
+          <div class="view-switcher" role="group" aria-label="Choose a view">
+            <button class="view-button active" type="button" data-view="list" aria-pressed="true">List</button>
+            <button class="view-button" type="button" data-view="tonight" aria-pressed="false">Tonight</button>
+            <button class="view-button" type="button" data-view="cards" aria-pressed="false">Cards</button>
+          </div>
           <p id="resultCount" class="result-count"></p>
-          <p class="results-hint">Select an event for details</p>
         </div>
       </section>
 
