@@ -15,6 +15,42 @@ function slug(value) {
   return canonical(value).replace(/\s+/g, "-").slice(0, 80);
 }
 
+function escapeRegex(value) {
+  return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+// Filler words that inflate a name's token count without identifying the act.
+const NAME_STOPWORDS = new Set([
+  "the", "and", "band", "trio", "duo", "quartet", "quintet", "sextet",
+  "project", "orchestra", "ensemble", "collective", "feat", "ft", "presents", "dj"
+]);
+// Signals that a video is actually musical (used to gate close/generic names).
+const MUSIC_CONTEXT = /(live|session|concert|acoustic|performance|band|music|gig|official|records|vevo|tour|festival)/i;
+const LIVE_SIGNAL = /(live|session|concert|acoustic|performance)/i;
+
+function distinctiveTokens(name) {
+  return canonical(name).split(" ").filter((token) => token.length > 2 && !NAME_STOPWORDS.has(token));
+}
+
+// Decide whether a candidate video confidently belongs to the artist.
+// Multi-word acts must have every distinctive token present; a one-word or
+// generic name must appear as a whole phrase AND sit in a musical context,
+// so "Bark" the band is not matched to a video about a dog barking.
+function matchQuality(name, title, channel) {
+  const text = `${title} ${channel}`;
+  const haystack = canonical(text);
+  const tokens = distinctiveTokens(name);
+  const live = LIVE_SIGNAL.test(text) ? 1 : 0;
+  if (tokens.length >= 2) {
+    const hits = tokens.filter((token) => haystack.includes(token)).length;
+    return { accepted: hits === tokens.length, score: hits * 10 + live };
+  }
+  const phrase = canonical(name);
+  const wholeName = phrase.length > 0 && new RegExp(`(^| )${escapeRegex(phrase)}( |$)`).test(haystack);
+  const accepted = Boolean(wholeName && MUSIC_CONTEXT.test(text));
+  return { accepted, score: (accepted ? 10 : 0) + live };
+}
+
 function cleanName(value) {
   return String(value || "").replace(/\s+/g, " ").replace(/^[-–—\s]+|[-–—\s]+$/g, "").trim();
 }
@@ -96,11 +132,9 @@ async function youtubeVideos({ name, venues, promoters, apiKey }) {
       if (!videoId || results.some((video) => video.video_id === videoId)) continue;
       const title = item.snippet?.title || "Untitled video";
       const channel = item.snippet?.channelTitle || "YouTube";
-      const haystack = canonical(`${title} ${channel}`);
-      const artistTokens = canonical(name).split(" ").filter((token) => token.length > 2);
-      const tokenHits = artistTokens.filter((token) => haystack.includes(token)).length;
-      const liveBonus = /live|session|concert|acoustic|performance/i.test(`${title} ${channel}`) ? 2 : 0;
-      results.push({ video_id: videoId, title, channel, url: `https://www.youtube.com/watch?v=${videoId}`, score: tokenHits + liveBonus });
+      const { accepted, score } = matchQuality(name, title, channel);
+      if (!accepted) continue;
+      results.push({ video_id: videoId, title, channel, url: `https://www.youtube.com/watch?v=${videoId}`, score });
     }
     if (results.length >= 3) break;
   }
@@ -113,6 +147,7 @@ async function main() {
   const limitIndex = process.argv.indexOf("--youtube-limit");
   const output = outputIndex >= 0 ? process.argv[outputIndex + 1] : DEFAULT_OUTPUT;
   const youtubeLimit = limitIndex >= 0 ? Math.max(0, Number(process.argv[limitIndex + 1])) : 0;
+  const recheck = process.argv.includes("--recheck");
   const apiKey = process.env.YOUTUBE_API_KEY || "";
   const events = JSON.parse(await readFile(INPUT, "utf8"));
   let previousArtists = [];
@@ -144,18 +179,23 @@ async function main() {
     const venues = [...record.venues].sort();
     const promoters = [...record.promoters].sort();
     const previous = previousByName.get(canonical(record.name));
-    const shouldLookup = Boolean(apiKey && apiLookups < youtubeLimit && previous?.youtube?.status !== "matched");
+    const alreadyMatched = previous?.youtube?.status === "matched";
+    // With --recheck, matched names are looked up again (subject to the limit)
+    // so the stricter rule can drop or replace earlier low-confidence videos.
+    const shouldLookup = Boolean(apiKey && apiLookups < youtubeLimit && (recheck || !alreadyMatched));
     let youtube;
-    if (previous?.youtube?.status === "matched") {
-      youtube = previous.youtube;
-    } else if (shouldLookup) {
+    if (shouldLookup) {
       apiLookups += 1;
       try {
         youtube = await youtubeVideos({ name: record.name, venues, promoters, apiKey });
       } catch (error) {
         console.error(`warning: YouTube lookup failed for ${record.name}: ${error.message}`);
-        youtube = await youtubeVideos({ name: record.name, venues, promoters });
+        youtube = previous?.youtube || await youtubeVideos({ name: record.name, venues, promoters });
       }
+    } else if (previous?.youtube) {
+      // Not looked up this run (no key, over the limit, or already matched):
+      // keep whatever we had rather than wiping it to a search link.
+      youtube = previous.youtube;
     } else {
       youtube = await youtubeVideos({ name: record.name, venues, promoters });
     }
@@ -176,7 +216,10 @@ async function main() {
   artists.sort((a, b) => b.event_count - a.event_count || a.name.localeCompare(b.name));
   await writeFile(output, JSON.stringify(artists, null, 2) + "\n", "utf8");
   console.error(`Built ${artists.length} artist records from ${events.length} events.`);
-  console.error(apiKey ? `YouTube API lookups: ${apiLookups}.` : "No YOUTUBE_API_KEY supplied; generated reviewable YouTube search links.");
+  const matchedCount = artists.filter((artist) => artist.youtube?.status === "matched").length;
+  console.error(apiKey
+    ? `YouTube API lookups: ${apiLookups}${recheck ? " (recheck)" : ""}. Matched artists: ${matchedCount}/${artists.length}.`
+    : "No YOUTUBE_API_KEY supplied; generated reviewable YouTube search links.");
 }
 
 main().catch((error) => { console.error(error.message); process.exitCode = 1; });

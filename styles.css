@@ -136,7 +136,7 @@ h2 { font: 700 38px/.98 "Playfair Display", serif; letter-spacing: -.035em; marg
 .media-actions a:hover { background: rgba(255,255,255,.45); }
 .media-artist { display: flex; flex-direction: column; gap: 8px; }
 .media-artist + .media-artist { margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(22,75,76,.16); }
-.media-video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 7px; }
+.media-video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 160px)); gap: 7px; justify-content: start; }
 .media-video-grid iframe { width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: 6px; }
 .status { color: var(--orange-dark); margin-left: 4px; }
 
