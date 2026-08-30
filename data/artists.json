@@ -969,8 +969,27 @@
     "youtube": {
       "live_search_url": "https://www.youtube.com/results?search_query=Mamma%20Mia!%20The%20Party%20live",
       "search_url": "https://www.youtube.com/results?search_query=Mamma%20Mia!%20The%20Party",
-      "videos": [],
-      "status": "search_only"
+      "videos": [
+        {
+          "video_id": "y1skPB4PR0Q",
+          "title": "MAMMA MIA! The Party at The O2 London| Is the Tier A Platinum Package Worth It?",
+          "channel": "My Miles My Moments ",
+          "url": "https://www.youtube.com/watch?v=y1skPB4PR0Q"
+        },
+        {
+          "video_id": "7YNVmk1U4aw",
+          "title": "Mamma Mia! The Party London Official Trailer 2024",
+          "channel": "Mamma Mia! The Party - London",
+          "url": "https://www.youtube.com/watch?v=7YNVmk1U4aw"
+        },
+        {
+          "video_id": "zIgpH_VcovA",
+          "title": "A night of ABBA hits, Greek feasting, and non-stop fun at Mamma Mia! The Party! 🇬🇷🍽️💙",
+          "channel": "Mamma Mia! The Party - London",
+          "url": "https://www.youtube.com/watch?v=zIgpH_VcovA"
+        }
+      ],
+      "status": "matched"
     },
     "instagram_url": null,
     "instagram_candidates": [
@@ -3733,8 +3752,27 @@
     "youtube": {
       "live_search_url": "https://www.youtube.com/results?search_query=SUNDAY%20NIGHT%20FOLK%20SESSIONS%20live",
       "search_url": "https://www.youtube.com/results?search_query=SUNDAY%20NIGHT%20FOLK%20SESSIONS",
-      "videos": [],
-      "status": "search_only"
+      "videos": [
+        {
+          "video_id": "8JsVAFq3GEA",
+          "title": "Goat Girl Live at Easycome, Skehan&#39;s.",
+          "channel": "Lou Smith",
+          "url": "https://www.youtube.com/watch?v=8JsVAFq3GEA"
+        },
+        {
+          "video_id": "IqJatPgB-6w",
+          "title": "Saul Adamczewski / Insecure Men Plays at Easycome Acoustic.",
+          "channel": "Lou Smith",
+          "url": "https://www.youtube.com/watch?v=IqJatPgB-6w"
+        },
+        {
+          "video_id": "YNKezs5HzeA",
+          "title": "Lias Saoudi Live at The Windmill ll.",
+          "channel": "Lou Smith",
+          "url": "https://www.youtube.com/watch?v=YNKezs5HzeA"
+        }
+      ],
+      "status": "matched"
     },
     "instagram_url": null,
     "instagram_candidates": [
@@ -3918,8 +3956,27 @@
     "youtube": {
       "live_search_url": "https://www.youtube.com/results?search_query=The%20Dom%20Hall%20Trio%20live",
       "search_url": "https://www.youtube.com/results?search_query=The%20Dom%20Hall%20Trio",
-      "videos": [],
-      "status": "search_only"
+      "videos": [
+        {
+          "video_id": "Wd_uO20qVTM",
+          "title": "The Kobras live at The Old Blue Last 3/5/2023",
+          "channel": "Keith Wilson",
+          "url": "https://www.youtube.com/watch?v=Wd_uO20qVTM"
+        },
+        {
+          "video_id": "2zm3-IR0JI8",
+          "title": "Alien Chicks - Live at the Old Blue Last, 24/02/2023",
+          "channel": "roustghoti",
+          "url": "https://www.youtube.com/watch?v=2zm3-IR0JI8"
+        },
+        {
+          "video_id": "uHFJ9qhR0VM",
+          "title": "George Duke Trio &quot;It&#39;s On&quot; Live at Java Jazz Festival 2010",
+          "channel": "JavaJazzFest",
+          "url": "https://www.youtube.com/watch?v=uHFJ9qhR0VM"
+        }
+      ],
+      "status": "matched"
     },
     "instagram_url": null,
     "instagram_candidates": [
@@ -4136,8 +4193,15 @@
     "youtube": {
       "live_search_url": "https://www.youtube.com/results?search_query=Uncanny%20Valley%20Girls%20live",
       "search_url": "https://www.youtube.com/results?search_query=Uncanny%20Valley%20Girls",
-      "videos": [],
-      "status": "search_only"
+      "videos": [
+        {
+          "video_id": "2zWe6huBZIw",
+          "title": "Walking tree caught moving😳 #shorts",
+          "channel": "Kurlyheadmarr",
+          "url": "https://www.youtube.com/watch?v=2zWe6huBZIw"
+        }
+      ],
+      "status": "matched"
     },
     "instagram_url": null,
     "instagram_candidates": [
@@ -4884,8 +4948,27 @@
     "youtube": {
       "live_search_url": "https://www.youtube.com/results?search_query=A%24AP%20Rocky%20live",
       "search_url": "https://www.youtube.com/results?search_query=A%24AP%20Rocky",
-      "videos": [],
-      "status": "search_only"
+      "videos": [
+        {
+          "video_id": "07c7fLOj4L8",
+          "title": "ASAP Rocky Live - Peso at O2 Academy Brixton",
+          "channel": "O2 Music",
+          "url": "https://www.youtube.com/watch?v=07c7fLOj4L8"
+        },
+        {
+          "video_id": "gC-SAwBYePA",
+          "title": "ASAP Rocky - Praise The Lord (live)",
+          "channel": "Yle Vids",
+          "url": "https://www.youtube.com/watch?v=gC-SAwBYePA"
+        },
+        {
+          "video_id": "7k_DRBiOeI0",
+          "title": "A$AP Rocky - Live at Baltimore, MD [FULL SET | 6/8/26]",
+          "channel": "gloss",
+          "url": "https://www.youtube.com/watch?v=7k_DRBiOeI0"
+        }
+      ],
+      "status": "matched"
     },
     "instagram_url": null,
     "instagram_candidates": [
@@ -5929,8 +6012,27 @@
     "youtube": {
       "live_search_url": "https://www.youtube.com/results?search_query=Anup%20Jalota%20Live%20in%20Concert%20live",
       "search_url": "https://www.youtube.com/results?search_query=Anup%20Jalota%20Live%20in%20Concert",
-      "videos": [],
-      "status": "search_only"
+      "videos": [
+        {
+          "video_id": "g4Dx0LQhY_s",
+          "title": "Anup Jalota Live in Concert at Milton Keynes, United Kingdom, Nov 2025",
+          "channel": "Raas Global",
+          "url": "https://www.youtube.com/watch?v=g4Dx0LQhY_s"
+        },
+        {
+          "video_id": "W7cgIlI-Lcw",
+          "title": "Anup Jalota | Live Bhajan &amp; Ghazal Concert | Sankat Mochan Sangeet Samaroh 2024 Varanasi",
+          "channel": "Sankat Mochan Mandir",
+          "url": "https://www.youtube.com/watch?v=W7cgIlI-Lcw"
+        },
+        {
+          "video_id": "AKdXBWgWtr4",
+          "title": "Rang De Chunariya (Live) – Anup Jalota | Love You Krishna | Soulful Live Bhajan",
+          "channel": "Red Ribbon Bhakti Ras",
+          "url": "https://www.youtube.com/watch?v=AKdXBWgWtr4"
+        }
+      ],
+      "status": "matched"
     },
     "instagram_url": null,
     "instagram_candidates": [
@@ -6101,8 +6203,27 @@
     "youtube": {
       "live_search_url": "https://www.youtube.com/results?search_query=Astro%20Cats%20live",
       "search_url": "https://www.youtube.com/results?search_query=Astro%20Cats",
-      "videos": [],
-      "status": "search_only"
+      "videos": [
+        {
+          "video_id": "EK_MwwNCeMA",
+          "title": "YachattaI woke up in a place i didnt recognize #moonshell #astro #shelly #astroxshelly #shellyxastro",
+          "channel": "FrySky !!",
+          "url": "https://www.youtube.com/watch?v=EK_MwwNCeMA"
+        },
+        {
+          "video_id": "9SjNi1voQ2U",
+          "title": "red u i a green u i a #cats #Netflix #squidgame",
+          "channel": "Try CGI",
+          "url": "https://www.youtube.com/watch?v=9SjNi1voQ2U"
+        },
+        {
+          "video_id": "FkvFEbKtxjA",
+          "title": "SPECIAL BRANCH - HD - MULTICAM FULL SET - DAMAGE IS DONE - NEW CROSS INN, LONDON - 19.11.21",
+          "channel": "Dai Tan Films",
+          "url": "https://www.youtube.com/watch?v=FkvFEbKtxjA"
+        }
+      ],
+      "status": "matched"
     },
     "instagram_url": null,
     "instagram_candidates": [
@@ -8601,8 +8722,27 @@
     "youtube": {
       "live_search_url": "https://www.youtube.com/results?search_query=Choeur%20de%20Radio%20France%20live",
       "search_url": "https://www.youtube.com/results?search_query=Choeur%20de%20Radio%20France",
-      "videos": [],
-      "status": "search_only"
+      "videos": [
+        {
+          "video_id": "h0h3ih0AUGA",
+          "title": "Carmina Burana OFortuna HD Live at Royal Albert Hall 1994",
+          "channel": "Adam Rager",
+          "url": "https://www.youtube.com/watch?v=h0h3ih0AUGA"
+        },
+        {
+          "video_id": "iE_CGC8LGUQ",
+          "title": "Bitter Sweet Symphony - The Verve / Rockin&#39;1000 That&#39;s Live Official",
+          "channel": "Rockin'1000",
+          "url": "https://www.youtube.com/watch?v=iE_CGC8LGUQ"
+        },
+        {
+          "video_id": "IUZEtVbJT5c",
+          "title": "Royal Choral Society: &#39;Hallelujah Chorus&#39; from Handel&#39;s Messiah",
+          "channel": "RoyalChoralSoc",
+          "url": "https://www.youtube.com/watch?v=IUZEtVbJT5c"
+        }
+      ],
+      "status": "matched"
     },
     "instagram_url": null,
     "instagram_candidates": [
@@ -12027,8 +12167,27 @@
     "youtube": {
       "live_search_url": "https://www.youtube.com/results?search_query=FLYPAPER%20live",
       "search_url": "https://www.youtube.com/results?search_query=FLYPAPER",
-      "videos": [],
-      "status": "search_only"
+      "videos": [
+        {
+          "video_id": "YW4X0-QS0EM",
+          "title": "Mutoid Man - Saint Vitus Bar 12/13/13 Cave in - flypaper",
+          "channel": "TheThetourist07",
+          "url": "https://www.youtube.com/watch?v=YW4X0-QS0EM"
+        },
+        {
+          "video_id": "gOsBZul56Q4",
+          "title": "gigantic insects! #giantbug #giantlocust #insect #pokemon #shortswithzita #rock_n_insectes",
+          "channel": "Rock_ n_insectes",
+          "url": "https://www.youtube.com/watch?v=gOsBZul56Q4"
+        },
+        {
+          "video_id": "4lFhJfttEck",
+          "title": "Japandroids - I Quit Girls (play along)",
+          "channel": "slackerVK",
+          "url": "https://www.youtube.com/watch?v=4lFhJfttEck"
+        }
+      ],
+      "status": "matched"
     },
     "instagram_url": null,
     "instagram_candidates": [
@@ -13243,8 +13402,27 @@
     "youtube": {
       "live_search_url": "https://www.youtube.com/results?search_query=GRELO%20live",
       "search_url": "https://www.youtube.com/results?search_query=GRELO",
-      "videos": [],
-      "status": "search_only"
+      "videos": [
+        {
+          "video_id": "zAFV9Y00zBw",
+          "title": "Tenacious D- Beelzeboss live Brixton Academy",
+          "channel": "torok1899",
+          "url": "https://www.youtube.com/watch?v=zAFV9Y00zBw"
+        },
+        {
+          "video_id": "aqq8LXCfljc",
+          "title": "Tenacious D - Beelzeboss (live)",
+          "channel": "blinditachil7",
+          "url": "https://www.youtube.com/watch?v=aqq8LXCfljc"
+        },
+        {
+          "video_id": "mkmF0ZIDptE",
+          "title": "Berserk - Beelzeboss (Tenacious D Cover)",
+          "channel": "BerserkOfficialbh",
+          "url": "https://www.youtube.com/watch?v=mkmF0ZIDptE"
+        }
+      ],
+      "status": "matched"
     },
     "instagram_url": null,
     "instagram_candidates": [
@@ -13846,8 +14024,27 @@
     "youtube": {
       "live_search_url": "https://www.youtube.com/results?search_query=headrush%20live",
       "search_url": "https://www.youtube.com/results?search_query=headrush",
-      "videos": [],
-      "status": "search_only"
+      "videos": [
+        {
+          "video_id": "MqNGujizUOc",
+          "title": "First Time live",
+          "channel": "squeakermusic",
+          "url": "https://www.youtube.com/watch?v=MqNGujizUOc"
+        },
+        {
+          "video_id": "EiAMQDnYOzk",
+          "title": "Mike TV - Dumbfuck &amp; Chinwag live at Butserfest 2010!",
+          "channel": "miketvchannel",
+          "url": "https://www.youtube.com/watch?v=EiAMQDnYOzk"
+        },
+        {
+          "video_id": "SUmRJCsyI9M",
+          "title": "Art d&#39;Ecco @ Swan Dive, SXSW 2022, Best of SXSW Live, HQ",
+          "channel": "Rick Dalberg",
+          "url": "https://www.youtube.com/watch?v=SUmRJCsyI9M"
+        }
+      ],
+      "status": "matched"
     },
     "instagram_url": null,
     "instagram_candidates": [
@@ -15317,8 +15514,27 @@
     "youtube": {
       "live_search_url": "https://www.youtube.com/results?search_query=Jazz%20on%20the%20Lane%3A%20Dylan%2FJones%20Trio%20live",
       "search_url": "https://www.youtube.com/results?search_query=Jazz%20on%20the%20Lane%3A%20Dylan%2FJones%20Trio",
-      "videos": [],
-      "status": "search_only"
+      "videos": [
+        {
+          "video_id": "eyUFrcOhKJY",
+          "title": "Blues and Roots Ensemble Live @ 91 Living Room, Brick Lane.",
+          "channel": "Blues and Roots Ensemble",
+          "url": "https://www.youtube.com/watch?v=eyUFrcOhKJY"
+        },
+        {
+          "video_id": "O5SiCqCq_uU",
+          "title": "Higher Ground Jam Session // Ninety One Living Room",
+          "channel": "Higher Ground Jam Session",
+          "url": "https://www.youtube.com/watch?v=O5SiCqCq_uU"
+        },
+        {
+          "video_id": "xggfDNRsR_0",
+          "title": "Give &amp; Take - IndiAmor (Different League performance at Ninety One Living Room, London)",
+          "channel": "IndiAmor",
+          "url": "https://www.youtube.com/watch?v=xggfDNRsR_0"
+        }
+      ],
+      "status": "matched"
     },
     "instagram_url": null,
     "instagram_candidates": [
@@ -16816,8 +17032,27 @@
     "youtube": {
       "live_search_url": "https://www.youtube.com/results?search_query=LANNY%20live",
       "search_url": "https://www.youtube.com/results?search_query=LANNY",
-      "videos": [],
-      "status": "search_only"
+      "videos": [
+        {
+          "video_id": "ufl5zJn0gkA",
+          "title": "Lanny Ross - We Musn&#39;t Say Goodbye",
+          "channel": "binturong4",
+          "url": "https://www.youtube.com/watch?v=ufl5zJn0gkA"
+        },
+        {
+          "video_id": "cu8HixJ4jeU",
+          "title": "Happy 9th Birthday Lani Love 🥳🥰 #shorts #birthdaycelebration",
+          "channel": "LANI LOVE",
+          "url": "https://www.youtube.com/watch?v=cu8HixJ4jeU"
+        },
+        {
+          "video_id": "MPLuaubLSnI",
+          "title": "Lani Love Does A Backflip for the First time 😱 #shorts #lanilove",
+          "channel": "LANI LOVE",
+          "url": "https://www.youtube.com/watch?v=MPLuaubLSnI"
+        }
+      ],
+      "status": "matched"
     },
     "instagram_url": null,
     "instagram_candidates": [
@@ -17698,8 +17933,27 @@
     "youtube": {
       "live_search_url": "https://www.youtube.com/results?search_query=Live%20Music%20and%20Meditation%20August%20live",
       "search_url": "https://www.youtube.com/results?search_query=Live%20Music%20and%20Meditation%20August",
-      "videos": [],
-      "status": "search_only"
+      "videos": [
+        {
+          "video_id": "pUcOFpT6b9c",
+          "title": "Angels and Spirit communication these images were taken 10/10/16  by Susan Margaret Cormack",
+          "channel": "Alive Universe",
+          "url": "https://www.youtube.com/watch?v=pUcOFpT6b9c"
+        },
+        {
+          "video_id": "rv9QcY9vbKI",
+          "title": "Violet Flame Energy/ Healing.  By Susan Margaret Cormack",
+          "channel": "Alive Universe",
+          "url": "https://www.youtube.com/watch?v=rv9QcY9vbKI"
+        },
+        {
+          "video_id": "hYoIb2BQcKc",
+          "title": "New PT Crop Circles depict Shakti Yantras &amp; Mandalas ~ JulyAugust 2013",
+          "channel": "PT Avatar",
+          "url": "https://www.youtube.com/watch?v=hYoIb2BQcKc"
+        }
+      ],
+      "status": "matched"
     },
     "instagram_url": null,
     "instagram_candidates": [
@@ -18533,8 +18787,27 @@
     "youtube": {
       "live_search_url": "https://www.youtube.com/results?search_query=Ma%C3%AEtrise%20de%20Radio%20France%20live",
       "search_url": "https://www.youtube.com/results?search_query=Ma%C3%AEtrise%20de%20Radio%20France",
-      "videos": [],
-      "status": "search_only"
+      "videos": [
+        {
+          "video_id": "m_iQ79p4nO8",
+          "title": "Concert du cent-cinquantenaire Berlioz",
+          "channel": "France Musique concerts",
+          "url": "https://www.youtube.com/watch?v=m_iQ79p4nO8"
+        },
+        {
+          "video_id": "fKjcK_Tg8Ts",
+          "title": "Berlioz : Te Deum Op.22",
+          "channel": "France Musique concerts",
+          "url": "https://www.youtube.com/watch?v=fKjcK_Tg8Ts"
+        },
+        {
+          "video_id": "ZDtjDThed7o",
+          "title": "Sting - live session at the Panthéon in Paris - ARTE Concert",
+          "channel": "ARTE Concert",
+          "url": "https://www.youtube.com/watch?v=ZDtjDThed7o"
+        }
+      ],
+      "status": "matched"
     },
     "instagram_url": null,
     "instagram_candidates": [
@@ -18602,8 +18875,15 @@
     "youtube": {
       "live_search_url": "https://www.youtube.com/results?search_query=Mara%20Connor%20live",
       "search_url": "https://www.youtube.com/results?search_query=Mara%20Connor",
-      "videos": [],
-      "status": "search_only"
+      "videos": [
+        {
+          "video_id": "zlMYvJzuomY",
+          "title": "Mara Connor",
+          "channel": "Rocker Dogcast",
+          "url": "https://www.youtube.com/watch?v=zlMYvJzuomY"
+        }
+      ],
+      "status": "matched"
     },
     "instagram_url": null,
     "instagram_candidates": [
@@ -18743,8 +19023,27 @@
     "youtube": {
       "live_search_url": "https://www.youtube.com/results?search_query=MARIPOOL%20live",
       "search_url": "https://www.youtube.com/results?search_query=MARIPOOL",
-      "videos": [],
-      "status": "search_only"
+      "videos": [
+        {
+          "video_id": "FAMPfK9QpDk",
+          "title": "Baggio live at the Ivy House 12/05/24",
+          "channel": "RealityBreakDown",
+          "url": "https://www.youtube.com/watch?v=FAMPfK9QpDk"
+        },
+        {
+          "video_id": "oFgomtOkm6w",
+          "title": "Gag Salon - Horses (Official Live Session)",
+          "channel": "Gag Salon",
+          "url": "https://www.youtube.com/watch?v=oFgomtOkm6w"
+        },
+        {
+          "video_id": "b78ntuEleog",
+          "title": "Gag Salon @ The Lexington 16/06/22",
+          "channel": "kram srednuas",
+          "url": "https://www.youtube.com/watch?v=b78ntuEleog"
+        }
+      ],
+      "status": "matched"
     },
     "instagram_url": null,
     "instagram_candidates": [
@@ -19756,8 +20055,27 @@
     "youtube": {
       "live_search_url": "https://www.youtube.com/results?search_query=Modern%20People%20live",
       "search_url": "https://www.youtube.com/results?search_query=Modern%20People",
-      "videos": [],
-      "status": "search_only"
+      "videos": [
+        {
+          "video_id": "q18f74YgndY",
+          "title": "Modern Motive live at New Cross Inn (3 songs)",
+          "channel": "fabsite",
+          "url": "https://www.youtube.com/watch?v=q18f74YgndY"
+        },
+        {
+          "video_id": "h9og29ONW80",
+          "title": "DAMIDGE LIVE NEW CROSS INN 24 MARCH 2018 4K",
+          "channel": "Touching The Globe",
+          "url": "https://www.youtube.com/watch?v=h9og29ONW80"
+        },
+        {
+          "video_id": "mUn8r1kPKXw",
+          "title": "Tightrope - Concrete Natives | Live at New Cross Inn by Matchstick",
+          "channel": "Matchstick",
+          "url": "https://www.youtube.com/watch?v=mUn8r1kPKXw"
+        }
+      ],
+      "status": "matched"
     },
     "instagram_url": null,
     "instagram_candidates": [
@@ -20634,8 +20952,27 @@
     "youtube": {
       "live_search_url": "https://www.youtube.com/results?search_query=Neev%20live",
       "search_url": "https://www.youtube.com/results?search_query=Neev",
-      "videos": [],
-      "status": "search_only"
+      "videos": [
+        {
+          "video_id": "VdVMWUUE07k",
+          "title": "the bramblebury sessions - frankie morrow",
+          "channel": "the bramblebury sessions",
+          "url": "https://www.youtube.com/watch?v=VdVMWUUE07k"
+        },
+        {
+          "video_id": "C2qqoRI6_aM",
+          "title": "Samuel Ashton Band - Simply Beautiful ( Cover) Live",
+          "channel": "So Tangy!",
+          "url": "https://www.youtube.com/watch?v=C2qqoRI6_aM"
+        },
+        {
+          "video_id": "ETpSsa3uZWA",
+          "title": "Try Happy - Hold On Tight",
+          "channel": "For Folk's Sake",
+          "url": "https://www.youtube.com/watch?v=ETpSsa3uZWA"
+        }
+      ],
+      "status": "matched"
     },
     "instagram_url": null,
     "instagram_candidates": [
@@ -21082,8 +21419,27 @@
     "youtube": {
       "live_search_url": "https://www.youtube.com/results?search_query=OD%20Jones%20live",
       "search_url": "https://www.youtube.com/results?search_query=OD%20Jones",
-      "videos": [],
-      "status": "search_only"
+      "videos": [
+        {
+          "video_id": "rhnRyQCeqXI",
+          "title": "Midnight Train To Georgia (LIVE) -  Gladys Knight &amp; The Pips",
+          "channel": "masa rabbit (rabbitvwyokohama)",
+          "url": "https://www.youtube.com/watch?v=rhnRyQCeqXI"
+        },
+        {
+          "video_id": "Ez8_3Y2y4u0",
+          "title": "HOZZ  crossroads live 2013",
+          "channel": "39brianmay",
+          "url": "https://www.youtube.com/watch?v=Ez8_3Y2y4u0"
+        },
+        {
+          "video_id": "SwYv1vrJ_J4",
+          "title": "Ted Lasso - Roy Kent returns to Richmond like a boss (Nate looks worried)",
+          "channel": "Crusey1988",
+          "url": "https://www.youtube.com/watch?v=SwYv1vrJ_J4"
+        }
+      ],
+      "status": "matched"
     },
     "instagram_url": null,
     "instagram_candidates": [
@@ -21954,8 +22310,27 @@
     "youtube": {
       "live_search_url": "https://www.youtube.com/results?search_query=Phantom%20Spell%20live",
       "search_url": "https://www.youtube.com/results?search_query=Phantom%20Spell",
-      "videos": [],
-      "status": "search_only"
+      "videos": [
+        {
+          "video_id": "7wRqb8LjuHU",
+          "title": "PHANTOM SPELL live at Keep It True Rising 3_2023-10-07",
+          "channel": "Fabrizio Metalarm",
+          "url": "https://www.youtube.com/watch?v=7wRqb8LjuHU"
+        },
+        {
+          "video_id": "jdX42bci4YM",
+          "title": "Phantom Spell ~ Heather &amp; Hearth (Full Album Official Audio)",
+          "channel": "Phantom Spell",
+          "url": "https://www.youtube.com/watch?v=jdX42bci4YM"
+        },
+        {
+          "video_id": "ss19XOoe-SY",
+          "title": "Phantom Spell ~ A Distant Shore (Official Audio)",
+          "channel": "Phantom Spell",
+          "url": "https://www.youtube.com/watch?v=ss19XOoe-SY"
+        }
+      ],
+      "status": "matched"
     },
     "instagram_url": null,
     "instagram_candidates": [
@@ -22335,8 +22710,27 @@
     "youtube": {
       "live_search_url": "https://www.youtube.com/results?search_query=POSTMORTEM%20live",
       "search_url": "https://www.youtube.com/results?search_query=POSTMORTEM",
-      "videos": [],
-      "status": "search_only"
+      "videos": [
+        {
+          "video_id": "pAr52MZoIUw",
+          "title": "SLAYER TRIBUTE (POSTMORTEM) - LIVE @ CART &amp; HORSES, LONDON, 05/04/26 - DRUM CLIPS",
+          "channel": "Ciaran McGrory Drums",
+          "url": "https://www.youtube.com/watch?v=pAr52MZoIUw"
+        },
+        {
+          "video_id": "tC7zrG7rvbQ",
+          "title": "SLAYER TRIBUTE (POSTMORTEM) - AT DAWN THEY SLEEP - LIVE @ CART &amp; HORSES, LONDON, 10/10/25",
+          "channel": "Ciaran McGrory Drums",
+          "url": "https://www.youtube.com/watch?v=tC7zrG7rvbQ"
+        },
+        {
+          "video_id": "93UPGMDp_UA",
+          "title": "SLAYER TRIBUTE (POSTMORTEM) - ANGEL OF DEATH - LIVE @ CART &amp; HORSES, LONDON, 05/04/26",
+          "channel": "Ciaran McGrory Drums",
+          "url": "https://www.youtube.com/watch?v=93UPGMDp_UA"
+        }
+      ],
+      "status": "matched"
     },
     "instagram_url": null,
     "instagram_candidates": [
@@ -23643,8 +24037,27 @@
     "youtube": {
       "live_search_url": "https://www.youtube.com/results?search_query=SECOND%20BORN%20live",
       "search_url": "https://www.youtube.com/results?search_query=SECOND%20BORN",
-      "videos": [],
-      "status": "search_only"
+      "videos": [
+        {
+          "video_id": "gM9dHoknm-c",
+          "title": "Ivy &amp; Levi Play Floor Is Lava In Our NEW HOUSE!",
+          "channel": "Lively Lewis Show",
+          "url": "https://www.youtube.com/watch?v=gM9dHoknm-c"
+        },
+        {
+          "video_id": "wp-rz9EIS5U",
+          "title": "Ivy went to the doctor! 👩‍⚕️🏥",
+          "channel": "Lively Lewis Show",
+          "url": "https://www.youtube.com/watch?v=wp-rz9EIS5U"
+        },
+        {
+          "video_id": "Yrrd8WS9iCI",
+          "title": "Ivy turned into a BABY AGAIN!! Levi and Tanyin in charge!",
+          "channel": "Lively Lewis Show",
+          "url": "https://www.youtube.com/watch?v=Yrrd8WS9iCI"
+        }
+      ],
+      "status": "matched"
     },
     "instagram_url": null,
     "instagram_candidates": [
