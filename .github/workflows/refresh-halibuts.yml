@@ -12,6 +12,9 @@ on:
       youtube_limit:
         description: "Maximum YouTube lookups this run"
         default: "25"
+      instagram_limit:
+        description: "Maximum Instagram profile lookups this run"
+        default: "25"
 
 permissions:
   contents: write
@@ -29,9 +32,11 @@ jobs:
       - name: Refresh today plus the next seven days
         run: node scripts/halibuts_extractor.mjs --days 8 --output data/halibuts-live.json
       - name: Rebuild media assignments
-        run: node scripts/enrich_media.mjs --youtube-limit ${{ github.event.inputs.youtube_limit || '25' }} ${{ github.event.inputs.recheck == 'true' && '--recheck' || '' }}
+        run: node scripts/enrich_media.mjs --youtube-limit ${{ github.event.inputs.youtube_limit || '25' }} --instagram-limit ${{ github.event.inputs.instagram_limit || '25' }} ${{ github.event.inputs.recheck == 'true' && '--recheck' || '' }}
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          GOOGLE_CSE_API_KEY: ${{ secrets.GOOGLE_CSE_API_KEY }}
+          GOOGLE_CSE_CX: ${{ secrets.GOOGLE_CSE_CX }}
       - name: Commit changed listings
         run: |
           git config user.name "github-actions[bot]"

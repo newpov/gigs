@@ -125,6 +125,28 @@ node scripts\enrich_media.mjs --youtube-limit 25 --recheck
 
 Names not looked up in a run keep their existing media, so a recheck never wipes good matches just because the budget ran out. Because lookups run in feed order, a single capped recheck re-checks the head of the list; run a larger sweep (for example `--youtube-limit 200 --recheck`) to clean the current set in one pass. The daily workflow does **not** recheck automatically (that would starve new-artist coverage); trigger it on demand from the Actions tab (see below).
 
+### Resolve Instagram profiles
+
+By default the Instagram button opens a `site:instagram.com` Google search, because an artist's handle rarely matches their display name. If you supply Google Programmable Search credentials, `enrich_media.mjs` resolves the actual profile URL once and stores it in `instagram_url`, so the button links straight to the account (the Cards/detail view already prefers a resolved URL and only falls back to the search link).
+
+It accepts a profile only when the result is a real profile page (not a post, reel or hashtag) **and** the page title/snippet confidently names the artist — the same name gate used for videos — so a wrong or same-name account stays a research link rather than a bad link.
+
+Get the credentials (free):
+
+1. In the same Google Cloud project, **APIs & Services -> Library** -> enable **Custom Search API**.
+2. Create a key under **Credentials** (or reuse one that also allows Custom Search).
+3. Create a search engine at <https://programmablesearchengine.google.com>: set it to **search the entire web**, then copy its **Search engine ID** (`cx`).
+
+Free quota is 100 queries/day. Run it alongside the YouTube step:
+
+```powershell
+$env:GOOGLE_CSE_API_KEY = "your-cse-key"
+$env:GOOGLE_CSE_CX = "your-search-engine-id"
+node scripts\enrich_media.mjs --youtube-limit 25 --instagram-limit 25
+```
+
+Like the video step, a run with no `--instagram-limit` (or `0`) makes zero Instagram calls, already-resolved profiles are skipped, and `--recheck` re-evaluates them. On the deployed site, add `GOOGLE_CSE_API_KEY` and `GOOGLE_CSE_CX` as repository Actions secrets; the daily workflow already passes `--instagram-limit`.
+
 Instagram profile URLs and YouTube links can be stored directly in the static JSON. YouTube embeds can use privacy-enhanced `youtube-nocookie.com` URLs; Instagram's latest-post/story data is more restricted and is best treated as an optional link/embed rather than something the public Pages site tries to scrape live.
 
 Booking links use this order:

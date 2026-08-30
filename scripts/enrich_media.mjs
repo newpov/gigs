@@ -102,6 +102,59 @@ function instagramCandidates({ name, promoters, venues }) {
   return candidates;
 }
 
+const GOOGLE_CSE_API = "https://www.googleapis.com/customsearch/v1";
+// Instagram paths that are not user profiles.
+const INSTAGRAM_RESERVED = new Set([
+  "p", "reel", "reels", "explore", "tags", "stories", "accounts", "about",
+  "developer", "directory", "legal", "privacy", "tv", "ar", "challenge", "web"
+]);
+
+function instagramHandleFromUrl(url) {
+  let parsed;
+  try {
+    parsed = new URL(url);
+  } catch {
+    return null;
+  }
+  if (!/(^|\.)instagram\.com$/.test(parsed.hostname)) return null;
+  const parts = parsed.pathname.split("/").filter(Boolean);
+  if (parts.length !== 1) return null; // a profile is a single path segment
+  const handle = parts[0].toLowerCase();
+  if (INSTAGRAM_RESERVED.has(handle)) return null;
+  return handle;
+}
+
+// Accept a search result only if it is a real profile URL whose page title or
+// snippet confidently names the artist (same gate as the video matcher), so a
+// wrong or same-name account is left as a research link instead of a bad link.
+function instagramMatch(name, item) {
+  const handle = instagramHandleFromUrl(item.link || "");
+  if (!handle) return null;
+  const haystack = canonical(`${item.title || ""} ${item.snippet || ""}`);
+  const tokens = distinctiveTokens(name);
+  if (tokens.length >= 2) {
+    const hits = tokens.filter((token) => haystack.includes(token)).length;
+    if (hits !== tokens.length) return null;
+  } else {
+    const phrase = canonical(name);
+    const wholeName = phrase.length > 0 && new RegExp(`(^| )${escapeRegex(phrase)}( |$)`).test(haystack);
+    if (!wholeName) return null;
+  }
+  return `https://www.instagram.com/${handle}/`;
+}
+
+async function instagramProfile({ name, apiKey, cx }) {
+  const params = new URLSearchParams({ key: apiKey, cx, num: "5", q: `site:instagram.com "${name}"` });
+  const response = await fetch(`${GOOGLE_CSE_API}?${params}`);
+  if (!response.ok) throw new Error(`Custom Search API ${response.status}: ${await response.text()}`);
+  const payload = await response.json();
+  for (const item of payload.items || []) {
+    const url = instagramMatch(name, item);
+    if (url) return url;
+  }
+  return null;
+}
+
 async function youtubeVideos({ name, venues, promoters, apiKey }) {
   const fallback = {
     live_search_url: youtubeSearch(name, true),
@@ -147,8 +200,12 @@ async function main() {
   const limitIndex = process.argv.indexOf("--youtube-limit");
   const output = outputIndex >= 0 ? process.argv[outputIndex + 1] : DEFAULT_OUTPUT;
   const youtubeLimit = limitIndex >= 0 ? Math.max(0, Number(process.argv[limitIndex + 1])) : 0;
+  const instagramLimitIndex = process.argv.indexOf("--instagram-limit");
+  const instagramLimit = instagramLimitIndex >= 0 ? Math.max(0, Number(process.argv[instagramLimitIndex + 1])) : 0;
   const recheck = process.argv.includes("--recheck");
   const apiKey = process.env.YOUTUBE_API_KEY || "";
+  const cseKey = process.env.GOOGLE_CSE_API_KEY || "";
+  const cseCx = process.env.GOOGLE_CSE_CX || "";
   const events = JSON.parse(await readFile(INPUT, "utf8"));
   let previousArtists = [];
   try {
@@ -175,6 +232,7 @@ async function main() {
 
   const artists = [];
   let apiLookups = 0;
+  let igLookups = 0;
   for (const record of records.values()) {
     const venues = [...record.venues].sort();
     const promoters = [...record.promoters].sort();
@@ -199,6 +257,25 @@ async function main() {
     } else {
       youtube = await youtubeVideos({ name: record.name, venues, promoters });
     }
+
+    // Resolve a direct Instagram profile via Google Programmable Search when
+    // configured; keep the research search links as the fallback either way.
+    let instagramUrl = previous?.instagram_url || null;
+    let instagramStatus = previous?.instagram_status || "review";
+    const alreadyResolvedIg = instagramStatus === "resolved" && Boolean(instagramUrl);
+    const shouldResolveIg = Boolean(cseKey && cseCx && igLookups < instagramLimit && (recheck || !alreadyResolvedIg));
+    if (shouldResolveIg) {
+      igLookups += 1;
+      try {
+        const url = await instagramProfile({ name: record.name, apiKey: cseKey, cx: cseCx });
+        instagramUrl = url;
+        instagramStatus = url ? "resolved" : "review";
+      } catch (error) {
+        console.error(`warning: Instagram lookup failed for ${record.name}: ${error.message}`);
+        // keep the previous instagram_url / status rather than wiping it
+      }
+    }
+
     artists.push({
       artist_id: slug(record.name),
       name: record.name,
@@ -207,9 +284,9 @@ async function main() {
       promoters,
       genres: [...record.genres].sort(),
       youtube,
-      instagram_url: previous?.instagram_url || null,
+      instagram_url: instagramUrl,
       instagram_candidates: instagramCandidates({ name: record.name, promoters, venues }),
-      instagram_status: previous?.instagram_status || "review"
+      instagram_status: instagramStatus
     });
   }
 
@@ -220,6 +297,10 @@ async function main() {
   console.error(apiKey
     ? `YouTube API lookups: ${apiLookups}${recheck ? " (recheck)" : ""}. Matched artists: ${matchedCount}/${artists.length}.`
     : "No YOUTUBE_API_KEY supplied; generated reviewable YouTube search links.");
+  const resolvedIg = artists.filter((artist) => artist.instagram_status === "resolved").length;
+  console.error(cseKey && cseCx
+    ? `Instagram lookups: ${igLookups}${recheck ? " (recheck)" : ""}. Resolved profiles: ${resolvedIg}/${artists.length}.`
+    : "No GOOGLE_CSE_API_KEY/GOOGLE_CSE_CX supplied; Instagram stays a research search link.");
 }
 
 main().catch((error) => { console.error(error.message); process.exitCode = 1; });
