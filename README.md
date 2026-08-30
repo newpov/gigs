@@ -67,7 +67,7 @@ Pass a different window when needed, for example `.\rebuild.ps1 -Days 1` for tod
 
 The equivalent shortcuts are `npm run refresh`, `npm run enrich` and `npm run check` on a machine with npm configured.
 
-The repository includes two GitHub Actions workflows. `refresh-halibuts.yml` refreshes today plus the next seven days once every 24 hours at 03:17 UTC, rebuilds the media assignments, and can be run manually from the Actions tab. `pages.yml` deploys the static app whenever `main` changes. After pushing the folder to a GitHub repository, select **GitHub Actions** as the Pages source in the repository's Settings → Pages.
+The repository includes two GitHub Actions workflows. `refresh-halibuts.yml` refreshes today plus the next seven days once every 24 hours at 03:17 UTC, rebuilds the media assignments, and can be run manually from the Actions tab. A manual run also exposes two inputs: **recheck** (re-evaluate already-matched YouTube videos with the stricter rules) and **youtube_limit** (how many lookups to spend) — the daily scheduled run never rechecks, so use the manual run for a clean-up sweep. `pages.yml` deploys the static app whenever `main` changes. After pushing the folder to a GitHub repository, select **GitHub Actions** as the Pages source in the repository's Settings → Pages.
 
 The site itself is static, so GitHub Pages can serve it without a server or database. The scheduled workflow is what keeps `data/halibuts-live.json` current; it commits only when the listings change, which then triggers a new Pages deployment.
 
@@ -95,7 +95,7 @@ Run `node scripts\enrich_media.mjs` to rebuild `data/artists.json` from the curr
 
 ### Enrich with a YouTube Data API key
 
-Without a key the Cards/detail views show a "YouTube artist search" link. With a key, `enrich_media.mjs` fetches candidate videos, scores them by artist-name match plus a bonus for live footage, and stores the top three video IDs so the page embeds inline players instead of a search link.
+Without a key the Cards/detail views show a "YouTube artist search" link. With a key, `enrich_media.mjs` fetches candidate videos and keeps only confident matches: a multi-word act must have every distinctive word present (filler like "the"/"trio"/"band" is ignored), while a one-word or generic name must appear as a whole phrase in a clearly musical video, so an act named like a common word is not matched to unrelated footage. Live performances are preferred as a tie-breaker. If nothing confident is found the name stays a search link rather than showing a wrong video, and the top three matches are stored so the page embeds inline players.
 
 Get a key (free):
 
@@ -115,6 +115,16 @@ node scripts\enrich_media.mjs --youtube-limit 25
 
 `$env:...` sets the key for that terminal session only, so it is never written to disk. A run with no `--youtube-limit` (or limit `0`) makes zero API calls even when the key is set. Already-matched artists are skipped, so rerun on later days to enrich more without re-spending quota; reload the page and the Cards view shows the players. **Never commit the key or add it to a tracked file.** To enrich the deployed GitHub Pages site, add the key as a repository Actions secret and pass `--youtube-limit` in the refresh workflow.
 
+#### Re-checking existing matches
+
+Matches made before the matching rules were tightened can be re-evaluated with `--recheck`, which re-looks-up already-matched names (still bounded by `--youtube-limit`) so weak picks are demoted to a search link or replaced:
+
+```powershell
+node scripts\enrich_media.mjs --youtube-limit 25 --recheck
+```
+
+Names not looked up in a run keep their existing media, so a recheck never wipes good matches just because the budget ran out. Because lookups run in feed order, a single capped recheck re-checks the head of the list; run a larger sweep (for example `--youtube-limit 200 --recheck`) to clean the current set in one pass. The daily workflow does **not** recheck automatically (that would starve new-artist coverage); trigger it on demand from the Actions tab (see below).
+
 Instagram profile URLs and YouTube links can be stored directly in the static JSON. YouTube embeds can use privacy-enhanced `youtube-nocookie.com` URLs; Instagram's latest-post/story data is more restricted and is best treated as an optional link/embed rather than something the public Pages site tries to scrape live.
 
 Booking links use this order:
@@ -122,3 +132,9 @@ Booking links use this order:
 1. Direct venue/promoter booking URL from Halibuts.
 2. External ticket URL discovered on the event page.
 3. A Google search query containing the event, performers, venue, date and promoter when available.
+
+## Credits and acknowledgements
+
+Listings come from [Halibuts](https://halibuts.com), whose work cataloguing London's live music makes this planner possible — thank you. This project is a lightweight companion for scanning what's on; for the full picture (more cities, richer detail and the complete listings) please visit [halibuts.com](https://halibuts.com) directly.
+
+Built with OpenAI 5.6 Luna, and improved with Claude Opus 4.8.
