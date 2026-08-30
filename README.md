@@ -93,6 +93,28 @@ Instagram matching should prioritise the artist profile, then the event promoter
 
 Run `node scripts\enrich_media.mjs` to rebuild `data/artists.json` from the current event feed. Without a `YOUTUBE_API_KEY`, it generates artist-first YouTube and Instagram review links. With a key, pass `--youtube-limit 25` (or another controlled batch size) to fetch up to three candidate video IDs per artist; this avoids spending the entire API quota on one large refresh. Verified assignments can then be saved into `artists.json` and rendered as privacy-enhanced YouTube embeds in Cards view.
 
+### Enrich with a YouTube Data API key
+
+Without a key the Cards/detail views show a "YouTube artist search" link. With a key, `enrich_media.mjs` fetches candidate videos, scores them by artist-name match plus a bonus for live footage, and stores the top three video IDs so the page embeds inline players instead of a search link.
+
+Get a key (free):
+
+1. Sign in at <https://console.cloud.google.com> and create (or select) a project.
+2. **APIs & Services -> Library** -> search **YouTube Data API v3** -> **Enable**.
+3. **APIs & Services -> Credentials -> Create Credentials -> API key**, then copy it.
+4. Restrict the key (recommended): open the key, set **API restrictions** to **YouTube Data API v3**, and leave **Application restrictions** on **None** (it is called from a local Node script, not a browser). Save.
+
+Free quota is 10,000 units/day; a search costs ~100 units, so about 100 artists per day.
+
+Use it (PowerShell) - the key is read from the environment, there is no `.env` file:
+
+```powershell
+$env:YOUTUBE_API_KEY = "your-key-here"
+node scripts\enrich_media.mjs --youtube-limit 25
+```
+
+`$env:...` sets the key for that terminal session only, so it is never written to disk. A run with no `--youtube-limit` (or limit `0`) makes zero API calls even when the key is set. Already-matched artists are skipped, so rerun on later days to enrich more without re-spending quota; reload the page and the Cards view shows the players. **Never commit the key or add it to a tracked file.** To enrich the deployed GitHub Pages site, add the key as a repository Actions secret and pass `--youtube-limit` in the refresh workflow.
+
 Instagram profile URLs and YouTube links can be stored directly in the static JSON. YouTube embeds can use privacy-enhanced `youtube-nocookie.com` URLs; Instagram's latest-post/story data is more restricted and is best treated as an optional link/embed rather than something the public Pages site tries to scrape live.
 
 Booking links use this order:
