@@ -21,6 +21,11 @@
 
       <section class="control-panel" aria-label="Gig filters">
         <div class="control-row top-row">
+          <label class="search-box">
+            <span class="sr-only">Search events</span>
+            <span class="search-icon" aria-hidden="true">⌕</span>
+            <input id="keywordSearch" type="search" placeholder="Search artist, venue or keyword" autocomplete="off" />
+          </label>
           <label class="select-box">
             <span class="sr-only">Venue type</span>
             <select id="venueType">
@@ -66,6 +71,18 @@
               <button id="copyPreferences" class="reset-button" type="button">Copy settings link</button>
               <span id="copyStatus" class="copy-status" role="status"></span>
             </div>
+          </div>
+        </details>
+        <details class="favourites-picker">
+          <summary>Spotify favourites <span id="favouriteCount"></span></summary>
+          <div class="favourites-inner">
+            <p>Events are marked when a listed artist matches this shared starter list or your imported Spotify artists.</p>
+            <div class="favourites-actions">
+              <label class="file-button">Import Spotify CSV<input id="favouriteCsv" type="file" accept=".csv,text/csv" /></label>
+              <label class="merge-toggle"><input id="mergeFavourites" type="checkbox" checked /><span>Add new artists to the active list</span></label>
+              <button id="resetFavourites" class="reset-button" type="button">Use shared list</button>
+            </div>
+            <p id="favouriteStatus" class="favourite-status" role="status"></p>
           </div>
         </details>
       </section>

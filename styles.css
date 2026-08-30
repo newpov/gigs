@@ -122,9 +122,9 @@ h2 { font: 700 38px/.98 "Playfair Display", serif; letter-spacing: -.035em; marg
 .list-view .location { margin: 0; }
 .list-view .description { display: none; }
 .list-view .genre-list { grid-column: 4; grid-row: 1; order: 0; margin: 0; }
-.list-view .card-footer { grid-column: 5; grid-row: 1; order: 0; display: flex; gap: 12px; justify-content: space-between; align-items: center; min-width: 0; }
+.list-view .card-footer { grid-column: 5; grid-row: 1; order: 0; display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 10px; align-items: center; min-width: 0; }
 .list-view .price { text-align: left; white-space: nowrap; }
-.list-view .ticket-link { text-align: right; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.list-view .ticket-link { min-width: 0; text-align: right; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .card-view { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .card-view .event-card { min-height: 350px; }
 .media-slot { display: none; }
@@ -164,7 +164,7 @@ h1 { margin-bottom: 0; }
 .event-card:focus-visible, .express-pick:focus-visible, .close-detail:focus-visible, .genre-picker > summary:focus-visible, .reset-button:focus-visible { outline: 3px solid rgba(227,93,62,.36); outline-offset: 2px; }
 .express-pick { cursor: pointer; }
 .express-pick:hover { background: rgba(255,255,255,.08); }
-.event-detail { min-width: 0; background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 20px; position: sticky; top: 18px; box-shadow: var(--shadow); }
+.event-detail { min-width: 0; align-self: start; height: fit-content; max-height: calc(100vh - 36px); overflow-y: auto; background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 20px; position: sticky; top: 18px; scroll-margin-top: 18px; z-index: 3; box-shadow: var(--shadow); }
 .close-detail { display: block; margin-left: auto; color: var(--teal); border: 1px solid var(--line); background: transparent; border-radius: 99px; padding: 7px 10px; font: 500 10px "DM Mono", monospace; }
 .close-detail:hover { border-color: var(--orange); color: var(--orange-dark); }
 .detail-media { background: linear-gradient(135deg, #e9dfce, #d8e4df); color: var(--teal); border-radius: 10px; min-height: 82px; margin: 16px 0 18px; padding: 11px; font: 500 10px "DM Mono", monospace; }
@@ -172,6 +172,8 @@ h1 { margin-bottom: 0; }
 .event-detail h3 { font: 700 31px/1.02 "Playfair Display", serif; margin: 0 0 10px; letter-spacing: -.02em; overflow-wrap: anywhere; }
 .event-detail .description { margin: 20px 0; }
 .detail-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--line); padding-top: 14px; }
+.detail-footer { gap: 12px; }
+.detail-footer .ticket-link { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 @media (max-width: 900px) {
   .results-layout.detail-open { grid-template-columns: minmax(0, 1fr); }
   .event-detail { position: static; }
@@ -202,8 +204,12 @@ h1 { margin-bottom: 0; }
 .postcode-picker > summary span { color: var(--orange-dark); }
 .postcode-picker .postcode-filters { margin-top: 12px; }
 .postcode-picker[open] .postcode-filters { max-height: 128px; overflow-y: auto; padding: 2px 4px 4px 0; align-content: flex-start; }
-.exclude-inner { max-height: 270px; overflow-y: auto; padding-right: 4px; }
-.list-view .event-card { grid-template-columns: 150px minmax(260px, 1.6fr) minmax(170px, 1fr) minmax(130px, .8fr) minmax(180px, 1fr); }
+.exclude-inner { display: flex; flex-direction: column; gap: 12px; max-height: none; overflow: visible; padding-right: 0; }
+.exclude-inner .genre-filters { display: flex; flex: 0 0 auto; width: 100%; min-height: 0; max-height: 190px; overflow-y: auto; overflow-x: hidden; align-content: flex-start; align-items: flex-start; scrollbar-gutter: stable; }
+.exclude-inner .genre-filter { flex: 0 0 auto; line-height: 1.25; }
+.preference-actions { position: relative; z-index: 1; width: 100%; flex: 0 0 auto; padding-top: 3px; background: var(--paper); }
+.preference-actions .reset-button { margin-top: 0; }
+.list-view .event-card { grid-template-columns: minmax(112px, 1fr) minmax(0, 1.6fr) minmax(128px, 1fr) minmax(84px, .75fr) minmax(145px, 1fr); }
 .list-view .event-top { min-width: 0; }
 .list-view .event-card h3 { overflow-wrap: normal; word-break: normal; hyphens: auto; }
 .shortlist-toggle { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); font: 500 10px "DM Mono", monospace; white-space: nowrap; cursor: pointer; }
@@ -217,10 +223,45 @@ h1 { margin-bottom: 0; }
 @media (max-width: 700px) {
   .postcode-picker { width: 100%; }
   .postcode-picker[open] .postcode-filters { max-height: 116px; }
-  .exclude-inner { max-height: 240px; }
+  .exclude-inner { max-height: none; }
+  .exclude-inner .genre-filters { max-height: 180px; }
   .list-view .event-card { grid-template-columns: 1fr auto; }
   .list-view .event-top { flex-wrap: wrap; row-gap: 7px; }
   .list-view .event-top .shortlist-toggle { margin-left: auto; }
   .event-detail { position: fixed; inset: 12px; z-index: 20; max-height: calc(100vh - 24px); overflow-y: auto; }
   .results-layout.detail-open .event-detail { order: initial; }
+}
+
+.favourites-picker { margin-top: 18px; border-top: 1px solid var(--line); padding-top: 14px; }
+.favourites-picker summary { color: var(--teal); cursor: pointer; font: 500 11px "DM Mono", monospace; text-transform: uppercase; letter-spacing: .08em; }
+.favourites-picker summary::marker { color: var(--orange); }
+.favourites-picker summary span { color: var(--orange-dark); }
+.favourites-inner { padding-top: 13px; }
+.favourites-inner p { color: var(--muted); font-size: 12px; margin: 0 0 11px; max-width: 660px; }
+.favourites-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 12px; }
+.file-button { color: var(--teal); border: 1px solid var(--line); background: #faf8f3; border-radius: 99px; padding: 7px 10px; font-size: 11px; cursor: pointer; }
+.file-button:hover { border-color: var(--orange); }
+.file-button input { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.merge-toggle { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); font: 500 10px "DM Mono", monospace; cursor: pointer; }
+.merge-toggle input { accent-color: var(--orange); margin: 0; }
+.favourite-status { color: var(--teal) !important; font: 500 10px "DM Mono", monospace; }
+.event-title-line, .detail-title-line { display: flex; align-items: flex-start; gap: 8px; min-width: 0; }
+.event-title-line h3, .detail-title-line h3 { min-width: 0; flex: 1; }
+.favourite-star { color: var(--orange); flex: 0 0 auto; font: 700 19px/1 "DM Sans", sans-serif; }
+.favourite-event { border-color: #e1bf8c; background: linear-gradient(100deg, rgba(242,228,203,.25), var(--card) 36%); }
+.list-view .favourite-event { border-left: 3px solid var(--orange); }
+.list-view .event-title-line { grid-column: 2; grid-row: 1; min-width: 0; }
+.list-view .event-title-line h3 { font: 600 18px/1.12 "DM Sans", sans-serif; margin: 0; overflow-wrap: anywhere; }
+.event-detail .detail-title-line h3 { margin: 0 0 10px; font: 700 31px/1.02 "Playfair Display", serif; letter-spacing: -.02em; overflow-wrap: anywhere; }
+.search-box { min-width: 220px; }
+.event-flag { display: inline-block; margin-left: 6px; padding: 2px 5px; border-radius: 4px; font: 500 9px/1.2 "DM Mono", monospace; letter-spacing: 0; text-transform: none; vertical-align: 1px; }
+.sold-out-flag, .tribute-flag { color: var(--muted); background: #e8e6e0; }
+.deprioritised-event { color: #737b79; opacity: .58; filter: grayscale(.8); background: #f0eee9; }
+.deprioritised-event:hover { opacity: .72; }
+.deprioritised-event .ticket-link, .deprioritised-event .venue-type, .deprioritised-event .event-time { color: var(--muted); }
+.deprioritised-detail { color: #737b79; filter: grayscale(.65); }
+.deprioritised-detail .ticket-link, .deprioritised-detail .detail-kicker { color: var(--muted); }
+@media (max-width: 700px) {
+  .favourites-actions { align-items: flex-start; flex-direction: column; }
+  .list-view .event-title-line { grid-column: 1 / -1; grid-row: auto; }
 }

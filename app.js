@@ -22,8 +22,105 @@ function mediaKey(value) {
 }
 
 const artistByName = new Map(artists.map((artist) => [mediaKey(artist.name), artist]));
+let sharedFavouriteArtists = [];
+try {
+  const response = await fetch("data/favourite-artists.json");
+  if (response.ok) {
+    const payload = await response.json();
+    sharedFavouriteArtists = Array.isArray(payload) ? payload : payload.artists || [];
+  }
+} catch {
+  // Favourites are optional; the planner remains usable without the shared list.
+}
+
+const FAVOURITE_ARTISTS_STORAGE_KEY = "gig-planner-favourite-artists";
+let customFavouriteArtists = null;
+try {
+  const stored = localStorage.getItem(FAVOURITE_ARTISTS_STORAGE_KEY);
+  const parsed = stored === null ? null : JSON.parse(stored);
+  if (Array.isArray(parsed)) customFavouriteArtists = parsed;
+} catch {
+  customFavouriteArtists = null;
+}
+
+function mergeFavouriteArtists(...lists) {
+  const merged = new Map();
+  for (const list of lists) {
+    for (const artist of list || []) {
+      const name = String(artist?.name || "").trim();
+      const key = mediaKey(name);
+      if (!key || merged.has(key)) continue;
+      merged.set(key, { name, ...(artist.spotify_id ? { spotify_id: artist.spotify_id } : {}) });
+    }
+  }
+  return [...merged.values()].sort((a, b) => a.name.localeCompare(b.name));
+}
+
+function activeFavouriteArtists() {
+  return customFavouriteArtists !== null ? mergeFavouriteArtists(customFavouriteArtists) : mergeFavouriteArtists(sharedFavouriteArtists);
+}
+
+let favouriteRecords = activeFavouriteArtists();
+let favouriteMatchCache = new Map();
+
+function refreshFavouriteIndex() {
+  favouriteRecords = activeFavouriteArtists();
+  favouriteMatchCache = new Map();
+}
+
+function saveCustomFavouriteArtists() {
+  if (customFavouriteArtists === null) localStorage.removeItem(FAVOURITE_ARTISTS_STORAGE_KEY);
+  else localStorage.setItem(FAVOURITE_ARTISTS_STORAGE_KEY, JSON.stringify(customFavouriteArtists));
+}
+
+function parseFavouriteCsv(text) {
+  const rows = [];
+  let row = [];
+  let cell = "";
+  let quoted = false;
+  for (let index = 0; index < text.length; index += 1) {
+    const character = text[index];
+    const next = text[index + 1];
+    if (character === '"') {
+      if (quoted && next === '"') {
+        cell += '"';
+        index += 1;
+      } else quoted = !quoted;
+    } else if (character === "," && !quoted) {
+      row.push(cell);
+      cell = "";
+    } else if ((character === "\n" || character === "\r") && !quoted) {
+      if (character === "\r" && next === "\n") index += 1;
+      row.push(cell);
+      if (row.some((value) => value.trim())) rows.push(row);
+      row = [];
+      cell = "";
+    } else cell += character;
+  }
+  if (cell || row.length) {
+    row.push(cell);
+    if (row.some((value) => value.trim())) rows.push(row);
+  }
+  if (!rows.length) return [];
+
+  const headers = rows.shift().map((header) => header.replace(/^\uFEFF/, "").trim().toLowerCase());
+  const column = (...names) => names.map((name) => headers.indexOf(name)).find((index) => index >= 0) ?? -1;
+  const typeIndex = column("type");
+  const trackIndex = column("track name");
+  const artistIndex = column("artist name");
+  const spotifyIndex = column("spotify - id", "spotify id");
+  const imported = [];
+  for (const values of rows) {
+    const type = typeIndex >= 0 ? String(values[typeIndex] || "").trim().toLowerCase() : "";
+    const name = String(values[type === "artist" && trackIndex >= 0 ? trackIndex : artistIndex >= 0 ? artistIndex : trackIndex] || "").trim();
+    if (!name || (type && type !== "artist")) continue;
+    imported.push({ name, ...(spotifyIndex >= 0 && values[spotifyIndex]?.trim() ? { spotify_id: values[spotifyIndex].trim() } : {}) });
+  }
+  return mergeFavouriteArtists(imported);
+}
 
 const state = {
+  query: "",
   venueType: "all",
   includeLarge: false,
   genres: new Set(),
@@ -39,6 +136,7 @@ let mobileListScrollY = 0;
 const eventsEl = document.querySelector("#events");
 const emptyEl = document.querySelector("#emptyState");
 const countEl = document.querySelector("#resultCount");
+const keywordSearchEl = document.querySelector("#keywordSearch");
 const genreEl = document.querySelector("#genreFilters");
 const genrePickerEl = document.querySelector("#genrePicker");
 const genreSelectionEl = document.querySelector("#genreSelection");
@@ -55,6 +153,10 @@ const expressContentEl = document.querySelector("#expressContent");
 const showExpressEl = document.querySelector("#showExpress");
 const detailEl = document.querySelector("#eventDetail");
 const detailContentEl = document.querySelector("#detailContent");
+const favouriteCountEl = document.querySelector("#favouriteCount");
+const favouriteStatusEl = document.querySelector("#favouriteStatus");
+const favouriteCsvEl = document.querySelector("#favouriteCsv");
+const mergeFavouritesEl = document.querySelector("#mergeFavourites");
 
 const londonTodayParts = Object.fromEntries(new Intl.DateTimeFormat("en-GB", {
   timeZone: "Europe/London",
@@ -161,6 +263,32 @@ document.querySelector("#resetExcluded").addEventListener("click", () => {
   render();
 });
 
+favouriteCsvEl.addEventListener("change", async (event) => {
+  const file = event.target.files?.[0];
+  if (!file) return;
+  try {
+    const imported = parseFavouriteCsv(await file.text());
+    if (!imported.length) throw new Error("No artist rows found");
+    const previous = activeFavouriteArtists();
+    const shouldMerge = mergeFavouritesEl.checked;
+    customFavouriteArtists = shouldMerge ? mergeFavouriteArtists(previous, imported) : imported;
+    saveCustomFavouriteArtists();
+    refreshFavouriteIndex();
+    favouriteStatusEl.textContent = `${customFavouriteArtists.length} artists active · ${shouldMerge ? Math.max(0, customFavouriteArtists.length - previous.length) : customFavouriteArtists.length} imported`;
+    render();
+  } catch {
+    favouriteStatusEl.textContent = "Could not read that CSV. Choose a Spotify library export.";
+  }
+  event.target.value = "";
+});
+
+document.querySelector("#resetFavourites").addEventListener("click", () => {
+  customFavouriteArtists = null;
+  saveCustomFavouriteArtists();
+  refreshFavouriteIndex();
+  render();
+});
+
 document.querySelector("#copyPreferences").addEventListener("click", async () => {
   const url = new URL(window.location.href);
   const value = [...state.excludedGenres].sort().join("|");
@@ -177,6 +305,11 @@ document.querySelector("#copyPreferences").addEventListener("click", async () =>
 
 document.querySelector("#venueType").addEventListener("change", (event) => {
   state.venueType = event.target.value;
+  render();
+});
+
+keywordSearchEl.addEventListener("input", (event) => {
+  state.query = event.target.value;
   render();
 });
 
@@ -278,8 +411,40 @@ function filteredEvents({ includePostcode = true } = {}) {
     if (includePostcode && state.postcodeAreas.size && !state.postcodeAreas.has(postcodeArea(event.postcode))) return false;
     if ((event.genres || []).some((genre) => state.excludedGenres.has(genre))) return false;
     if (state.genres.size && !(event.genres || []).some((genre) => state.genres.has(genre))) return false;
+    if (state.query && !searchableEventText(event).includes(mediaKey(state.query))) return false;
     return true;
-  }).sort((a, b) => Number(state.shortlisted.has(eventKey(b))) - Number(state.shortlisted.has(eventKey(a))));
+  }).sort((a, b) => eventSortRank(a) - eventSortRank(b));
+}
+
+function searchableEventText(event) {
+  return mediaKey([
+    event.event_name,
+    event.artist,
+    event.venue,
+    event.borough,
+    event.postcode,
+    event.promoter,
+    event.description,
+    ...(event.genres || [])
+  ].filter(Boolean).join(" "));
+}
+
+function eventFlags(event) {
+  const status = mediaKey(event.status || "");
+  const titleAndArtist = mediaKey([event.event_name, event.artist].filter(Boolean).join(" "));
+  const fullDetails = mediaKey([event.event_name, event.artist, event.description].filter(Boolean).join(" "));
+  return {
+    soldOut: status === "sold out" || /\bsold out\b/.test(titleAndArtist),
+    tribute: /\btribute\b/.test(fullDetails)
+  };
+}
+
+function eventSortRank(event) {
+  const flags = eventFlags(event);
+  if (flags.soldOut || flags.tribute) return 3;
+  if (state.shortlisted.has(eventKey(event))) return 0;
+  if (favouriteArtistForEvent(event)) return 1;
+  return 2;
 }
 
 function render() {
@@ -294,6 +459,11 @@ function render() {
   eventsEl.innerHTML = visible.map(card).join("");
   genreSelectionEl.textContent = state.genres.size ? `(${state.genres.size} selected)` : "";
   excludeCountEl.textContent = state.excludedGenres.size ? `(${state.excludedGenres.size} hidden)` : "";
+  const favouriteArtists = activeFavouriteArtists();
+  favouriteCountEl.textContent = favouriteArtists.length ? `(${favouriteArtists.length})` : "(none)";
+  favouriteStatusEl.textContent = customFavouriteArtists === null
+    ? `${favouriteArtists.length} shared artists active · import a CSV to customise this list`
+    : `${favouriteArtists.length} imported artists active · use shared list to reset`;
   excludeGenreEl.querySelectorAll("button[data-genre]").forEach((button) => button.classList.toggle("active", state.excludedGenres.has(button.dataset.genre)));
   postcodeEl.querySelectorAll("button[data-postcode-area]").forEach((button) => button.classList.toggle("active", state.postcodeAreas.has(button.dataset.postcodeArea)));
   const selectedDate = state.dateRange === "tomorrow" ? dateAtOffset(1) : state.dateRange === "custom" ? state.customDate : todayKey;
@@ -307,11 +477,17 @@ function card(event) {
   const price = event.price == null ? "Price not listed" : `£${event.price.toFixed(2)}`;
   const status = event.status !== "listed" ? `<span class="status">${escapeHtml(event.status)}</span>` : "";
   const booking = bookingLink(event);
+  const favourite = favouriteArtistForEvent(event);
+  const flags = eventFlags(event);
   const selectedClass = state.selectedEventKey === eventKey(event) ? " selected" : "";
-  return `<article class="event-card${selectedClass}" data-event-key="${escapeAttribute(eventKey(event))}" tabindex="0" role="button" aria-label="Open details for ${escapeAttribute(event.event_name)}">
-    <div class="event-top"><span class="venue-type">${escapeHtml(event.venue_type)} ${status}</span><span class="event-time">${escapeHtml(formatDate(event.date))} · ${escapeHtml(formatTime(event.time))}</span><label class="shortlist-toggle"><input class="shortlist-checkbox" data-event-key="${escapeAttribute(eventKey(event))}" type="checkbox" ${state.shortlisted.has(eventKey(event)) ? "checked" : ""} /><span>Shortlist</span></label></div>
+  const favouriteClass = favourite ? " favourite-event" : "";
+  const deprioritisedClass = flags.soldOut || flags.tribute ? " deprioritised-event" : "";
+  const favouriteMark = favourite ? `<span class="favourite-star" title="Favourite artist: ${escapeAttribute(favourite.name)}" aria-label="Favourite artist ${escapeAttribute(favourite.name)}">★</span>` : "";
+  const eventFlagsMarkup = [flags.soldOut ? `<span class="event-flag sold-out-flag">Sold out</span>` : "", flags.tribute ? `<span class="event-flag tribute-flag">Tribute</span>` : ""].join("");
+  return `<article class="event-card${selectedClass}${favouriteClass}${deprioritisedClass}" data-event-key="${escapeAttribute(eventKey(event))}" tabindex="0" role="button" aria-label="Open details for ${escapeAttribute(event.event_name)}${favourite ? ` · favourite artist ${escapeAttribute(favourite.name)}` : ""}">
+    <div class="event-top"><span class="venue-type">${escapeHtml(event.venue_type)} ${status}${eventFlagsMarkup}</span><span class="event-time">${escapeHtml(formatDate(event.date))} · ${escapeHtml(formatTime(event.time))}</span><label class="shortlist-toggle"><input class="shortlist-checkbox" data-event-key="${escapeAttribute(eventKey(event))}" type="checkbox" ${state.shortlisted.has(eventKey(event)) ? "checked" : ""} /><span>Shortlist</span></label></div>
     <div class="media-slot">${mediaMarkup(event)}</div>
-    <h3>${escapeHtml(event.event_name)}</h3>
+    <div class="event-title-line">${favouriteMark}<h3>${escapeHtml(event.event_name)}</h3></div>
     <div class="venue-block"><div class="venue">${escapeHtml(event.venue)}</div><div class="location">${escapeHtml(event.borough)} · ${escapeHtml(event.postcode)}</div></div>
     <p class="description">${escapeHtml(event.description || "Details available on the source listing.")}</p>
     <div class="genre-list">${(event.genres || []).map((genre) => `<span class="genre-tag">${escapeHtml(genre)}</span>`).join("")}</div>
@@ -324,7 +500,27 @@ function eventArtistNames(event) {
   if (!raw) return [];
   const looksLikeEventTitle = mediaKey(raw) === mediaKey(event.event_name) && /\b(presents?|live music|weekender|candlelight|experience|nights?|party|fest(?:ival)?|cabaret|sessions?|show|at|special|signing|world music)\b/i.test(raw);
   if (looksLikeEventTitle) return [];
-  return raw.split(/\s*[,;|]\s*/).map((name) => name.trim()).filter(Boolean);
+  return raw.split(/\s*(?:[,;|]|\+|&)\s*/).map((name) => name.trim()).filter(Boolean);
+}
+
+function favouriteArtistForEvent(event) {
+  const cacheKey = eventKey(event);
+  if (favouriteMatchCache.has(cacheKey)) return favouriteMatchCache.get(cacheKey);
+  const titleAndArtistText = mediaKey([event.event_name, event.artist].filter(Boolean).join(" "));
+  const descriptionText = mediaKey(event.description || "");
+  const match = favouriteRecords.find((artist) => {
+    const phrase = mediaKey(artist.name);
+    if (!phrase) return false;
+    const phrasePattern = new RegExp(`(^| )${escapeRegex(phrase)}( |$)`);
+    if (phrasePattern.test(titleAndArtistText)) return true;
+    return phrase.split(" ").length > 1 && phrasePattern.test(descriptionText);
+  }) || null;
+  favouriteMatchCache.set(cacheKey, match);
+  return match;
+}
+
+function escapeRegex(value) {
+  return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
 function primaryArtist(event) {
@@ -339,6 +535,9 @@ function openEvent(key) {
   if (window.matchMedia("(max-width: 700px)").matches) mobileListScrollY = window.scrollY;
   state.selectedEventKey = key;
   render();
+  if (window.matchMedia("(min-width: 901px)").matches) {
+    requestAnimationFrame(() => detailEl.scrollIntoView({ block: "nearest", inline: "nearest", behavior: "smooth" }));
+  }
 }
 
 function expressMediaLinks(event) {
@@ -390,13 +589,16 @@ function renderDetail(visible) {
   const selected = visible.find((event) => eventKey(event) === state.selectedEventKey);
   detailEl.hidden = !selected;
   detailEl.parentElement.classList.toggle("detail-open", Boolean(selected));
+  detailEl.classList.toggle("deprioritised-detail", Boolean(selected && (eventFlags(selected).soldOut || eventFlags(selected).tribute)));
   if (!selected) {
     detailContentEl.innerHTML = "";
     return;
   }
   const price = selected.price == null ? "Price not listed" : `£${selected.price.toFixed(2)}`;
   const booking = bookingLink(selected);
-  detailContentEl.innerHTML = `<div class="detail-media">${mediaMarkup(selected)}</div><div class="detail-meta"><p class="detail-kicker">${escapeHtml(selected.venue_type)} · ${escapeHtml(formatDate(selected.date))} · ${escapeHtml(formatTime(selected.time))}</p><label class="shortlist-toggle"><input class="shortlist-checkbox" data-event-key="${escapeAttribute(eventKey(selected))}" type="checkbox" ${state.shortlisted.has(eventKey(selected)) ? "checked" : ""} /><span>Shortlist</span></label></div><h3>${escapeHtml(selected.event_name)}</h3><div class="venue-block"><div class="venue">${escapeHtml(selected.venue)}</div><div class="location">${escapeHtml(selected.borough)} · ${escapeHtml(selected.postcode)}</div></div><p class="description">${escapeHtml(selected.description || "Details available on the source listing.")}</p><div class="genre-list">${(selected.genres || []).map((genre) => `<span class="genre-tag">${escapeHtml(genre)}</span>`).join("")}</div><div class="detail-footer"><span class="price">${price}</span><a class="ticket-link" href="${escapeAttribute(booking.url)}" target="_blank" rel="noreferrer">${escapeHtml(booking.label)} ↗</a></div>`;
+  const favourite = favouriteArtistForEvent(selected);
+  const favouriteMark = favourite ? `<span class="favourite-star" title="Favourite artist: ${escapeAttribute(favourite.name)}" aria-label="Favourite artist ${escapeAttribute(favourite.name)}">★</span>` : "";
+  detailContentEl.innerHTML = `<div class="detail-media">${mediaMarkup(selected)}</div><div class="detail-meta"><p class="detail-kicker">${escapeHtml(selected.venue_type)} · ${escapeHtml(formatDate(selected.date))} · ${escapeHtml(formatTime(selected.time))}</p><label class="shortlist-toggle"><input class="shortlist-checkbox" data-event-key="${escapeAttribute(eventKey(selected))}" type="checkbox" ${state.shortlisted.has(eventKey(selected)) ? "checked" : ""} /><span>Shortlist</span></label></div><div class="detail-title-line">${favouriteMark}<h3>${escapeHtml(selected.event_name)}</h3></div><div class="venue-block"><div class="venue">${escapeHtml(selected.venue)}</div><div class="location">${escapeHtml(selected.borough)} · ${escapeHtml(selected.postcode)}</div></div><p class="description">${escapeHtml(selected.description || "Details available on the source listing.")}</p><div class="genre-list">${(selected.genres || []).map((genre) => `<span class="genre-tag">${escapeHtml(genre)}</span>`).join("")}</div><div class="detail-footer"><span class="price">${price}</span><a class="ticket-link" href="${escapeAttribute(booking.url)}" target="_blank" rel="noreferrer">${escapeHtml(booking.label)} ↗</a></div>`;
 }
 
 function instagramResearchUrl(name, role = "artist") {

@@ -5,7 +5,7 @@ A first prototype for finding London gigs in pubs and grassroots venues, startin
 ## Run the prototype
 
 ```powershell
-cd "C:\Users\plik\OneDrive\Documenti\Codes\london-gig-planner"
+cd "your folder"
 node server.mjs
 ```
 
@@ -43,6 +43,18 @@ Large venues are retained in the data but hidden by default through the `Include
 
 The default presentation is a compact list for scanning dates, venues, genres and booking actions. The optional Cards view is reserved for future media enrichment such as YouTube embeds and the latest Instagram content.
 
+## Spotify favourite artists
+
+`data/favourite-artists.json` contains the shared starter list of favourite artists. Matching events receive a star and a subtle highlighted row. The page also has a browser-local CSV importer under **Spotify favourites**. Imports can either merge new names into the active list or replace it for that browser, so other people can use their own Spotify export without changing the shared data.
+
+To rebuild the shared list from a Spotify library export:
+
+```powershell
+node scripts\import_favourite_artists.mjs --input "path\to\My Spotify Library.CSV" --output data\favourite-artists.json
+```
+
+The importer recognises Spotify's `Type`, `Track name`, `Artist name` and `Spotify - id` columns, removes duplicates after normalising case/accents, and stores only artist names plus optional Spotify IDs.
+
 ## Quick rebuild and GitHub Pages
 
 For a local refresh after the source data changes:
@@ -62,7 +74,7 @@ The site itself is static, so GitHub Pages can serve it without a server or data
 To create the repository and push it once:
 
 ```powershell
-cd "C:\Users\plik\OneDrive\Documenti\Codes\london-gig-planner"
+cd "your folder"
 git init
 git add .
 git commit -m "Initial London gig planner"

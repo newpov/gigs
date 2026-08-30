@@ -1,0 +1,3373 @@
+{
+  "source": "Spotify library export",
+  "artists": [
+    {
+      "name": "883",
+      "spotify_id": "6bMul6rmRS03x38tWKYifO"
+    },
+    {
+      "name": "Aaron Sibley",
+      "spotify_id": "4ALo5SFnRruA76mQqKQq84"
+    },
+    {
+      "name": "Abi Farrell",
+      "spotify_id": "185ZNlMrEw2SxrYTIrQ22R"
+    },
+    {
+      "name": "Abimaro",
+      "spotify_id": "6ZrBzUQXpmwFpiUIlqSLbm"
+    },
+    {
+      "name": "AC/DC",
+      "spotify_id": "711MCceyCBcFnzjGY4Q7Un"
+    },
+    {
+      "name": "Acoustic Odds",
+      "spotify_id": "09t06fDlTXOeCrBWaqaaQz"
+    },
+    {
+      "name": "Adele & Andy",
+      "spotify_id": "41zWHWTPa9YSyfF2tAPtwM"
+    },
+    {
+      "name": "Adrianne Lenker",
+      "spotify_id": "4aKWmkWAKviFlyvHYPTNQY"
+    },
+    {
+      "name": "Adyn Townes",
+      "spotify_id": "4O9xd8JzuFBEzcSpeQrRqf"
+    },
+    {
+      "name": "AHI",
+      "spotify_id": "08Uextujt6ZT2iQmSYAJfH"
+    },
+    {
+      "name": "Aine Rose Daly",
+      "spotify_id": "7i3kD2ZevBC6U2Y1WNJ4OE"
+    },
+    {
+      "name": "Aiva",
+      "spotify_id": "7l3ljksRpzv2y6kylZ4piq"
+    },
+    {
+      "name": "Aiyana K",
+      "spotify_id": "3qUef2hIoHJ6Sgkw8dqcpg"
+    },
+    {
+      "name": "AJ Jenks And His Lost Soul Society Band",
+      "spotify_id": "2j64uNNWt3bP3Ns1uQMy3C"
+    },
+    {
+      "name": "AJ Wander",
+      "spotify_id": "5fr3sYfFREtEo0KCnnionb"
+    },
+    {
+      "name": "Alba in Blue",
+      "spotify_id": "6EHTDHnSWjZ4edr1vWVp8U"
+    },
+    {
+      "name": "Aleandro Baldi",
+      "spotify_id": "07RQpJUe4UmtHuLO7X17l4"
+    },
+    {
+      "name": "Alessandra Boldrini",
+      "spotify_id": "5JSzX7BThTAiRutfFNIYsq"
+    },
+    {
+      "name": "Alex Fay",
+      "spotify_id": "7uJdg4DExEA1nfyFYRJNKQ"
+    },
+    {
+      "name": "Alex Gibson",
+      "spotify_id": "2lru5lgDquPtJlwRLs3e6Z"
+    },
+    {
+      "name": "Alex Hosking",
+      "spotify_id": "5YCU9eHY4IYTyNa8XRFuw9"
+    },
+    {
+      "name": "Alex Jayne",
+      "spotify_id": "5p7W8I9YbVzXbZt827Ot24"
+    },
+    {
+      "name": "Alex Newell",
+      "spotify_id": "2vGaSKEDFsVPBgcnGxqlBN"
+    },
+    {
+      "name": "Alex Rv Phillips",
+      "spotify_id": "5OG37OrEJeTvy7w5p7YLPF"
+    },
+    {
+      "name": "Alex Vargas",
+      "spotify_id": "3kdU3J8t1HUPZqFyScP8SF"
+    },
+    {
+      "name": "Alexia Chambi",
+      "spotify_id": "1cUsj7M50fiFlxZJvj2oi6"
+    },
+    {
+      "name": "Alexis Corey",
+      "spotify_id": "047t1673GJyjM2wdI2jNWV"
+    },
+    {
+      "name": "Alfie Jukes",
+      "spotify_id": "06qfcPQQZ3AplWOg3KxsQ9"
+    },
+    {
+      "name": "Alfie Templeman",
+      "spotify_id": "6QzMY3tnu0m56eKUnr4uCF"
+    },
+    {
+      "name": "Ali Angel",
+      "spotify_id": "0RPW9rpDMyVD4wEMzvd1RG"
+    },
+    {
+      "name": "Alice Pisano",
+      "spotify_id": "1B52Dud7YBQYoGLt2QxckH"
+    },
+    {
+      "name": "Alice Thompson",
+      "spotify_id": "38qQvZlIT8MgXJCgR4jBpQ"
+    },
+    {
+      "name": "Alice Watts",
+      "spotify_id": "51SA5OLsMraqC9X4E0Dqbp"
+    },
+    {
+      "name": "ALICJA",
+      "spotify_id": "0aCRGI3PsmtCjyTCnRpRgM"
+    },
+    {
+      "name": "Alimish",
+      "spotify_id": "2gbXRkygfEuz0WIjtN2vpR"
+    },
+    {
+      "name": "Allie Sherlock",
+      "spotify_id": "2yTmZ1PwFKkO0FjQp2flPl"
+    },
+    {
+      "name": "ALLY THORN",
+      "spotify_id": "6vtFvaOJr13jRAEYMxRq6R"
+    },
+    {
+      "name": "ALMA",
+      "spotify_id": "6c0mTNAxJxlp9HpKTUZwA8"
+    },
+    {
+      "name": "Alta Marea",
+      "spotify_id": "0jSOXAFMWFS0739gE55Oqw"
+    },
+    {
+      "name": "Alyssa Bonagura",
+      "spotify_id": "31P1IMaJH0mI1pvB9jATHB"
+    },
+    {
+      "name": "Alyssa Palmer",
+      "spotify_id": "5oXljrOyI5j6p3I4R3j6eE"
+    },
+    {
+      "name": "Amber T",
+      "spotify_id": "3l09769b9P2lIBDooAON17"
+    },
+    {
+      "name": "Amber Van Day",
+      "spotify_id": "6NFRBhq9SmNn1FAiRs9AEf"
+    },
+    {
+      "name": "Ambro River",
+      "spotify_id": "0PHcxlRasXcyVKH9mcioAe"
+    },
+    {
+      "name": "Amelia Lappert",
+      "spotify_id": "2YW3JGiNITNOXFJl53FuQ4"
+    },
+    {
+      "name": "Ameritz - Karaoke",
+      "spotify_id": "6aLDS9oOXpit8wJTtueP8g"
+    },
+    {
+      "name": "Amie Huckstep",
+      "spotify_id": "1TT1manwItsb5Z1MHKHdHw"
+    },
+    {
+      "name": "Amii Dawes",
+      "spotify_id": "7xktRbz7qZay313bNyo7aF"
+    },
+    {
+      "name": "amilost",
+      "spotify_id": "2yETvq5CaJeilJEzX5E0nO"
+    },
+    {
+      "name": "Andrew Cushin",
+      "spotify_id": "0mUufv9jrIi9BPpN9VHduc"
+    },
+    {
+      "name": "Andy John Jones",
+      "spotify_id": "1Ah4bq1WicRET7kel9sCkJ"
+    },
+    {
+      "name": "Angel and Co",
+      "spotify_id": "0k4R0bATvJqi45ikN2hJPr"
+    },
+    {
+      "name": "Angie McMahon",
+      "spotify_id": "574ERIqzZ5yZU9JhIf3Ysf"
+    },
+    {
+      "name": "Anna Bea",
+      "spotify_id": "4iu3Kum42OdS7iIUnNXvgM"
+    },
+    {
+      "name": "Anna Graceman",
+      "spotify_id": "2B69uGl0nh5LMFUAZxVw5y"
+    },
+    {
+      "name": "Anna Graves",
+      "spotify_id": "4j9vFTGkTHf54MjcZvedcT"
+    },
+    {
+      "name": "Anna Krantz",
+      "spotify_id": "4i59RUIkm7VBS2bPLZkxG2"
+    },
+    {
+      "name": "Annalisa",
+      "spotify_id": "0EqkKYDK9EkKY5N7zU3FPv"
+    },
+    {
+      "name": "Anouska Assisi",
+      "spotify_id": "5L7ckIdP5nUSPxzpMY0ldx"
+    },
+    {
+      "name": "Archie X",
+      "spotify_id": "7iHfb5ODaqKyprp2DBEXvU"
+    },
+    {
+      "name": "Arctic Lake",
+      "spotify_id": "0IEPb9ily3E5IAYMSkwtQ6"
+    },
+    {
+      "name": "Argyle",
+      "spotify_id": "341j56Mxd1Dm9mOUC2OBfg"
+    },
+    {
+      "name": "Arlissa",
+      "spotify_id": "7wzaSKTsjE9HnuDuZTX452"
+    },
+    {
+      "name": "Arrows Of Time",
+      "spotify_id": "7qNpTs5HgNBQaq1Y5Hv661"
+    },
+    {
+      "name": "Ash Bates",
+      "spotify_id": "35tR8LuH1obcB8Dg3dCTsy"
+    },
+    {
+      "name": "Ashley Singh",
+      "spotify_id": "0W5v1wZ9vqtoIgklZa1wcH"
+    },
+    {
+      "name": "Astræa",
+      "spotify_id": "799p2CSGw9GjO2X5pAB3ZH"
+    },
+    {
+      "name": "Astrid S",
+      "spotify_id": "3AVfmawzu83sp94QW7CEGm"
+    },
+    {
+      "name": "Atli",
+      "spotify_id": "3K075m0ezXFrAdGtZUawkB"
+    },
+    {
+      "name": "Attic Theory",
+      "spotify_id": "0oOXpZTNdHDl8M1S3xQhhN"
+    },
+    {
+      "name": "Audra Mae",
+      "spotify_id": "21jPcGkRtUofRVCC8cWHPS"
+    },
+    {
+      "name": "Autumn Sharif",
+      "spotify_id": "19tbGGFDtaj7PkXyRSQ9aQ"
+    },
+    {
+      "name": "Autumn The Diamond",
+      "spotify_id": "1OnIib8ZECH5FNGW3lgEzG"
+    },
+    {
+      "name": "Autumn X",
+      "spotify_id": "5Ooszrw9dYereRdzdskS4N"
+    },
+    {
+      "name": "Ava Lyons",
+      "spotify_id": "668wcG22PteQegdJFatxcO"
+    },
+    {
+      "name": "Aziya",
+      "spotify_id": "5GlFG0lCadjEBnY1w1FwwW"
+    },
+    {
+      "name": "Backwoods Creek",
+      "spotify_id": "2TbDCxDHh2I8FR5wU72zzK"
+    },
+    {
+      "name": "bailey lanes.",
+      "spotify_id": "1JMLXr7mHGUCRooE7NdjaK"
+    },
+    {
+      "name": "Barerra",
+      "spotify_id": "2mYaVYNvpcZnzowSefbewF"
+    },
+    {
+      "name": "Barstow Drive",
+      "spotify_id": "64QHXCaPU3ghyldM3znEc0"
+    },
+    {
+      "name": "Basht.",
+      "spotify_id": "0bIaFZHuLgWlw8UiE9qBAE"
+    },
+    {
+      "name": "Bastette",
+      "spotify_id": "7q3KtOxcEBxfetKNxzfoxQ"
+    },
+    {
+      "name": "Bastian Steven",
+      "spotify_id": "1WjUPqHiUz3DrX0l1PLsC5"
+    },
+    {
+      "name": "Bea",
+      "spotify_id": "6Jl6Xw5FnzQqmKNodwbKym"
+    },
+    {
+      "name": "Bēatrice",
+      "spotify_id": "2rqS8BtIfIocY5iPWo98XH"
+    },
+    {
+      "name": "Becky Hill",
+      "spotify_id": "4EPJlUEBy49EX1wuFOvtjK"
+    },
+    {
+      "name": "Bee bakare",
+      "spotify_id": "3wu1SX4fZB8cWvgJCH2o3T"
+    },
+    {
+      "name": "Belle Dame",
+      "spotify_id": "2x6ghm02EnRaKPnarl0p81"
+    },
+    {
+      "name": "Belle Velvet",
+      "spotify_id": "61npj7SvCkbW9vt9Gc1qht"
+    },
+    {
+      "name": "Ben Eaton",
+      "spotify_id": "74awKmgGzGZBepIUM06JYk"
+    },
+    {
+      "name": "Ben Hutcheson",
+      "spotify_id": "1tl8diBdYcaQsBuZgEsaPj"
+    },
+    {
+      "name": "Ben Lythe",
+      "spotify_id": "1hV64PoM9p5HOnBbIrpnUZ"
+    },
+    {
+      "name": "Benjamin Braatz",
+      "spotify_id": "3VFLHlQTeyVSuYkXzV1hQz"
+    },
+    {
+      "name": "Benjamin David",
+      "spotify_id": "6MbYfJKTlq34YEfYtQ64zu"
+    },
+    {
+      "name": "Benson Boone",
+      "spotify_id": "22wbnEMDvgVIAGdFeek6ET"
+    },
+    {
+      "name": "Beth George",
+      "spotify_id": "2BAtbeUf554n5O8qxXYmFC"
+    },
+    {
+      "name": "Beth Keeping",
+      "spotify_id": "4Arf7HqBihxQlOs8wO49l5"
+    },
+    {
+      "name": "Bethany Nelson",
+      "spotify_id": "4ib0IxBc3R8zhdMER5jM3u"
+    },
+    {
+      "name": "BETSIE GØLD",
+      "spotify_id": "5nE8CAd519jLpwMX2YgFMK"
+    },
+    {
+      "name": "Bexatron",
+      "spotify_id": "2vKP9JrDVQyfNroiqCdAkk"
+    },
+    {
+      "name": "bexx",
+      "spotify_id": "6tXuCxJODkifV9zdPsA1G6"
+    },
+    {
+      "name": "Billy Boguard",
+      "spotify_id": "0gxerb0dAjTlCRdRFslqK2"
+    },
+    {
+      "name": "Billy Joel",
+      "spotify_id": "6zFYqv1mOsgBRQbae3JJ9e"
+    },
+    {
+      "name": "BirdSMITH",
+      "spotify_id": "5uWOL8mQQYdChSZ7xq4GIa"
+    },
+    {
+      "name": "Bisou Noir",
+      "spotify_id": "3u2NeKz400Kx4PunNlrl1S"
+    },
+    {
+      "name": "Bitter Trick",
+      "spotify_id": "7r4J46jXhAB45OxcXiwrrT"
+    },
+    {
+      "name": "Blanco White",
+      "spotify_id": "3ccVtqcqedranb7y8eywJ5"
+    },
+    {
+      "name": "Bohdi Rose",
+      "spotify_id": "7e69IlE9nKo2uGtCjM5Z2c"
+    },
+    {
+      "name": "Bought It for the Bottle",
+      "spotify_id": "5lrpFF8AKOt8kOzHfCyhIz"
+    },
+    {
+      "name": "BOYY",
+      "spotify_id": "3TKwMNkY3pIOJssmsjhE0M"
+    },
+    {
+      "name": "Bradley Denniston",
+      "spotify_id": "53kQBsEHAWWgAJtXLC37fh"
+    },
+    {
+      "name": "Bradley Jago",
+      "spotify_id": "7fZiFdrrzkCODhgaKBInuz"
+    },
+    {
+      "name": "Britney DiTocco",
+      "spotify_id": "6zfBLlUCGk6tskieM4VHUE"
+    },
+    {
+      "name": "Broken Colours",
+      "spotify_id": "2btc1eS7eAvLTTtJHtSjWW"
+    },
+    {
+      "name": "Brooke Combe",
+      "spotify_id": "0JXwYf8x27ZfMO2gGuh6HO"
+    },
+    {
+      "name": "Brooke Law",
+      "spotify_id": "0mDLTE0tzaN3lPl91t550q"
+    },
+    {
+      "name": "Bryde",
+      "spotify_id": "0N8tTwUhQQD75uLOyqhfVU"
+    },
+    {
+      "name": "bshp",
+      "spotify_id": "2RV0VshxVfkduUIHn0PLzJ"
+    },
+    {
+      "name": "Building Giants",
+      "spotify_id": "4geUnENr5Fi084oCQrhukM"
+    },
+    {
+      "name": "Bywater Call",
+      "spotify_id": "1bhk3AmtYKQAcDzbDyWG4M"
+    },
+    {
+      "name": "Cait Macklon",
+      "spotify_id": "0nHf9uhu2yNo6ALZInM89B"
+    },
+    {
+      "name": "Caitlin",
+      "spotify_id": "1JfNRa6vkoWP0k2UASfk7e"
+    },
+    {
+      "name": "Calico Jack",
+      "spotify_id": "0tu1dP6SKClolzRtSxWoJK"
+    },
+    {
+      "name": "Callinsick",
+      "spotify_id": "05I6krIHdVi1OFeF5ShrNb"
+    },
+    {
+      "name": "Callum Beattie",
+      "spotify_id": "4uFxymnU41sM7ytUCjuYTN"
+    },
+    {
+      "name": "Calum Lintott",
+      "spotify_id": "5OtzmAwOyTYwdZQ5smT6oU"
+    },
+    {
+      "name": "Cameron Hayes",
+      "spotify_id": "1YXcpHpeg9PwsUBJwe9fgX"
+    },
+    {
+      "name": "Camilla Dunhill",
+      "spotify_id": "5iRgBCHp0zeVOMpt5jwk0O"
+    },
+    {
+      "name": "Candid",
+      "spotify_id": "2eSdPS2sIENi2M3IO0mpwa"
+    },
+    {
+      "name": "Capital Theatre",
+      "spotify_id": "4ISF1JXAPlRrDtZu9EgIcv"
+    },
+    {
+      "name": "Cara Hammond",
+      "spotify_id": "6kVzFxVpG66n3Tw4fVIM4F"
+    },
+    {
+      "name": "Cardinal Black",
+      "spotify_id": "39oKFGoKzTEZlc8PMP7kQ3"
+    },
+    {
+      "name": "Caroline Kenyon",
+      "spotify_id": "2OeGhxod1RbjL0gKCOkeBD"
+    },
+    {
+      "name": "Cassandra Coleman",
+      "spotify_id": "1O6GvgnaHzgcFlCX6RlhYV"
+    },
+    {
+      "name": "Catching Mangoes",
+      "spotify_id": "2McKGYjLuYuPwU2kCz1ksx"
+    },
+    {
+      "name": "Cavalcade",
+      "spotify_id": "209yZUIl2pYkLRP0D7TdRO"
+    },
+    {
+      "name": "Celestines",
+      "spotify_id": "1ToEjCTXGQh4mzQcKxlLqd"
+    },
+    {
+      "name": "Celine Cairo",
+      "spotify_id": "2icndAD2G5umAWdgrARONR"
+    },
+    {
+      "name": "Cerian",
+      "spotify_id": "1aooKI3Cby3gNI0qYu5kLX"
+    },
+    {
+      "name": "CHARLEY",
+      "spotify_id": "7dyeyxdKu61Vh2dqVCpL41"
+    },
+    {
+      "name": "Charlie Hole",
+      "spotify_id": "7zwwBVyBtjnzb0fhdXsRvi"
+    },
+    {
+      "name": "Charlie Vaughn",
+      "spotify_id": "1xUZjv9N1uOMFDX3bnzEBr"
+    },
+    {
+      "name": "Charlotte Enegren",
+      "spotify_id": "5Jh6JYJuJZqiF9DbDocJJp"
+    },
+    {
+      "name": "Charlotte Lawrence",
+      "spotify_id": "7LImGq5KnzQobZciDJpeJb"
+    },
+    {
+      "name": "Charlotte OC",
+      "spotify_id": "7ySHyUSqpKzGnDqOxLiCFH"
+    },
+    {
+      "name": "CHARLS",
+      "spotify_id": "054xTptvdBhGqiTOHvgUaQ"
+    },
+    {
+      "name": "Chasing August",
+      "spotify_id": "0LABLglRMjsUDB2Ej5J3dW"
+    },
+    {
+      "name": "Chasing Deer",
+      "spotify_id": "6dYpvLzQD7hengPe9uhize"
+    },
+    {
+      "name": "Chay Snowdon",
+      "spotify_id": "6efJb9OIDhqr7gZkrVDFIP"
+    },
+    {
+      "name": "Chess Galea",
+      "spotify_id": "3jWkQeMOWTBkIdq1uxHkZX"
+    },
+    {
+      "name": "Chloe Ann",
+      "spotify_id": "5exxY2lkkf9pVwgAvjEHpG"
+    },
+    {
+      "name": "Chris Stapleton",
+      "spotify_id": "4YLtscXsxbVgi031ovDDdh"
+    },
+    {
+      "name": "Chrissi Poland",
+      "spotify_id": "2aIxBg0uXRfT0dwYWkpTXG"
+    },
+    {
+      "name": "Christy",
+      "spotify_id": "3BgniSkzaCLKgQSBkWcsoV"
+    },
+    {
+      "name": "Circumnavigate",
+      "spotify_id": "5K2y9FGdE8Kfwwa5wXB3o7"
+    },
+    {
+      "name": "Claire Frances",
+      "spotify_id": "1aqI2WUC0rZ17gAQN7hCRm"
+    },
+    {
+      "name": "Clara Moschetta",
+      "spotify_id": "6JpBxfFh4tDPBB2DGiDd2u"
+    },
+    {
+      "name": "Clare Bowen",
+      "spotify_id": "1LBeAxaCAHECiK355bwtlW"
+    },
+    {
+      "name": "Clean Bandit",
+      "spotify_id": "6MDME20pz9RveH9rEXvrOM"
+    },
+    {
+      "name": "Cobi",
+      "spotify_id": "4fuZypKGg7klMEF10KTuAN"
+    },
+    {
+      "name": "Colours in the Street",
+      "spotify_id": "3zlipWQdlIaSD0UytEUeO0"
+    },
+    {
+      "name": "Comforts",
+      "spotify_id": "0DTo7Y75bhTLMs5vlUSaxM"
+    },
+    {
+      "name": "Con Barclay",
+      "spotify_id": "6tSY0p825K1Tbsjqom0ezO"
+    },
+    {
+      "name": "Connie Campsie",
+      "spotify_id": "27ypqOvpNc3CXggjLJNfFs"
+    },
+    {
+      "name": "Conor Cassidy",
+      "spotify_id": "4N7hUeWslN996pbLTjNcft"
+    },
+    {
+      "name": "Conor McLain",
+      "spotify_id": "4SoceZBEr5PRcnW2UUMtdF"
+    },
+    {
+      "name": "Coral Palms",
+      "spotify_id": "71N08sNy27geTeAoxcFPRd"
+    },
+    {
+      "name": "Corella",
+      "spotify_id": "5LoyxydilSHtcohX3rSRXe"
+    },
+    {
+      "name": "Cortes & Jackson",
+      "spotify_id": "3kjur5vmHmyVwktsE7adpE"
+    },
+    {
+      "name": "Couch",
+      "spotify_id": "3nYyLjhw4mYzYfJePsCJYJ"
+    },
+    {
+      "name": "Courtney Bennett",
+      "spotify_id": "1LdCht8NJVMXYyYmysMTcR"
+    },
+    {
+      "name": "Courtney Hadwin",
+      "spotify_id": "2pQIRauKVBZQxClh5xMptX"
+    },
+    {
+      "name": "Creature Canyon",
+      "spotify_id": "2dNInv9DAqXZhseHpSHbV6"
+    },
+    {
+      "name": "Creeping Jean",
+      "spotify_id": "3lEdEHlb1g3ru9TY2bhBcM"
+    },
+    {
+      "name": "Crooked Shapes",
+      "spotify_id": "2KQ1yVtucncnLwIU0ydep4"
+    },
+    {
+      "name": "CrossFire",
+      "spotify_id": "4XjgPiH2Ss6OSBw7JrvSCz"
+    },
+    {
+      "name": "Crystal Tides",
+      "spotify_id": "5a94ihfgkkItCundHIPxP4"
+    },
+    {
+      "name": "Culture Wars",
+      "spotify_id": "0DoNSZa1R1DV69oY1djlbf"
+    },
+    {
+      "name": "Curtis Mayfield",
+      "spotify_id": "2AV6XDIs32ofIJhkkDevjm"
+    },
+    {
+      "name": "CVC",
+      "spotify_id": "4UVp2DRjYXq2ZWQwA5QLuD"
+    },
+    {
+      "name": "Dai & The Ramblers",
+      "spotify_id": "2xtRc6dp5PQpamL7nmcoUQ"
+    },
+    {
+      "name": "Daisy Chute",
+      "spotify_id": "3EYH18eKn5tsogwCLxKjpR"
+    },
+    {
+      "name": "Daisy Clark",
+      "spotify_id": "31tKAz77HVjv8W0uqzDNwu"
+    },
+    {
+      "name": "Dallton Santos",
+      "spotify_id": "4f85dyrggzpn04vy7uK4q4"
+    },
+    {
+      "name": "Dami Im",
+      "spotify_id": "2wSrZOe6YVo6XoKma22sdY"
+    },
+    {
+      "name": "Dancing On Tables",
+      "spotify_id": "0onRfrkoTz3yrMeP2Ymhhc"
+    },
+    {
+      "name": "Daniel Caesar",
+      "spotify_id": "20wkVLutqVOYrc0kxFs7rA"
+    },
+    {
+      "name": "Danielle Juhre",
+      "spotify_id": "6nMfhzwvdyr40WdeOv4ewg"
+    },
+    {
+      "name": "Danko",
+      "spotify_id": "6xGIa8HycTuCltuAIm8ph9"
+    },
+    {
+      "name": "Danny Toeman",
+      "spotify_id": "7xp92niYNUvO0DIRmSQRuD"
+    },
+    {
+      "name": "Darla Jade",
+      "spotify_id": "615ZycClQL8KQ8qzZiuP8T"
+    },
+    {
+      "name": "Dave McKendry",
+      "spotify_id": "5OE3WxCOZMByTrhE7JZGTI"
+    },
+    {
+      "name": "Dave Sutherland",
+      "spotify_id": "4Gv04YLnW64FUljntpXnau"
+    },
+    {
+      "name": "David Luximon",
+      "spotify_id": "4CpNeUm6mJvPsHPS9zrikD"
+    },
+    {
+      "name": "DAYTIME TV",
+      "spotify_id": "35ls7qnn5iKLPMT8PnOBy8"
+    },
+    {
+      "name": "Dead Writers",
+      "spotify_id": "5bBnd5oh1WwyF1utWIwdmx"
+    },
+    {
+      "name": "Deaf Havana",
+      "spotify_id": "0exhrQcReCdr11oPbOh22M"
+    },
+    {
+      "name": "Deco",
+      "spotify_id": "4U4MBT2YEXlNEYKEIinJoc"
+    },
+    {
+      "name": "Delilah Montagu",
+      "spotify_id": "3WtrH1zNpzoPSz6XpwCh6y"
+    },
+    {
+      "name": "Dessie Magee",
+      "spotify_id": "1NtRrH5c8GMEcD62fUD8Fm"
+    },
+    {
+      "name": "DeWolff",
+      "spotify_id": "1OHnmln4huMiBLyxBHNx0k"
+    },
+    {
+      "name": "DIA MATORO",
+      "spotify_id": "5rGRRhOYcDzhYNhkJBZTlz"
+    },
+    {
+      "name": "Dino Jag",
+      "spotify_id": "5COmlgDSFQ4JoKVVOMLkgV"
+    },
+    {
+      "name": "Dirty Honey",
+      "spotify_id": "0XBRd3N11rCbh0s8qHf41m"
+    },
+    {
+      "name": "Dirty Mitts",
+      "spotify_id": "21TyDgTMkbaf6uVluZRNb6"
+    },
+    {
+      "name": "DIVIANNE",
+      "spotify_id": "3MoBTgPtbj5tKZYKi1FpTD"
+    },
+    {
+      "name": "Djuno",
+      "spotify_id": "1HBmtX6YyjoCA6MQVaPr1j"
+    },
+    {
+      "name": "Doc Maf Ensemble",
+      "spotify_id": "5pCjrW12R9pPCTYcHG7CHv"
+    },
+    {
+      "name": "DON WEST",
+      "spotify_id": "2FjzRd1bgtsmhESettmFAN"
+    },
+    {
+      "name": "Dorsten",
+      "spotify_id": "5CdWY3kUKjlO7gDpdW2JXR"
+    },
+    {
+      "name": "DRCY",
+      "spotify_id": "6xqX5TirVjxv6MJup2gQZR"
+    },
+    {
+      "name": "Drew Angus",
+      "spotify_id": "3JRBME1P6HDp6nAmcUaaHC"
+    },
+    {
+      "name": "Drew.",
+      "spotify_id": "094rjrIUgdJDayYyiNstxQ"
+    },
+    {
+      "name": "Dua Lipa",
+      "spotify_id": "6M2wZ9GZgrQXHCFfjv46we"
+    },
+    {
+      "name": "DUELS",
+      "spotify_id": "7mJOs78hSTQJNBWBfYs5eY"
+    },
+    {
+      "name": "Dylan",
+      "spotify_id": "4LOM7NzyrZvlGSYPFDsnTk"
+    },
+    {
+      "name": "Earl Gray Collective",
+      "spotify_id": "2ikFVl9ZWYUCFjj0KZrUIV"
+    },
+    {
+      "name": "Ed Staal",
+      "spotify_id": "34t2yk9P5vrHBWLXlZlGrC"
+    },
+    {
+      "name": "Eddie & The Wolves",
+      "spotify_id": "0LLPFS3w5aAnQ8DyOGV7of"
+    },
+    {
+      "name": "Eddy Smith & The 507",
+      "spotify_id": "7HoFIF1l1gyI5VdfxJkwh8"
+    },
+    {
+      "name": "EDGE",
+      "spotify_id": "5kDXrK2eZqvOwIMJqnyAHA"
+    },
+    {
+      "name": "Edison Miller",
+      "spotify_id": "1fjdokjeAfyx39GYSnbCTC"
+    },
+    {
+      "name": "Edna Louise",
+      "spotify_id": "3wC4ZSsdrNwgJhjWwCpU5l"
+    },
+    {
+      "name": "EEVAH",
+      "spotify_id": "3yJNIN3Ih9pFuG4cgfzCRL"
+    },
+    {
+      "name": "Electric Black",
+      "spotify_id": "5Twlnq0zf4Yd49lHBIYL4M"
+    },
+    {
+      "name": "Eline Mann",
+      "spotify_id": "7B68JAWDHgVV7OiLmtjxtu"
+    },
+    {
+      "name": "Elisa",
+      "spotify_id": "2ARH58Hit3yC6ziGdhma23"
+    },
+    {
+      "name": "ell ivy",
+      "spotify_id": "2O6VonIx5DozpRZDKaebKN"
+    },
+    {
+      "name": "Ella McCready",
+      "spotify_id": "2gTlYpda2zddjmuF2qyBpp"
+    },
+    {
+      "name": "Ella Tobin",
+      "spotify_id": "1hdEBuPH4q1u687ZLNF1eb"
+    },
+    {
+      "name": "Ella Winter",
+      "spotify_id": "5XcQ5ASxZzMkKmlhgEXljC"
+    },
+    {
+      "name": "Elle",
+      "spotify_id": "4vM1V5lq7L39jWoIrGwpoI"
+    },
+    {
+      "name": "Elle King",
+      "spotify_id": "3bhu7P5PfngueRHiB9hjcx"
+    },
+    {
+      "name": "Elles Bailey",
+      "spotify_id": "4NPMwh3kDwi6uVCNtmeUvU"
+    },
+    {
+      "name": "Ellie Gowers",
+      "spotify_id": "7u6n2HgQCCFH1uK9AEDMsr"
+    },
+    {
+      "name": "Ellie Hall",
+      "spotify_id": "4cU3rXfyJcTfEE5e1AcMmy"
+    },
+    {
+      "name": "Elliott Pritchard",
+      "spotify_id": "0LTgPx901Nj3Ccri7JN2C9"
+    },
+    {
+      "name": "Eloise Viola",
+      "spotify_id": "6SusScAL9iW1SN9aIiBa3T"
+    },
+    {
+      "name": "Elta Wave",
+      "spotify_id": "1pI9PyQSdupmwHt5taPxhp"
+    },
+    {
+      "name": "Elton John",
+      "spotify_id": "3PhoLpVuITZKcymswpck5b"
+    },
+    {
+      "name": "ELY",
+      "spotify_id": "1j8ZwDuE5DNIxpaSzEiJlx"
+    },
+    {
+      "name": "Emilia Anastazja",
+      "spotify_id": "0cKNOYRTUF2PeSXJCb3jOr"
+    },
+    {
+      "name": "Emily Brimlow",
+      "spotify_id": "5ncA0WGi828yjhqmvHsJRj"
+    },
+    {
+      "name": "Emily Lee",
+      "spotify_id": "6wPhdCeJT8Nv8Y9dU5ezDR"
+    },
+    {
+      "name": "Emily-Rose",
+      "spotify_id": "6zgjccgCNE2isRU4E82joU"
+    },
+    {
+      "name": "Emma Ballantine",
+      "spotify_id": "6Cdwo6JxX3y3F8SjECxIHx"
+    },
+    {
+      "name": "Emma Noble",
+      "spotify_id": "0wKTCSORBOl42BQBahvy6g"
+    },
+    {
+      "name": "Emmy Meli",
+      "spotify_id": "71szvmFWd7TUa7b6XmXj9k"
+    },
+    {
+      "name": "Enlly Blue",
+      "spotify_id": "28W1qq34TByUcLOtkceRxp"
+    },
+    {
+      "name": "Entropies",
+      "spotify_id": "078S3HNa5C35BsNTeW8cNH"
+    },
+    {
+      "name": "Erawan",
+      "spotify_id": "35PL1PsXUdbIqb0diiC3Fm"
+    },
+    {
+      "name": "Eric Clapton",
+      "spotify_id": "6PAt558ZEZl0DmdXlnjMgD"
+    },
+    {
+      "name": "Erin & The Wildfire",
+      "spotify_id": "03NHhY1mdWC3Hf9uJEnomj"
+    },
+    {
+      "name": "Essie",
+      "spotify_id": "41U8qKzPbs2u7AZNUrDKRY"
+    },
+    {
+      "name": "Etaoin",
+      "spotify_id": "5V9BcFYORnSqjFtBgrpx01"
+    },
+    {
+      "name": "Ethan Hodges",
+      "spotify_id": "2MJuujOU75c34aWr7TZsGD"
+    },
+    {
+      "name": "Ether",
+      "spotify_id": "2kHGxqB0pXGGVfMdcQHVNA"
+    },
+    {
+      "name": "Evie Moran",
+      "spotify_id": "1tSwoIoAmVDdRA1ZmirsiL"
+    },
+    {
+      "name": "FABER",
+      "spotify_id": "3flURQ5mXBE6GW0HsVwLH0"
+    },
+    {
+      "name": "Fabia Anderson",
+      "spotify_id": "7fWjkgKXEGCa2vhD67hTZs"
+    },
+    {
+      "name": "FADES",
+      "spotify_id": "2VElyouiCfoYPDJluzwJwK"
+    },
+    {
+      "name": "False Eyed Dolls",
+      "spotify_id": "0ijlhUmb4vlwsHbTVKdV8X"
+    },
+    {
+      "name": "Family Jools",
+      "spotify_id": "2D2dkAs69ZoWgiMmj4Cszl"
+    },
+    {
+      "name": "Fantastic Negrito",
+      "spotify_id": "5QXLMdpKeByOo5ypH9gT13"
+    },
+    {
+      "name": "Fat Dog",
+      "spotify_id": "73o2ae21zezFowYTqvGNW0"
+    },
+    {
+      "name": "Fauna",
+      "spotify_id": "0E5xZUkLT2NcpyCW7LoEWr"
+    },
+    {
+      "name": "Feed The Wolf",
+      "spotify_id": "1vPyDAh0UEv6nhD39S4G7c"
+    },
+    {
+      "name": "Ferris & Sylvester",
+      "spotify_id": "1LnhhjMNydIGawXsnfNhCf"
+    },
+    {
+      "name": "FEVER",
+      "spotify_id": "6sqc5lrCbcsjjpTAp6m6cH"
+    },
+    {
+      "name": "Fickle Friends",
+      "spotify_id": "1nhSLEYdoBHG6cJ8NDwoF1"
+    },
+    {
+      "name": "Fink Tree",
+      "spotify_id": "53YOVGcQEi9pNPH82Ak5cC"
+    },
+    {
+      "name": "Finn Forster",
+      "spotify_id": "5wNzkW6AOF8pl4tCuPdVZh"
+    },
+    {
+      "name": "First Day of Spring",
+      "spotify_id": "56dinQa5eT6VFf7HxiWn9T"
+    },
+    {
+      "name": "First Time Flyers",
+      "spotify_id": "2ZoXzajy6Mqc8AVXhACNtG"
+    },
+    {
+      "name": "Five Points Gang",
+      "spotify_id": "0vZOdMJGMaCZ8SJCzciy0B"
+    },
+    {
+      "name": "FLEUR ROUGE",
+      "spotify_id": "0ffRuel3oov8h1yxqyZLVY"
+    },
+    {
+      "name": "Flo Gallop",
+      "spotify_id": "3hpT13ziNDOLWo3HzuS2IN"
+    },
+    {
+      "name": "Flo Perlin",
+      "spotify_id": "2M9I6kX9POMfrxPfePZh05"
+    },
+    {
+      "name": "Flo Wilkes",
+      "spotify_id": "3IqaycBjqksXbXpUwmM8QT"
+    },
+    {
+      "name": "Flownn",
+      "spotify_id": "2cCuAsfwl1oYhN6yovKdv8"
+    },
+    {
+      "name": "Flynn",
+      "spotify_id": "4yxeyorUKkW9fOOBeguEC9"
+    },
+    {
+      "name": "Foreign Affairs",
+      "spotify_id": "3lKfbaqRTWrGrrjwNG4dqR"
+    },
+    {
+      "name": "Francesca Confortini",
+      "spotify_id": "3kNpyiKMDPXsBCYmpDCRbw"
+    },
+    {
+      "name": "frankie",
+      "spotify_id": "1jRlRJg8Y6mwRlYqHqGN0D"
+    },
+    {
+      "name": "Freddie Elmberg",
+      "spotify_id": "2HAhqKaUVbYDq0rTlwo1md"
+    },
+    {
+      "name": "Freya Ridings",
+      "spotify_id": "5pDjmC5mRl7vDJhsjVwNfk"
+    },
+    {
+      "name": "From The Outside",
+      "spotify_id": "7MN7Yrilt6nvfWgegqult2"
+    },
+    {
+      "name": "Fuchsia",
+      "spotify_id": "7gk1uPUu7epfreMT1J1ZOK"
+    },
+    {
+      "name": "Fuzz Skyler",
+      "spotify_id": "3UtHhWzcqx0r0phRmPiRKA"
+    },
+    {
+      "name": "Gallows Circus",
+      "spotify_id": "1Yc64LNvbyQYzXDobkD4q2"
+    },
+    {
+      "name": "Gary Beals",
+      "spotify_id": "5PXsenJUe92Lu12xrQfPes"
+    },
+    {
+      "name": "Gathering of Strangers",
+      "spotify_id": "3XtBOxZpHGYI92ZwCouHAm"
+    },
+    {
+      "name": "Gavin James",
+      "spotify_id": "25tMQOrIU4LlUo6Sv8v5SE"
+    },
+    {
+      "name": "Gazelle",
+      "spotify_id": "4U5Q8F5xr4mgeshw1QDbVV"
+    },
+    {
+      "name": "Gecko Club",
+      "spotify_id": "6h6FjCOf33CeNvMtKi0zu0"
+    },
+    {
+      "name": "Gemma Dorsett",
+      "spotify_id": "2pTGhTKKiBk5UsYrIOhMCA"
+    },
+    {
+      "name": "George Benson",
+      "spotify_id": "4N8BwYTEC6XqykGvXXlmfv"
+    },
+    {
+      "name": "George Pelham",
+      "spotify_id": "76Vy0VBFDdQSJT4pQxLDjT"
+    },
+    {
+      "name": "George Sanders And The Parallels",
+      "spotify_id": "0BjtWVlmu7ImCmtyKABimi"
+    },
+    {
+      "name": "Georgia Crandon",
+      "spotify_id": "2ohgT1X3OCFY9KPhhqb3Rl"
+    },
+    {
+      "name": "Georgie Lyons",
+      "spotify_id": "2mBeGMNgOkgvZaITdOwYqB"
+    },
+    {
+      "name": "Georgie Wells",
+      "spotify_id": "11q1IcsqGrWxbFnSsXrLlB"
+    },
+    {
+      "name": "Gianluca Grignani",
+      "spotify_id": "0H1InhXaXQPL1aj0mvHemU"
+    },
+    {
+      "name": "Gianni Carboni",
+      "spotify_id": "3wTynIXPMRWdyzG27aaXhz"
+    },
+    {
+      "name": "Giant Rooks",
+      "spotify_id": "5wD0owYApRtYmjPWavWKvb"
+    },
+    {
+      "name": "Gin Annie",
+      "spotify_id": "0t8FDT35kSVXDaLB5lmK8t"
+    },
+    {
+      "name": "Gina Larner",
+      "spotify_id": "3dMGAY2E03dxXNDdhc8b5z"
+    },
+    {
+      "name": "Giorgia-May",
+      "spotify_id": "0qobc1hiGI0EpDVQgTByMX"
+    },
+    {
+      "name": "Giulia Marelli",
+      "spotify_id": "3mF8tXudHlLy5e7VPfi1Ko"
+    },
+    {
+      "name": "Gloria",
+      "spotify_id": "6WyvmCWjro91321hPs2YKB"
+    },
+    {
+      "name": "GoldFord",
+      "spotify_id": "4I2QW85rkIhCRRZt1kuBqS"
+    },
+    {
+      "name": "GOLDY",
+      "spotify_id": "35reOpsh1BPOJNyUcrt90a"
+    },
+    {
+      "name": "Gorilla Riot",
+      "spotify_id": "5OiiGa3KynCIy8wvrXpVKY"
+    },
+    {
+      "name": "GRAAW",
+      "spotify_id": "20mtt28HZbWsYQuqsMo1Lx"
+    },
+    {
+      "name": "Grace Ackerman",
+      "spotify_id": "78SfXT84Lde7FNt3MVBz1n"
+    },
+    {
+      "name": "Graceful Lee",
+      "spotify_id": "6TZFMcCEfuf72baul7bOR1"
+    },
+    {
+      "name": "Gráinne Duffy",
+      "spotify_id": "6Uz1iG3enjltFOqqwAhQ2Y"
+    },
+    {
+      "name": "Greg Pearson",
+      "spotify_id": "0rOJ1TODO6AaYm2YBMDUcD"
+    },
+    {
+      "name": "Greta Van Fleet",
+      "spotify_id": "4NpFxQe2UvRCAjto3JqlSl"
+    },
+    {
+      "name": "Hana Brooks",
+      "spotify_id": "3S46t4FgrZINNbyEU7ceqv"
+    },
+    {
+      "name": "Hannah Brown",
+      "spotify_id": "78fyK4Rfob0Y3xaPF0Bl0G"
+    },
+    {
+      "name": "Hannah Elkins",
+      "spotify_id": "1GBgDU3jE3Qh7kP3Umdmmu"
+    },
+    {
+      "name": "Hannah Grace",
+      "spotify_id": "597GQ9dmhOQoBfqmfQINKB"
+    },
+    {
+      "name": "HARLEE",
+      "spotify_id": "6eNlaSdxs8F7F0XlfDBhZy"
+    },
+    {
+      "name": "Harvey Jay Dodgson",
+      "spotify_id": "1Db5sBCA80ZxlJBmklHKrr"
+    },
+    {
+      "name": "Hati",
+      "spotify_id": "3gCiY4Mv1dMa3BaTHtvu1L"
+    },
+    {
+      "name": "Hazel Rose",
+      "spotify_id": "24tXzUYMQwtDjajAAIJVt8"
+    },
+    {
+      "name": "Heartbreak Remedy",
+      "spotify_id": "7fm1t46EbZnXjR44Sjz1Vo"
+    },
+    {
+      "name": "HEBE",
+      "spotify_id": "1MRHpcPa6DxFio08LUpuFJ"
+    },
+    {
+      "name": "Heidi Curtis",
+      "spotify_id": "4Jc9s2qAwAsnS72FGbCrwZ"
+    },
+    {
+      "name": "Helena Deans",
+      "spotify_id": "7pvEOHYnOQdigqN4rhFrOE"
+    },
+    {
+      "name": "HIMALAYAS",
+      "spotify_id": "71NBOcJ9lMeXqnbnya1z0x"
+    },
+    {
+      "name": "Hollie Rogers",
+      "spotify_id": "5LusIUYPwa4yt3q02O1xqp"
+    },
+    {
+      "name": "Holly Wilks",
+      "spotify_id": "2XVT8FudCVN6KRd0gL5foM"
+    },
+    {
+      "name": "Hour Thirteen",
+      "spotify_id": "0yRzaGhqYsm4Z4Qe3B0sa5"
+    },
+    {
+      "name": "Howlin' May Queen",
+      "spotify_id": "7bRDLAbJ8f46nTKThLgdsF"
+    },
+    {
+      "name": "Hunger Moon",
+      "spotify_id": "7fG0zuC0jzZPi640a6AzJt"
+    },
+    {
+      "name": "Hunted by Elephants",
+      "spotify_id": "7uqY8LxecOjRaGmaRnRnXT"
+    },
+    {
+      "name": "Hurricanes",
+      "spotify_id": "6i42bjmMHVSIvyd8NLRD71"
+    },
+    {
+      "name": "Hushtones",
+      "spotify_id": "2kIChQGSFExLsYUfo0bSIB"
+    },
+    {
+      "name": "HYLA",
+      "spotify_id": "5B1NOpcjEQy4lYGPiQXXNQ"
+    },
+    {
+      "name": "I See Shapes",
+      "spotify_id": "1w2vZ5mtKF02y5j7buQxWI"
+    },
+    {
+      "name": "Ian Hooper",
+      "spotify_id": "0auayPc6fVfCbtw5tSQxxG"
+    },
+    {
+      "name": "Icarus",
+      "spotify_id": "3SItfPL6AP4i1AmgbeRisw"
+    },
+    {
+      "name": "ICONICS",
+      "spotify_id": "6rZAvICAIv0HzcqBISn50n"
+    },
+    {
+      "name": "Ideal Forgery",
+      "spotify_id": "5ai6OmPRM58iZtfNgAlrJ9"
+    },
+    {
+      "name": "Ify",
+      "spotify_id": "3HyR9xIjPJ1QtxEkkvbXUj"
+    },
+    {
+      "name": "Ilona Mahieu",
+      "spotify_id": "18173H9JC9P23uSBTOsOH4"
+    },
+    {
+      "name": "Ina Forsman",
+      "spotify_id": "6YVaWx92qxstwulKJXqN2b"
+    },
+    {
+      "name": "Ineze",
+      "spotify_id": "6sXUqw7xhpLMS5zJ8VMMzI"
+    },
+    {
+      "name": "Infra Violet",
+      "spotify_id": "6HbZKr5nfM3omwzwdw8yIh"
+    },
+    {
+      "name": "Inscape",
+      "spotify_id": "5DOttKPG6q72svuKRC6fvO"
+    },
+    {
+      "name": "IRIS",
+      "spotify_id": "5J3JxgoCiTrgHs1rSa7dvc"
+    },
+    {
+      "name": "Irma",
+      "spotify_id": "7KTLYKJhcUOMgNgayxBj9f"
+    },
+    {
+      "name": "Isak Danielson",
+      "spotify_id": "5ie2SvXgvXlTpyqkwLtSd7"
+    },
+    {
+      "name": "ise",
+      "spotify_id": "5jx0P9PxMMiVmeTBSIEofH"
+    },
+    {
+      "name": "Isla",
+      "spotify_id": "31PnVPMNURY7n6sguHxMz8"
+    },
+    {
+      "name": "ISSA ODYSSEA",
+      "spotify_id": "4u6YIdpozMioHPfP00QJDc"
+    },
+    {
+      "name": "Ivy Eye",
+      "spotify_id": "0NEC2Sg0Aa0SSusO7QVzPT"
+    },
+    {
+      "name": "Izzie Yardley",
+      "spotify_id": "3T9O9K5uRnG3uSTiUqQkts"
+    },
+    {
+      "name": "Izzy Thomas",
+      "spotify_id": "6vd2Jk4x6BXUtJBybGzuTr"
+    },
+    {
+      "name": "Jack Cullen",
+      "spotify_id": "6lUfZGm7WIkgsfLhafFCfB"
+    },
+    {
+      "name": "Jack Curley",
+      "spotify_id": "1Unwe9Xco0JDlTTwpDVrcK"
+    },
+    {
+      "name": "Jack J Hutchinson",
+      "spotify_id": "3iCIjkCTgtYtJT5tFI81pV"
+    },
+    {
+      "name": "Jack Jarryd",
+      "spotify_id": "5Dam89i2XdJgnz3Gk9Achk"
+    },
+    {
+      "name": "Jack Kane",
+      "spotify_id": "5c6qUocQoL2xgqwBpolpMi"
+    },
+    {
+      "name": "Jack Page",
+      "spotify_id": "35XvTmV3nJa6fXZJqITASs"
+    },
+    {
+      "name": "Jack Rosies",
+      "spotify_id": "7JUaaexNCtEFYloaYDDYFU"
+    },
+    {
+      "name": "Jack Trouble",
+      "spotify_id": "2tKCqWbrMHEa7b4GnQvKin"
+    },
+    {
+      "name": "Jack Willis",
+      "spotify_id": "5bDMEki3F51J9AwYPJeBZY"
+    },
+    {
+      "name": "Jacklyn",
+      "spotify_id": "4GnL3vqSsGCPpYtrHWWnjv"
+    },
+    {
+      "name": "Jacob Lusk",
+      "spotify_id": "6dm2qCTCfqv1fqrow7UOcj"
+    },
+    {
+      "name": "Jada Facer",
+      "spotify_id": "4k51JgB5G0e33QYVpbcPuf"
+    },
+    {
+      "name": "Jade Ewen",
+      "spotify_id": "7u44AAgf8SNIq2Kdw23vHD"
+    },
+    {
+      "name": "Jake Bugg",
+      "spotify_id": "4hf3caW9H8uFwwbv5pFjcg"
+    },
+    {
+      "name": "Jalen Ngonda",
+      "spotify_id": "2kEDso93O2hDgCbnuiSkkZ"
+    },
+    {
+      "name": "James Riley",
+      "spotify_id": "5J1PKnbRLsunWTLWbXp2s2"
+    },
+    {
+      "name": "James Sayer",
+      "spotify_id": "4gWPNRRA0vYlPxujZsFsKF"
+    },
+    {
+      "name": "Jasmine Jethwa",
+      "spotify_id": "6FLqwgd1Ks0JvEmqpewIpv"
+    },
+    {
+      "name": "Jasmine Thompson",
+      "spotify_id": "2TL8gYTNgD6nXkyuUdDrMg"
+    },
+    {
+      "name": "JENNA",
+      "spotify_id": "1IfJmVhHJm7MwADk6u5KH1"
+    },
+    {
+      "name": "Jenny Colquitt",
+      "spotify_id": "4Z3wXLXW5YcqoBeBi3l3s8"
+    },
+    {
+      "name": "JERUB",
+      "spotify_id": "2eG0Kf7mNIbn0SMiA2LjBd"
+    },
+    {
+      "name": "Jess Kemp",
+      "spotify_id": "75ry1kzHW7DONURvfZmdkV"
+    },
+    {
+      "name": "Jesse Butterworth",
+      "spotify_id": "1AMTNWiPByQpEsiY4IBgQm"
+    },
+    {
+      "name": "Jesse Smith",
+      "spotify_id": "2tmZbHdW82mUb3l8JuvIqC"
+    },
+    {
+      "name": "Jessie Faulkner",
+      "spotify_id": "2rM8h3P0rzziYOA7NQq5us"
+    },
+    {
+      "name": "Jessie James Decker",
+      "spotify_id": "0GzIauSfKRc5BlNXpTWAGz"
+    },
+    {
+      "name": "Jessie Reid",
+      "spotify_id": "5KjGwF0TkKmKSC42Mtq2VV"
+    },
+    {
+      "name": "jet van der steen",
+      "spotify_id": "60bPC311AlvVdIzqQZyeHo"
+    },
+    {
+      "name": "Jo Hill",
+      "spotify_id": "1AbLfK2cwcwDcmiqyHQVF8"
+    },
+    {
+      "name": "Jo Jardim",
+      "spotify_id": "1iDlhWLimnvS5Jcij3KLXZ"
+    },
+    {
+      "name": "Jo-Jo & The Teeth",
+      "spotify_id": "7EFJQIGQyLsyt6MuczcMN0"
+    },
+    {
+      "name": "Joan Thiele",
+      "spotify_id": "2X1CuKIwl9B7zMjXi41bi5"
+    },
+    {
+      "name": "Jodi Liz",
+      "spotify_id": "0iYCRRBENB1kmd8f19Pwbk"
+    },
+    {
+      "name": "Joe Carabine",
+      "spotify_id": "6A3wlfSAhDHpeApTTqbTxp"
+    },
+    {
+      "name": "Joe Devine",
+      "spotify_id": "5Kurm8epbBdGVSnSpzgmNz"
+    },
+    {
+      "name": "Joe Dolman",
+      "spotify_id": "4A5MQi1opEqAcE0yZCmrZw"
+    },
+    {
+      "name": "Joe Taylor",
+      "spotify_id": "5SVWcqMyPHjP4Fnp33LlJB"
+    },
+    {
+      "name": "Joel Robertson",
+      "spotify_id": "6dXZFq2wJp5bQPMTqV744F"
+    },
+    {
+      "name": "Joel Stewart",
+      "spotify_id": "7qrGrDelmmUat3cPpHtUW0"
+    },
+    {
+      "name": "John Dhali",
+      "spotify_id": "3JY1Qv0DKkhwf5Q61s3R94"
+    },
+    {
+      "name": "JONAS LOVV",
+      "spotify_id": "2MxmOoUgB4Z9k7x4V5IMy7"
+    },
+    {
+      "name": "Jonathan Roy",
+      "spotify_id": "62ggJuZV87VvP3sAHM0V3K"
+    },
+    {
+      "name": "Jordan Hemingway",
+      "spotify_id": "34OSkMj9FQKSBYWzqlt5IR"
+    },
+    {
+      "name": "Jordan Rawling",
+      "spotify_id": "4blS7hfZtKm6XA5r2ZrxWX"
+    },
+    {
+      "name": "Jordan Red",
+      "spotify_id": "0fLpM73R7x36JpNS9iVcLU"
+    },
+    {
+      "name": "Jordan Walker",
+      "spotify_id": "7i17Lwe8Ds1mTCfGCVmvr3"
+    },
+    {
+      "name": "Jorj",
+      "spotify_id": "1odSzdzUpm3ZEEb74GdyiS"
+    },
+    {
+      "name": "Journey",
+      "spotify_id": "0rvjqX7ttXeg3mTy8Xscbt"
+    },
+    {
+      "name": "Joybird",
+      "spotify_id": "5WNEGKe1O80z8vfAFNN5ki"
+    },
+    {
+      "name": "Judith",
+      "spotify_id": "6N3rD8rvf1LIOtQqTCXnVA"
+    },
+    {
+      "name": "Julie Title",
+      "spotify_id": "44WGwlsTWeZAlsdKssi3HD"
+    },
+    {
+      "name": "K.T. Wild",
+      "spotify_id": "5KpNH7GEMR73encvZWqDcF"
+    },
+    {
+      "name": "Kailie Simpson",
+      "spotify_id": "7gcdrXblV71z7bZhnie52K"
+    },
+    {
+      "name": "KALEO",
+      "spotify_id": "7jdFEYD2LTYjfwxOdlVjmc"
+    },
+    {
+      "name": "Karaoke Diamonds",
+      "spotify_id": "3J16YwU6nMj1NbGi7LpZNv"
+    },
+    {
+      "name": "Karobela",
+      "spotify_id": "3CaF2CkWG2VOn9epQ6mE6A"
+    },
+    {
+      "name": "Kashus Culpepper",
+      "spotify_id": "2MPe4h9blynt1CfCkMku6j"
+    },
+    {
+      "name": "Kasper Nova",
+      "spotify_id": "17T3U2ihxdKfhoL9wyf7mg"
+    },
+    {
+      "name": "Kat Eaton",
+      "spotify_id": "72bPcEPylDgn0WHybYqI7P"
+    },
+    {
+      "name": "Katey Brooks",
+      "spotify_id": "0OobWT1O24A3SpQcKYjgYP"
+    },
+    {
+      "name": "Katie Coleman",
+      "spotify_id": "55oQc2N7Exqb9w9Ya0HhIT"
+    },
+    {
+      "name": "Katy Hurt",
+      "spotify_id": "11OWQs8OV0OUKRbZsxaDay"
+    },
+    {
+      "name": "Kelli-Leigh",
+      "spotify_id": "0m6f0nNS9GEq41eIJ288ff"
+    },
+    {
+      "name": "Kelly Erez",
+      "spotify_id": "22Zi0OV3VsWW3SyIvGftV6"
+    },
+    {
+      "name": "Kelsie Watts",
+      "spotify_id": "5yAh5wDiseQhWhh0Z2QY27"
+    },
+    {
+      "name": "Kelsy Karter & The Heroines",
+      "spotify_id": "2mAAO54PkHr3NjdlRpzEDl"
+    },
+    {
+      "name": "Kenny Wayne Shepherd",
+      "spotify_id": "1riHqX633Kup3mJAw8WR8p"
+    },
+    {
+      "name": "Kensington",
+      "spotify_id": "5hHcAWKNV84BEbkRnbQ6A7"
+    },
+    {
+      "name": "Kevin Davy White",
+      "spotify_id": "0agWEPfMTw1b4N97WslJqV"
+    },
+    {
+      "name": "Kevin Kaarl",
+      "spotify_id": "6OBGbSaBUvQtk9wpQfDbOE"
+    },
+    {
+      "name": "Keylock",
+      "spotify_id": "3iLo3KnZDkWL5JASguswNQ"
+    },
+    {
+      "name": "Kezia Gill",
+      "spotify_id": "38gOBONmMcD1Cp45Lhf2Vc"
+    },
+    {
+      "name": "Kiara Di Trana",
+      "spotify_id": "3GoqUT9gWBt87gNdDipbrE"
+    },
+    {
+      "name": "Kings and Castles",
+      "spotify_id": "5204HHWuTqMnvU8BoS9Hk4"
+    },
+    {
+      "name": "Kirsten Adamson",
+      "spotify_id": "33Oib5yIENJSyApkDDoN3L"
+    },
+    {
+      "name": "Kontrol Freaks",
+      "spotify_id": "2vfofy9DkwV24RqERtZ4N3"
+    },
+    {
+      "name": "KTEE",
+      "spotify_id": "16RDAkL9ygzmY49DzTXJCp"
+    },
+    {
+      "name": "Kumala",
+      "spotify_id": "7pTy6exSveN24maklsxT5d"
+    },
+    {
+      "name": "Kyla Brox",
+      "spotify_id": "2PhZS7xGMEpgT6xdNgrm42"
+    },
+    {
+      "name": "Lacuna J",
+      "spotify_id": "66E2D1WuiJoJ7xwwqZvqEz"
+    },
+    {
+      "name": "Lady Blackbird",
+      "spotify_id": "0CcvfJAMRa28MnCnujCdXQ"
+    },
+    {
+      "name": "Lady Sybil",
+      "spotify_id": "3iGPGNApnVJ925NPDJJa29"
+    },
+    {
+      "name": "Ladylucci",
+      "spotify_id": "59WvZXa0S5VV6zDrE6Rlzv"
+    },
+    {
+      "name": "LAKY",
+      "spotify_id": "2aXRmkmkAA2OpUnOoc4jym"
+    },
+    {
+      "name": "Landfill",
+      "spotify_id": "1u9RK4KsL7aLIlZWMadNNe"
+    },
+    {
+      "name": "Larkin Poe",
+      "spotify_id": "7d10VF1J4LqW7vrpPOngzm"
+    },
+    {
+      "name": "Laura Evans",
+      "spotify_id": "5Da0bmelsF7cVnNaHoHHpS"
+    },
+    {
+      "name": "Laura Oakes",
+      "spotify_id": "7BccIpwWRAzmifX4JEqGfP"
+    },
+    {
+      "name": "Laura Rain and the Caesars",
+      "spotify_id": "7EvJ27WuaeHJan4emE0e8d"
+    },
+    {
+      "name": "Lauren Housley",
+      "spotify_id": "1GLRGBLmRIc3p0mVq4F0J3"
+    },
+    {
+      "name": "Lauren Jean",
+      "spotify_id": "7lEmu3yofLTo6U2kfZXJuh"
+    },
+    {
+      "name": "Lauren Lucille",
+      "spotify_id": "3Ii6ee8aYdygweX421FsKQ"
+    },
+    {
+      "name": "Lawrence Taylor",
+      "spotify_id": "7so1HCxGkBmfqdvIF5HzkT"
+    },
+    {
+      "name": "Lazy Violet",
+      "spotify_id": "6pitlHI4cSfJ571FEW6rFw"
+    },
+    {
+      "name": "Leah Haworth",
+      "spotify_id": "7sCFrityuBo5rfICyFG1Jb"
+    },
+    {
+      "name": "Lee Fields & The Expressions",
+      "spotify_id": "2bToe6WyGvADJftreuXh2K"
+    },
+    {
+      "name": "Leith",
+      "spotify_id": "6NloIpzx0PEcGY2NJVVjc1"
+    },
+    {
+      "name": "Lene Marlin",
+      "spotify_id": "5TrH0BhpRgs2gkOb992bGC"
+    },
+    {
+      "name": "Leogang",
+      "spotify_id": "61Afm2K5FYw9SL5sab6kNY"
+    },
+    {
+      "name": "Leona Mae",
+      "spotify_id": "1shPuV0G4VxMRQsbI3J941"
+    },
+    {
+      "name": "Leoniden",
+      "spotify_id": "1zwtew8BGPk66RKGQqtPCX"
+    },
+    {
+      "name": "Léonie Gray",
+      "spotify_id": "1kt4PKJ7KueinsGBtDdf7b"
+    },
+    {
+      "name": "Lethbridge Owen",
+      "spotify_id": "4hmAdbVXkhVaPp1XiiL9FD"
+    },
+    {
+      "name": "Levy",
+      "spotify_id": "2c3nVnK7M8pqyZvK6PafSp"
+    },
+    {
+      "name": "Lianne Kaye",
+      "spotify_id": "6i5l0mkLNoOZd7PDBCR16Y"
+    },
+    {
+      "name": "Libby T",
+      "spotify_id": "4BXJOAFo9z1CmJYLHIHU6p"
+    },
+    {
+      "name": "Lily Fitts",
+      "spotify_id": "1mY66135CEOJg0KTwDIk4N"
+    },
+    {
+      "name": "Lily Meola",
+      "spotify_id": "5WC6EbIrTO76x30w5LtzS6"
+    },
+    {
+      "name": "Lily Moore",
+      "spotify_id": "1SQeTDXO492WB6aFvrntSS"
+    },
+    {
+      "name": "Lily-Ann",
+      "spotify_id": "6aN7lyotUVa9cSe2JD5iZa"
+    },
+    {
+      "name": "Linkin Park",
+      "spotify_id": "6XyY86QOPPrYVGvF9ch6wz"
+    },
+    {
+      "name": "Linnea K",
+      "spotify_id": "1qYosmYdF6aHxbOgq8WeWz"
+    },
+    {
+      "name": "Lisa Ritchie",
+      "spotify_id": "00ICJWXOtew89LYvYfBl3y"
+    },
+    {
+      "name": "Lisabel",
+      "spotify_id": "1C0dDmhzM8QZTNw1c05wsx"
+    },
+    {
+      "name": "LITTLE PLANETS",
+      "spotify_id": "1p93AXZmu5UhAzkYxYUSoL"
+    },
+    {
+      "name": "Liv East",
+      "spotify_id": "12Yeojvul63OHxXXI6Z5x7"
+    },
+    {
+      "name": "Lo Zoo Di 105",
+      "spotify_id": "4TUUBU6taSXsvWfhLou7cD"
+    },
+    {
+      "name": "Lock-In",
+      "spotify_id": "0Of1uUmadzRpoZSAOOdwNg"
+    },
+    {
+      "name": "LONGLIGHT",
+      "spotify_id": "55tPGoKmrlQxk3oN1KPp6P"
+    },
+    {
+      "name": "Louis and the Shakes",
+      "spotify_id": "1ysgzLzpZ1tSYYyopA3jnc"
+    },
+    {
+      "name": "Louis Berry",
+      "spotify_id": "7xn0Wut7w2BtP54HBd6hzf"
+    },
+    {
+      "name": "Louis York",
+      "spotify_id": "0owrNlxvcLL8KI0U5sYBUb"
+    },
+    {
+      "name": "Louise Parker",
+      "spotify_id": "6lQybPdTidgIWm0O5CEbmg"
+    },
+    {
+      "name": "Lovebugs",
+      "spotify_id": "6piYZXXQCn1uniYcHcwS89"
+    },
+    {
+      "name": "Luchi",
+      "spotify_id": "1UI7P27LFMIEiwNLlznwkK"
+    },
+    {
+      "name": "Lucy May Walker",
+      "spotify_id": "4GiM6Vc8u1qayXEAEdxPlS"
+    },
+    {
+      "name": "Lucy Wroe",
+      "spotify_id": "3SJBcQKlx37OUNTSXoxgvH"
+    },
+    {
+      "name": "Lucy-May",
+      "spotify_id": "5zBxzKEaNXAgGcpagyqFXS"
+    },
+    {
+      "name": "Luke Burr",
+      "spotify_id": "76JR66y9YIbwd92enbWxLv"
+    },
+    {
+      "name": "Luke Edney",
+      "spotify_id": "38ErXA1JiaGBFzdyDZpBfh"
+    },
+    {
+      "name": "Luke James Williams",
+      "spotify_id": "2QZR9I73cWRxyX1cdDtCl2"
+    },
+    {
+      "name": "LULLANAS",
+      "spotify_id": "3b8jXMWK6VSV8FlQ4hbVkd"
+    },
+    {
+      "name": "Luna Bay",
+      "spotify_id": "4GxGE6FCYDdHtcDzRL7TYh"
+    },
+    {
+      "name": "Luna Blue",
+      "spotify_id": "71jXlesSMotAtJXLCWpvzo"
+    },
+    {
+      "name": "Lusaint",
+      "spotify_id": "35v2YILQxee0yatdWj6Kg7"
+    },
+    {
+      "name": "LXSTBØY",
+      "spotify_id": "04f7oedbbC2KFDfqt8tGX5"
+    },
+    {
+      "name": "Mackenzie Burke",
+      "spotify_id": "2sm3FMOBrZiglxYpVMg8QO"
+    },
+    {
+      "name": "Mad Daddy",
+      "spotify_id": "1ccazyHVvA9iEKaUW6r95f"
+    },
+    {
+      "name": "Mae Stephens",
+      "spotify_id": "311uEW9rt5g2NmzjGEKS2E"
+    },
+    {
+      "name": "Maeve",
+      "spotify_id": "3L2wM9IcPsk8BRRGkMk5tI"
+    },
+    {
+      "name": "Maggie Baring",
+      "spotify_id": "1wlBTIfPZhbLbVBtfc6dyO"
+    },
+    {
+      "name": "Maisie Johnson",
+      "spotify_id": "1fZ3rZCK8BM83gxrakyDCa"
+    },
+    {
+      "name": "Make Friends",
+      "spotify_id": "7dxUKrjbdkaAl1nCCYblq7"
+    },
+    {
+      "name": "Måneskin",
+      "spotify_id": "0lAWpj5szCSwM4rUMHYmrr"
+    },
+    {
+      "name": "Marble Waves",
+      "spotify_id": "1d8gbd3k4JADeg5BtjVz27"
+    },
+    {
+      "name": "Marco Lewis",
+      "spotify_id": "1hp2JpxQDBELkeqkxbgHQz"
+    },
+    {
+      "name": "Mared",
+      "spotify_id": "2xtn6xafIo4Z2ceDacoA54"
+    },
+    {
+      "name": "Maren Davidsen",
+      "spotify_id": "01uVLcwaQWu2VM4aUiQvyg"
+    },
+    {
+      "name": "Mark McGowan",
+      "spotify_id": "4uKrsYQLPaMxMKewY0UUvc"
+    },
+    {
+      "name": "Martha And The Fairy",
+      "spotify_id": "07IqG4YtsoNGBksksinyVp"
+    },
+    {
+      "name": "Martha St. Arthur",
+      "spotify_id": "4Zg51f7gqL8IwB5oE2Hvvm"
+    },
+    {
+      "name": "MarthaGunn",
+      "spotify_id": "4Rt63oQJifMiMbQEcmeqK8"
+    },
+    {
+      "name": "Martin Rafferty And The Northern City Lights",
+      "spotify_id": "4XIFWD10MmPyssZywJEo98"
+    },
+    {
+      "name": "Marty Rafo",
+      "spotify_id": "549cAzyiq06CGSG6YhnHK7"
+    },
+    {
+      "name": "Martyn Peters",
+      "spotify_id": "0LCqThZS4e4ZtYcTRZgmpM"
+    },
+    {
+      "name": "maryy",
+      "spotify_id": "5bsAKRCvo94gWSIVEcMaV2"
+    },
+    {
+      "name": "Master Peace",
+      "spotify_id": "4GNHtO2iEJ09r4JNTlqnO9"
+    },
+    {
+      "name": "Mathew V",
+      "spotify_id": "5XG2NyvMVgff8ZAeKWX8yS"
+    },
+    {
+      "name": "Mathilda Mae",
+      "spotify_id": "02374xsBHfIwHEgfZM8c19"
+    },
+    {
+      "name": "Matilda Grace",
+      "spotify_id": "7Ccs0WcTU7UQ5gamyjESXv"
+    },
+    {
+      "name": "Max Pezzali",
+      "spotify_id": "6FcVd3KlRxozcLl19FMXu9"
+    },
+    {
+      "name": "Maxx Palmer",
+      "spotify_id": "4zON0HpxlcC8a14uj3Kdsm"
+    },
+    {
+      "name": "Maxx Palmer and The Neckbreakers",
+      "spotify_id": "2RruziBHm79SfJill33fqf"
+    },
+    {
+      "name": "May Payne",
+      "spotify_id": "3LaskN16OIcRjfovf4my7Z"
+    },
+    {
+      "name": "Maya Lane",
+      "spotify_id": "0lJErEVo2bXW4P2nsOmf25"
+    },
+    {
+      "name": "Megan Dixon Hood",
+      "spotify_id": "2Qy6aryNaJ4LJD0RiLMcpt"
+    },
+    {
+      "name": "Megan Rose",
+      "spotify_id": "5najSeUMVulJDNMxmTtMna"
+    },
+    {
+      "name": "Megan Wyn",
+      "spotify_id": "7kTOkr0Wx3hcYHb0VgQl1F"
+    },
+    {
+      "name": "Melinda Ortner",
+      "spotify_id": "1LicB7wymeqOey4Kh6PFhq"
+    },
+    {
+      "name": "Melissa Bel",
+      "spotify_id": "4N01ORm7UUESGneU8pQrXd"
+    },
+    {
+      "name": "Melt",
+      "spotify_id": "0G7KI9I5BApiXc5Sqpyil9"
+    },
+    {
+      "name": "Memphis Stone and The Elevators",
+      "spotify_id": "7EpKRn024gLLVqAFalZ1NX"
+    },
+    {
+      "name": "Mert Oksuz",
+      "spotify_id": "2ED63WRqQy3JVKxObINvyI"
+    },
+    {
+      "name": "Mexican Dogs",
+      "spotify_id": "3GFQ3aKdhnyu2RTSaYGv8l"
+    },
+    {
+      "name": "Mica Millar",
+      "spotify_id": "3u7WZTVUhTgjSKrlqzPfs9"
+    },
+    {
+      "name": "MICHA",
+      "spotify_id": "7a5xPqxWpIHk4tcdv7bDc6"
+    },
+    {
+      "name": "Michael G Moore",
+      "spotify_id": "2WFsseAjUlC9pvgl6G3qsO"
+    },
+    {
+      "name": "MICHAELA",
+      "spotify_id": "0QxBW01qmpM8InQcVa1x9V"
+    },
+    {
+      "name": "Michelle Branch",
+      "spotify_id": "5rScKX1Sh1U67meeUyTGwk"
+    },
+    {
+      "name": "Mike Äpt",
+      "spotify_id": "2OPYiATrhxvLoSXgo7XQka"
+    },
+    {
+      "name": "Mikey Martin",
+      "spotify_id": "6T1aDdGd3IZH94m9rrGH6y"
+    },
+    {
+      "name": "Miles Horn",
+      "spotify_id": "6bubxAKw64xF1kuTEBVnWG"
+    },
+    {
+      "name": "Miles Kane",
+      "spotify_id": "3M0H4efyA5YcijrKlaKbYn"
+    },
+    {
+      "name": "Millennials",
+      "spotify_id": "2aEQ87uYeCkfKmpJG6GQnQ"
+    },
+    {
+      "name": "Mimoza",
+      "spotify_id": "22tB2wbnB3pexB04xtncrG"
+    },
+    {
+      "name": "Minor Royals",
+      "spotify_id": "2Zp22W2Qoa1ulHsp5QoGtg"
+    },
+    {
+      "name": "Missile Sky",
+      "spotify_id": "3wdmWRtUd76sYYD652QSn2"
+    },
+    {
+      "name": "Mississippi Riot",
+      "spotify_id": "63JcSV5Ai7B1ELbDJXQtGi"
+    },
+    {
+      "name": "Molly McKinna",
+      "spotify_id": "03Cg8xTiXq7MP7Xrk81dks"
+    },
+    {
+      "name": "Molly Roberts",
+      "spotify_id": "5PMe9TmlHAHqadRaN01JYZ"
+    },
+    {
+      "name": "Molly Wishart",
+      "spotify_id": "7K3AgCHh1HJSruWibEoFom"
+    },
+    {
+      "name": "Moncrieff",
+      "spotify_id": "7axEazQlDDxu7KBQyFTfoC"
+    },
+    {
+      "name": "Morgan Rickman",
+      "spotify_id": "1UXfyds2ndU2qJzora3mjT"
+    },
+    {
+      "name": "Morganway",
+      "spotify_id": "6lAfhJPbvjl55kW7tlqdPS"
+    },
+    {
+      "name": "Morpheus",
+      "spotify_id": "3lhGgCyHKc8VFqfn33X7VX"
+    },
+    {
+      "name": "Mumford & Sons",
+      "spotify_id": "3gd8FJtBJtkRxdfbTu19U2"
+    },
+    {
+      "name": "MY-HI",
+      "spotify_id": "63lgw7LqAfdp5sXw6IcRSS"
+    },
+    {
+      "name": "MYAH",
+      "spotify_id": "1cIQJ0OHPtVVw2uFNnBIMa"
+    },
+    {
+      "name": "Nadedja",
+      "spotify_id": "2D3ZDyN12hiOdAlPK7yQJv"
+    },
+    {
+      "name": "Nadine Yomi",
+      "spotify_id": "2BYcWP4pvdbeHJL4itmryd"
+    },
+    {
+      "name": "Naipia",
+      "spotify_id": "3mRQVxKVuu28OKDSSOOdQ5"
+    },
+    {
+      "name": "Nakedium",
+      "spotify_id": "0Vo5J6EcfhUPuGMT9jvbPQ"
+    },
+    {
+      "name": "Nambyar",
+      "spotify_id": "2OVh8vBXmBS9Sc5w6G5Ko9"
+    },
+    {
+      "name": "Nana",
+      "spotify_id": "6LvGD0iAZEgwROnA3kDQFl"
+    },
+    {
+      "name": "Naomi Scott",
+      "spotify_id": "2Zi3RrdQqk63Xj0914STkS"
+    },
+    {
+      "name": "Natalie Gray",
+      "spotify_id": "047rvCsEJLIKpbhzi4nHi4"
+    },
+    {
+      "name": "Natalie Holmes",
+      "spotify_id": "31dQ6lbXKJp9yLgUhb8qkJ"
+    },
+    {
+      "name": "Natalie Lindi",
+      "spotify_id": "6nXILNJclmemd6XXq6u7Fv"
+    },
+    {
+      "name": "Nathalie Miranda",
+      "spotify_id": "0qeYzhq1PwJwP3gFfYz5Mx"
+    },
+    {
+      "name": "Nathan Farrell",
+      "spotify_id": "23TLmhli2QZAV6iJsySHeW"
+    },
+    {
+      "name": "Nathan Smoker",
+      "spotify_id": "3nNXwfR504VYz5FoUdoYRN"
+    },
+    {
+      "name": "Nathan Trent",
+      "spotify_id": "6U4uEoS3ISgppqupG6GJoZ"
+    },
+    {
+      "name": "Natiive",
+      "spotify_id": "6yj9MHdD9beqlxmTyH1liw"
+    },
+    {
+      "name": "NECKBREAKERS",
+      "spotify_id": "1kjfLF0nj4tofaBOpjoHO2"
+    },
+    {
+      "name": "Neptune Rain",
+      "spotify_id": "6kOKAvnKQ0tXfk8i4z2nB3"
+    },
+    {
+      "name": "NEVE",
+      "spotify_id": "2sZ1bsMMDGUvXBvihXLZn2"
+    },
+    {
+      "name": "newfamiliar",
+      "spotify_id": "4Atzuue891wvRGEPkBcVt9"
+    },
+    {
+      "name": "Nick Bradley",
+      "spotify_id": "77MfCKvkoHajP3hx1i3abV"
+    },
+    {
+      "name": "Nick Corbin",
+      "spotify_id": "7DGzcNoNqaCLgCLhldp2jg"
+    },
+    {
+      "name": "Nicky Phillips",
+      "spotify_id": "6GgshqKAVLtLZXITxCS0xF"
+    },
+    {
+      "name": "Nicky Rubin",
+      "spotify_id": "4JOEnntRQPqMPOmIOPZUiH"
+    },
+    {
+      "name": "Nicolina",
+      "spotify_id": "7srWOPjLNJJW3N45zOynFb"
+    },
+    {
+      "name": "Nicotine Dolls",
+      "spotify_id": "72gC2IIj21UAPKneFwl4NM"
+    },
+    {
+      "name": "Nieve Ella",
+      "spotify_id": "14zhvja4OxwrmivOB3LHOn"
+    },
+    {
+      "name": "NitroVille",
+      "spotify_id": "2momweg0F5qr2RXIsmHTU5"
+    },
+    {
+      "name": "Noak Hellsing",
+      "spotify_id": "47WlUGFrUj1hDhjzX1l6nc"
+    },
+    {
+      "name": "Nolan Porter",
+      "spotify_id": "7H2X4y4sB4EnP593GbQi66"
+    },
+    {
+      "name": "Norea Relja",
+      "spotify_id": "7dAi9FXd2UU5F8RYjCryks"
+    },
+    {
+      "name": "NOVACUB",
+      "spotify_id": "5AgzqwERKzaLXw6wSL5LcO"
+    },
+    {
+      "name": "Nuala",
+      "spotify_id": "6HaOXipAreevWKYrGsHSam"
+    },
+    {
+      "name": "OCEAN",
+      "spotify_id": "6dZZqFC0UROpJL1eDyGV01"
+    },
+    {
+      "name": "Ocean Flaws",
+      "spotify_id": "3O2nHmd3FrY749lvZy3xGg"
+    },
+    {
+      "name": "Oceans on Mars",
+      "spotify_id": "6U3IEk3l2n2plhZsYF7P2s"
+    },
+    {
+      "name": "Of Shadows And Lights",
+      "spotify_id": "1SfMUABvEzfzrqe3lwClB5"
+    },
+    {
+      "name": "Off Party",
+      "spotify_id": "0ead1tdGt3PuUSAa6lldnd"
+    },
+    {
+      "name": "Official Shannon",
+      "spotify_id": "5pWYNboDTSe5P0OI2oOd2m"
+    },
+    {
+      "name": "Oliver Anderson",
+      "spotify_id": "48TTZJorpLOxmuPLHCpOE2"
+    },
+    {
+      "name": "Olivia Nelson",
+      "spotify_id": "4QJrAwNc5j17E5N2PxpqGj"
+    },
+    {
+      "name": "Olivia Swann",
+      "spotify_id": "0FgfGMTP9c4TOpuU6DUXZT"
+    },
+    {
+      "name": "Olly Flavell",
+      "spotify_id": "6vtCPdSrngogYXXivFBb4m"
+    },
+    {
+      "name": "ONCE",
+      "spotify_id": "7n2UHgUqjGlytuU3LCjRho"
+    },
+    {
+      "name": "Outline",
+      "spotify_id": "42TgrrWb0fbkTxVwiR7GF8"
+    },
+    {
+      "name": "Palmist",
+      "spotify_id": "5qZ1OCkCUma93guxvv9rX2"
+    },
+    {
+      "name": "Panic Island",
+      "spotify_id": "474Fuf8ALex4Dw3s563F7g"
+    },
+    {
+      "name": "Paradise Row",
+      "spotify_id": "7vmyO3s62IQASzSIxhEkzm"
+    },
+    {
+      "name": "Paramore",
+      "spotify_id": "74XFHRwlV6OrjEM0A2NCMF"
+    },
+    {
+      "name": "Patawawa",
+      "spotify_id": "5D65DHzw4qysvKA2VJzOtC"
+    },
+    {
+      "name": "Paul Adams",
+      "spotify_id": "3eesCSdfdI4OxSX2dsTsMx"
+    },
+    {
+      "name": "PEARL",
+      "spotify_id": "6hZgNWpmI3Ti681I6IPEvW"
+    },
+    {
+      "name": "PEDRICK",
+      "spotify_id": "4Smvy2mFvhBFn6kMfEOInl"
+    },
+    {
+      "name": "Phantom Isle",
+      "spotify_id": "7Bf3u7TmBLWZG6vFALqj7M"
+    },
+    {
+      "name": "Phil Madeley",
+      "spotify_id": "65j656UqrYZvrQOUnLdA0c"
+    },
+    {
+      "name": "philine",
+      "spotify_id": "5VyGPIz23xzQUyXocTxAvL"
+    },
+    {
+      "name": "Philip Morgan Lewis",
+      "spotify_id": "6dttJ9KPpPk9qoo8mEWkR5"
+    },
+    {
+      "name": "Picture the Scene",
+      "spotify_id": "0URNh2fgEL9OHg2PxAuoiC"
+    },
+    {
+      "name": "PILAVA",
+      "spotify_id": "0uL8hTGXXK2xSFUUhpMMBw"
+    },
+    {
+      "name": "Pilgrims' Dream",
+      "spotify_id": "0fdw9Qj7h235GZCwvoXZUR"
+    },
+    {
+      "name": "Piston",
+      "spotify_id": "3SPHnmZWjZz3XdgfmVcHvr"
+    },
+    {
+      "name": "Polar States",
+      "spotify_id": "5RGGmYAO7dbltAYiaGpIOw"
+    },
+    {
+      "name": "Polly Money",
+      "spotify_id": "7Aem5tZTNcNDFBh3HBdOON"
+    },
+    {
+      "name": "Poppy Ajudha",
+      "spotify_id": "6oPQiSj92N4mk5jXLtX1bl"
+    },
+    {
+      "name": "Poppy Fardell",
+      "spotify_id": "22GD95dSNJ3Cr2t6mXfL1N"
+    },
+    {
+      "name": "Porcelain Hill",
+      "spotify_id": "4uQubakVAN2w1cFW2hRBco"
+    },
+    {
+      "name": "ProSound Karaoke Band",
+      "spotify_id": "0FQnTKF71zmqOzMB1ulput"
+    },
+    {
+      "name": "Psychadelephant",
+      "spotify_id": "2FKDZW5uTf6pKNOazY58Wg"
+    },
+    {
+      "name": "Quarry",
+      "spotify_id": "0gLBsvcwZ3tSBxFaCo3BIp"
+    },
+    {
+      "name": "Rachel Hill",
+      "spotify_id": "5BdwpqqWrCIpMpBZENFM19"
+    },
+    {
+      "name": "Raf",
+      "spotify_id": "3rlKqNmhaP9UiC0wFQyFS3"
+    },
+    {
+      "name": "Rag'n'Bone Man",
+      "spotify_id": "4f9iBmdUOhQWeP7dcAn1pf"
+    },
+    {
+      "name": "Ralph Taylor",
+      "spotify_id": "7lyYVCbqJocjkyoYwWYgwK"
+    },
+    {
+      "name": "Ramona Rose",
+      "spotify_id": "7xhbftWwlg8xYXvhOoOqCM"
+    },
+    {
+      "name": "Ravenbreed",
+      "spotify_id": "3qeu7h1J7kV6oCIsL1Jesz"
+    },
+    {
+      "name": "Ray Charles",
+      "spotify_id": "1eYhYunlNJlDoQhtYBvPsi"
+    },
+    {
+      "name": "Rayelle",
+      "spotify_id": "5ZMPpV5VxNpgr3IWOpcc4c"
+    },
+    {
+      "name": "Razorlight",
+      "spotify_id": "450iujbtN6XgiA9pv6fVZz"
+    },
+    {
+      "name": "Re:um",
+      "spotify_id": "6gLleDsNwfehG7vWuK2zQe"
+    },
+    {
+      "name": "Rebekah Fitch",
+      "spotify_id": "3okhrC6DbZJOUhPTiUkwM6"
+    },
+    {
+      "name": "Red Rum Club",
+      "spotify_id": "36ccNWK0en3ouoLFpWfgJb"
+    },
+    {
+      "name": "redbook",
+      "spotify_id": "6bD2sITussDDa1K4le2UG4"
+    },
+    {
+      "name": "Reece",
+      "spotify_id": "3iTrWDrsuhQevKeFWNDaBG"
+    },
+    {
+      "name": "Refuge",
+      "spotify_id": "2QGP8js9fP5HsGAmT9WUEt"
+    },
+    {
+      "name": "Reneé Rapp",
+      "spotify_id": "2hUYKu1x0UZQXvzCmggvSn"
+    },
+    {
+      "name": "Reya Jayne",
+      "spotify_id": "46VXh3d6VJp1ix92jIZ9Nc"
+    },
+    {
+      "name": "RHODES",
+      "spotify_id": "07FfkbljNIdl45Ijlh1aXS"
+    },
+    {
+      "name": "RIIVER",
+      "spotify_id": "3X1GpN2IAAytSNveViT2WB"
+    },
+    {
+      "name": "Rival Karma",
+      "spotify_id": "4LHseUPztmWjoxZU38u5C0"
+    },
+    {
+      "name": "Roachford",
+      "spotify_id": "5S3EbUETKlfsBRUiBKnqer"
+    },
+    {
+      "name": "Robert Cray",
+      "spotify_id": "6eMlKSBFAoXVJLoeHmwKEj"
+    },
+    {
+      "name": "Robert J Hunter",
+      "spotify_id": "4SFHUtqBqmczfK36THRllG"
+    },
+    {
+      "name": "Roisin O'Hagan",
+      "spotify_id": "6iikX1oIXrH2f9wisDLScj"
+    },
+    {
+      "name": "ROLLA",
+      "spotify_id": "1uLjBnFTDWAEVwhxZ4TKxu"
+    },
+    {
+      "name": "Rose Rey",
+      "spotify_id": "3NiX0iMPiCIgZJ8FiCoPfc"
+    },
+    {
+      "name": "Rosellas",
+      "spotify_id": "3TUs2HFbbIXkbmH8Sb0SMm"
+    },
+    {
+      "name": "Rosey Cale",
+      "spotify_id": "5FdKvA9hu07PspTMylQY3V"
+    },
+    {
+      "name": "Roswell",
+      "spotify_id": "6u4PaN8vnaChCE9fJvPsOe"
+    },
+    {
+      "name": "Roswell Road",
+      "spotify_id": "4rIssONphgpfW0jKLJFbQQ"
+    },
+    {
+      "name": "Rumba de Bodas",
+      "spotify_id": "43IQ5G04w55ib9XRwCAoIJ"
+    },
+    {
+      "name": "Russell Swallow",
+      "spotify_id": "3Jqpdf1avI5UMwv4fUHbeQ"
+    },
+    {
+      "name": "RuthAnne",
+      "spotify_id": "31rVRoX5ZG9ZyRbHvlEwjA"
+    },
+    {
+      "name": "Ruti",
+      "spotify_id": "5vQr71zjhOUi0RPPeQE6bE"
+    },
+    {
+      "name": "Ryan McMullan",
+      "spotify_id": "4tqPTKknmeQK1uDEFVfX4G"
+    },
+    {
+      "name": "SA Zeiner",
+      "spotify_id": "7u6zPPV9AUZnERJOslec7L"
+    },
+    {
+      "name": "Sam Jayne",
+      "spotify_id": "5Qv4f1vA0XgPoekSerPscd"
+    },
+    {
+      "name": "Sam Ostler",
+      "spotify_id": "5qtesdiEh8vInfJkZfZXCH"
+    },
+    {
+      "name": "Sami Nathan",
+      "spotify_id": "3VBCUgGjUlTJSU4iiBAi4W"
+    },
+    {
+      "name": "San Raquel",
+      "spotify_id": "2rNgdc0m8MYKYhb4HCBcDR"
+    },
+    {
+      "name": "Sandi Thom",
+      "spotify_id": "3xnfpcM4DC9zeHVuDhYICB"
+    },
+    {
+      "name": "SANSOM",
+      "spotify_id": "4LAYnOnkFHt596bBLx2AIC"
+    },
+    {
+      "name": "SARA",
+      "spotify_id": "3Vg3hy2RD7UkQOwVhW01fj"
+    },
+    {
+      "name": "Sarpa Salpa",
+      "spotify_id": "3aUgsZ8lR0SqbF9ukdzeeA"
+    },
+    {
+      "name": "Say Anise",
+      "spotify_id": "00dAFdqK3L3EYLBj6ye25r"
+    },
+    {
+      "name": "Sea Girls",
+      "spotify_id": "45FqwUG4hTT6d39r2HUsUe"
+    },
+    {
+      "name": "Sekou",
+      "spotify_id": "1mYgKcXdbklH5RwjU6XA8c"
+    },
+    {
+      "name": "SELIN",
+      "spotify_id": "5xkqotsRPu6KQ4PiWjSGQf"
+    },
+    {
+      "name": "Sepp Osley",
+      "spotify_id": "23oj7xVFF3zIyNgAcqDJaU"
+    },
+    {
+      "name": "Serena Sun",
+      "spotify_id": "6QE08doGmrNOROa5TWnVnG"
+    },
+    {
+      "name": "Serotones",
+      "spotify_id": "49uNJcvMErNzm3cQ6rbdGw"
+    },
+    {
+      "name": "SHADE",
+      "spotify_id": "7haDPJHWbvWwhYGKDa7GP0"
+    },
+    {
+      "name": "Shadow Bones",
+      "spotify_id": "2Fwf4NRjXflsc8vKNUOMeH"
+    },
+    {
+      "name": "Shambolics",
+      "spotify_id": "5Zxk4WkmkKRjPyjmmCRAUR"
+    },
+    {
+      "name": "SHANGHAI BLUES",
+      "spotify_id": "3EsCuUoI5TjWqIyHBE9maV"
+    },
+    {
+      "name": "Shaun Escoffery",
+      "spotify_id": "4QQV60vtp1G3XReD6dWgNz"
+    },
+    {
+      "name": "Si Connelly",
+      "spotify_id": "08eDEpgnDlvQ4LDueQAQon"
+    },
+    {
+      "name": "Sigrid",
+      "spotify_id": "4TrraAsitQKl821DQY42cZ"
+    },
+    {
+      "name": "Simeon",
+      "spotify_id": "11RfIh6kPQt1SXh8SVgNWt"
+    },
+    {
+      "name": "Simeon Hammond Dallas",
+      "spotify_id": "683fCYg90AUTt5EjdqAitw"
+    },
+    {
+      "name": "sixten",
+      "spotify_id": "3LLMpSdGz5j8j7qxgbiRCF"
+    },
+    {
+      "name": "Skinny Living",
+      "spotify_id": "405DvLr0FOuOWYgCt0emff"
+    },
+    {
+      "name": "Skylights",
+      "spotify_id": "66Gz29vqxLIyLZuBSUyJgP"
+    },
+    {
+      "name": "Smitha",
+      "spotify_id": "31viwAjF4yNltx8lkQk5bD"
+    },
+    {
+      "name": "Solar Strides",
+      "spotify_id": "6CEbMignmiEgzObR19BorI"
+    },
+    {
+      "name": "SOLLUS",
+      "spotify_id": "73T87oxcILdhyhfUqaMYF0"
+    },
+    {
+      "name": "Somebody's Child",
+      "spotify_id": "5b84ozqhKiJG9LN1IjVac1"
+    },
+    {
+      "name": "Sonny Tennet",
+      "spotify_id": "2hPtxFv2Ftb7xGRdU76bOd"
+    },
+    {
+      "name": "Sons of Liberty",
+      "spotify_id": "1HnpJXhLYps38pMCmSGVNg"
+    },
+    {
+      "name": "Sophie French",
+      "spotify_id": "2dc1xZK6GLCaB9ClLpSSS9"
+    },
+    {
+      "name": "Sophie Griffiths",
+      "spotify_id": "1ScQHshsghfh1H0r7VXEEe"
+    },
+    {
+      "name": "Sophie Holohan",
+      "spotify_id": "4kpaI92KQcPABQj9qxIopw"
+    },
+    {
+      "name": "Sophie Kilburn",
+      "spotify_id": "0kLnk0k9gofq9UyfbugF1k"
+    },
+    {
+      "name": "Sophie Simonds",
+      "spotify_id": "2AZSHzzlREDkdhgWtOhKx1"
+    },
+    {
+      "name": "Sophiz",
+      "spotify_id": "5H1y7yh5JGs79h3Dfa59d4"
+    },
+    {
+      "name": "Sorrel Nation",
+      "spotify_id": "0xiYfCYjSWupb18lON1pbC"
+    },
+    {
+      "name": "Sour Kix",
+      "spotify_id": "73BHNdcDbo6o39BzMiQRFu"
+    },
+    {
+      "name": "Space of a Day",
+      "spotify_id": "5nNOI6NL16ypK6js5aiheB"
+    },
+    {
+      "name": "SPIES",
+      "spotify_id": "414Tdx8USA4V1nzZr5pyTM"
+    },
+    {
+      "name": "Split the Dealer",
+      "spotify_id": "7uy8IDpeorGvJ1EoMMRb1O"
+    },
+    {
+      "name": "Spyres",
+      "spotify_id": "0gu9FiIFp32jTZSCRhdqFO"
+    },
+    {
+      "name": "State Wild",
+      "spotify_id": "55RIFun491FKil5uhbiJah"
+    },
+    {
+      "name": "Ste Forshaw",
+      "spotify_id": "0s8hAIXCYCinGDLJB3vs3V"
+    },
+    {
+      "name": "Stealing Signs",
+      "spotify_id": "6vbva7yCKZbntadwXt0Y0S"
+    },
+    {
+      "name": "Stealth",
+      "spotify_id": "6f3R3mqKR3kHp1KBNMUn80"
+    },
+    {
+      "name": "Stephanie Heitz",
+      "spotify_id": "1p4877VJsxWPA73xjvxpcn"
+    },
+    {
+      "name": "Stephanie McCourt",
+      "spotify_id": "5hXswzMD6Dlyv26mx7OGqU"
+    },
+    {
+      "name": "Stereo Silence",
+      "spotify_id": "1jhP1GNU2m166MSVHJ8e2V"
+    },
+    {
+      "name": "Stereophonics",
+      "spotify_id": "21UJ7PRWb3Etgsu99f8yo8"
+    },
+    {
+      "name": "Stevie McCrorie",
+      "spotify_id": "7oAEefTqQbsi8FbDa9dD8D"
+    },
+    {
+      "name": "Sully Gravity",
+      "spotify_id": "3Jaf6ZYlRNeHwQ2t75C7AJ"
+    },
+    {
+      "name": "Suncharmer",
+      "spotify_id": "47Zi6wq8nvcqxBChRB3TIE"
+    },
+    {
+      "name": "Sunfly Karaoke",
+      "spotify_id": "3tCGqGQclabrpQfcHRmDtK"
+    },
+    {
+      "name": "Superbird",
+      "spotify_id": "5jHvlWbgESlecbtPASUMnk"
+    },
+    {
+      "name": "Sweet Crisis",
+      "spotify_id": "0VLBsVfOThyVZU94tW3qJ4"
+    },
+    {
+      "name": "SYML",
+      "spotify_id": "6AyATGg7mDgBlZ4N5uNog0"
+    },
+    {
+      "name": "syre",
+      "spotify_id": "5F688G77fh13uZN918N7EK"
+    },
+    {
+      "name": "Talia Rae",
+      "spotify_id": "4v6p8rTvDtYbnoegKY3mqr"
+    },
+    {
+      "name": "Tally Spear",
+      "spotify_id": "2ToYco7p2abToWrUcAeTwp"
+    },
+    {
+      "name": "Tamzene",
+      "spotify_id": "77YCAroJisD7uOECsiPcAL"
+    },
+    {
+      "name": "Tea Spike",
+      "spotify_id": "3iBkMpq6MJLQguMbOvvoyQ"
+    },
+    {
+      "name": "Teddy Swims",
+      "spotify_id": "33qOK5uJ8AR2xuQQAhHump"
+    },
+    {
+      "name": "Terrianne",
+      "spotify_id": "1iZfIjJQ9GzeNAognhhH13"
+    },
+    {
+      "name": "Terrorpin",
+      "spotify_id": "5WUC7r1mDQGd1zpTbMCVau"
+    },
+    {
+      "name": "The Accidental Musician",
+      "spotify_id": "0cQyYy38Hlu3jQ9j5v5QPN"
+    },
+    {
+      "name": "The Aces",
+      "spotify_id": "2AmfMGi3WZMxqFDHissIAe"
+    },
+    {
+      "name": "The Amazons",
+      "spotify_id": "7243txmysJ4KbRmH8UAMKO"
+    },
+    {
+      "name": "The Blue Highways",
+      "spotify_id": "2yG6x3B8YrfEbZsieejJ2f"
+    },
+    {
+      "name": "The Brazen",
+      "spotify_id": "4oVFmdvBty7HwHoizx0Td9"
+    },
+    {
+      "name": "The Choco La's",
+      "spotify_id": "20GHBF6bafM0jJUh3SmGhm"
+    },
+    {
+      "name": "The Clause",
+      "spotify_id": "7KpYPnMoADYtIMt1XPvmzZ"
+    },
+    {
+      "name": "The Colors",
+      "spotify_id": "1cZdYRiaCa5PIy3KdXmnhQ"
+    },
+    {
+      "name": "The Covasettes",
+      "spotify_id": "5dDVWJvBFaoMJrOfI6xnOt"
+    },
+    {
+      "name": "The Crooked Kings",
+      "spotify_id": "3TmFTTIlCvMYCMVTlluDtM"
+    },
+    {
+      "name": "The Divisions",
+      "spotify_id": "7pVZ9b2khlhNZoKmaXOGgl"
+    },
+    {
+      "name": "The Extons",
+      "spotify_id": "1SvXx52WOHtOAddLXmFaXw"
+    },
+    {
+      "name": "The Fatherline",
+      "spotify_id": "33GlJWraZsPnnGr2z3u8cp"
+    },
+    {
+      "name": "The Flitz",
+      "spotify_id": "4H2GpfekweNFvjQx4ioYYs"
+    },
+    {
+      "name": "The Good Tenants",
+      "spotify_id": "48i17ouGNS3VHEn3JbFyEH"
+    },
+    {
+      "name": "The Great Leslie",
+      "spotify_id": "4nLnyYZc70ZItmWTW0oo9W"
+    },
+    {
+      "name": "The Heavy North",
+      "spotify_id": "7lZCECgAdlWqoDKH8aEN6x"
+    },
+    {
+      "name": "The Hives",
+      "spotify_id": "4DToQR3aKrHQSSRzSz8Nzt"
+    },
+    {
+      "name": "The Jesse Tree",
+      "spotify_id": "5k6B840yE7sokmM6zdMhmq"
+    },
+    {
+      "name": "The Karaoke Channel",
+      "spotify_id": "5UloVKzUNJcjORzhhTWWiJ"
+    },
+    {
+      "name": "The Kobras",
+      "spotify_id": "1tXvQeU6velZmVcUtmYXDb"
+    },
+    {
+      "name": "The Lanes",
+      "spotify_id": "1WftA5Dc3NYsxGofjEXSmW"
+    },
+    {
+      "name": "The Last Internationale",
+      "spotify_id": "2K9hz9205EQR7KkKNdyXFc"
+    },
+    {
+      "name": "The Lightning Kids",
+      "spotify_id": "5swU5DPjch0LugnGOAmjgD"
+    },
+    {
+      "name": "The Luka State",
+      "spotify_id": "6DaXEbr3LdLNcui8pZf6AF"
+    },
+    {
+      "name": "The Maida Vales",
+      "spotify_id": "54bz5hHRTEiTG4fyXA4ed6"
+    },
+    {
+      "name": "The Main Squeeze",
+      "spotify_id": "5I6ni4YWY0WJUs6rFqufxT"
+    },
+    {
+      "name": "The Mann and I",
+      "spotify_id": "2XAVYC80zNxfJKyL1nqEY8"
+    },
+    {
+      "name": "The Mercury Riots",
+      "spotify_id": "7veDUZCWu5JaZd3yfHvjV9"
+    },
+    {
+      "name": "THE MEZZ",
+      "spotify_id": "7q4AguYT9EogYfr3PkDzSr"
+    },
+    {
+      "name": "The Modern Strangers",
+      "spotify_id": "0OIhm4drHH9SKkFkLrszM9"
+    },
+    {
+      "name": "The Montagues",
+      "spotify_id": "5hvowc9gHZ7OSx61oSc5Kn"
+    },
+    {
+      "name": "The Moon City Masters",
+      "spotify_id": "5ds1ng1NKpr4Bv0VbgHyAr"
+    },
+    {
+      "name": "The Motive",
+      "spotify_id": "1hjYk9Jjab1cav3I4pLrVW"
+    },
+    {
+      "name": "The New Nostalgia",
+      "spotify_id": "7w2CZjJ6uWeWoc4T815rO0"
+    },
+    {
+      "name": "The New Republic",
+      "spotify_id": "7LdVKEH5roLLJdQXvo4j8L"
+    },
+    {
+      "name": "The Night Society",
+      "spotify_id": "3Q0FwVZnN1lK38DO5s6LYe"
+    },
+    {
+      "name": "The Now",
+      "spotify_id": "6Cd7IpKrJhEJOJnLG7VsIU"
+    },
+    {
+      "name": "The Paper Kites",
+      "spotify_id": "79hrYiudVcFyyxyJW0ipTy"
+    },
+    {
+      "name": "The Peach Fuzz",
+      "spotify_id": "60gR4kbjzGaf89kmk2l1wU"
+    },
+    {
+      "name": "The Reytons",
+      "spotify_id": "3RHoFGKe6KE3LLml7ujPKJ"
+    },
+    {
+      "name": "The Road Atlas",
+      "spotify_id": "7uW11C6R2EeqamR965Cgdq"
+    },
+    {
+      "name": "The Shadowboxers",
+      "spotify_id": "3gq3IRuBKSmyBbGXwfagj4"
+    },
+    {
+      "name": "The Sheratons",
+      "spotify_id": "69EITyRImp22fWpGYQa7Fn"
+    },
+    {
+      "name": "The Sherlocks",
+      "spotify_id": "4SrofCfzlhtiKRAsMfBxV4"
+    },
+    {
+      "name": "The Souls",
+      "spotify_id": "0RYKZOmlT0z9scekz2zXFX"
+    },
+    {
+      "name": "The Southern Companion",
+      "spotify_id": "5S7x8nBp4Eq3SqgV6Vardx"
+    },
+    {
+      "name": "The Stay Club",
+      "spotify_id": "6mCuMR9nR1k7nxMKzCogIk"
+    },
+    {
+      "name": "The Stoned Crows",
+      "spotify_id": "1nW0rExsZ1wGe00dnPIguL"
+    },
+    {
+      "name": "The Strike",
+      "spotify_id": "6VB4TqEl0yfaF88LYHH4wj"
+    },
+    {
+      "name": "The Superpowers",
+      "spotify_id": "32lsvZwVkkAMe5CzWpM5vb"
+    },
+    {
+      "name": "The Sway",
+      "spotify_id": "6B6d0AGSEYsweJ1siqwyZb"
+    },
+    {
+      "name": "The Tamers",
+      "spotify_id": "7aetICLMaKFXJpcD63cdm3"
+    },
+    {
+      "name": "The Teskey Brothers",
+      "spotify_id": "2nTjd2lNo1GVEfXM3bCnsh"
+    },
+    {
+      "name": "The Theme",
+      "spotify_id": "4sZHDizoj7LbmD0BxiiYQS"
+    },
+    {
+      "name": "The Upsiders",
+      "spotify_id": "4lccDms1kZwyVJcW07WG64"
+    },
+    {
+      "name": "The Valla",
+      "spotify_id": "4YhQHwK37kKWxXGiNbCu1R"
+    },
+    {
+      "name": "The Voyd",
+      "spotify_id": "4C2DB5h8S3poJiM4YYDEjU"
+    },
+    {
+      "name": "The Warning",
+      "spotify_id": "2SmW1lFlBJn4IfBzBZDlSh"
+    },
+    {
+      "name": "The White Gates Band",
+      "spotify_id": "5C6R4PHkFznu7r4zQqWSMs"
+    },
+    {
+      "name": "The Wild Violets",
+      "spotify_id": "2uP5hppcIGjIc3L7FaN54O"
+    },
+    {
+      "name": "This New Dawn",
+      "spotify_id": "2yGsHQnVNwbUfZBlRGZqxw"
+    },
+    {
+      "name": "Three Years Younger",
+      "spotify_id": "3kmeQBaC70d0nNi3h7FHmo"
+    },
+    {
+      "name": "Tiana Rosie",
+      "spotify_id": "2hDHgtEkmGk5LWPOI5LHYb"
+    },
+    {
+      "name": "Tim Gallagher",
+      "spotify_id": "6o48etq0sWdCaAjVq1i9Fb"
+    },
+    {
+      "name": "Tim Gerard",
+      "spotify_id": "6zHgPslmoyAtn7l8zWVqtr"
+    },
+    {
+      "name": "Tim Prottey-Jones",
+      "spotify_id": "2hgxhUXMCmncMfat2qVlnD"
+    },
+    {
+      "name": "Tom High",
+      "spotify_id": "4urb0HxkA8AZvSBVpANSka"
+    },
+    {
+      "name": "Tom Meighan",
+      "spotify_id": "3EgsCrH1gSJmJqfWAcvZRn"
+    },
+    {
+      "name": "Train",
+      "spotify_id": "3FUY2gzHeIiaesXtOAdB7A"
+    },
+    {
+      "name": "TRAITS",
+      "spotify_id": "1aHFbtMEWI9kGLTJcBXLzn"
+    },
+    {
+      "name": "Travis",
+      "spotify_id": "3bUwxJgNakzYKkqAVgZLlh"
+    },
+    {
+      "name": "Trident Waters",
+      "spotify_id": "2oXIwCjXi9djbefrZCGrYH"
+    },
+    {
+      "name": "Trinity Rose",
+      "spotify_id": "5M8PUBXaF0BBsfifLJusws"
+    },
+    {
+      "name": "Trousdale",
+      "spotify_id": "26DvqLYszG0oIOeelTF5kE"
+    },
+    {
+      "name": "Uncle Strut",
+      "spotify_id": "6laNc8Rd1uBO9Coxv0EZez"
+    },
+    {
+      "name": "Uninvited",
+      "spotify_id": "5q0XJRqusj0KaNKwLVSVQn"
+    },
+    {
+      "name": "Valeria Pozzo",
+      "spotify_id": "2DTJaYLE3G0YQxAHWBWGU0"
+    },
+    {
+      "name": "Valerio Lysander",
+      "spotify_id": "5pFepsdPq7GS7gpzm7l745"
+    },
+    {
+      "name": "Vambo",
+      "spotify_id": "2yQVokl4RVlAbu9nFyGYXL"
+    },
+    {
+      "name": "Vansleep",
+      "spotify_id": "7BJywHKzE6tGB8WiudoeTg"
+    },
+    {
+      "name": "Vella",
+      "spotify_id": "5YvpNhcfN0WZBg20nGItwH"
+    },
+    {
+      "name": "VENUS GRRRLS",
+      "spotify_id": "3ZmtxfuEtTsKgKEiM42jQ9"
+    },
+    {
+      "name": "Veronica Fusaro",
+      "spotify_id": "2Nu9BiGXLIAbTs0mrbsmRW"
+    },
+    {
+      "name": "Vic Allen",
+      "spotify_id": "0RnJLVAyhdFNVNJ3lgbIHr"
+    },
+    {
+      "name": "Vicki Manser",
+      "spotify_id": "5vJRO9tSi258RoiacehI5e"
+    },
+    {
+      "name": "Vicky Sometani",
+      "spotify_id": "29uVFPS7wo6RBGzewIc6pt"
+    },
+    {
+      "name": "Victoria Dell",
+      "spotify_id": "5p6KYEtXY7WnnSKUcO3WQe"
+    },
+    {
+      "name": "Vistas",
+      "spotify_id": "5YA1c6yVkPnflTLMfOgjzc"
+    },
+    {
+      "name": "Voodoo Sioux",
+      "spotify_id": "5gaDZqo6Rib8Umd4sQaASI"
+    },
+    {
+      "name": "Whale and the Wolf",
+      "spotify_id": "4AMuXW9TMEbxAQOoz0C6sj"
+    },
+    {
+      "name": "What's Left",
+      "spotify_id": "2dNmDEEwHsa1de56Fkzzle"
+    },
+    {
+      "name": "When Rivers Meet",
+      "spotify_id": "3r4hYfzQA1yuQFEKMDJzJi"
+    },
+    {
+      "name": "Will Brown",
+      "spotify_id": "1OVeEa105GKIVmpZebknKe"
+    },
+    {
+      "name": "William Poyer",
+      "spotify_id": "3FLOIgY7W1j1sECo9YEd75"
+    },
+    {
+      "name": "Willowbank Grove",
+      "spotify_id": "20ZEYi6tftxveTSSGIoWCM"
+    },
+    {
+      "name": "WILSN",
+      "spotify_id": "2ymjQZjPQe0pziQ67Y8Ncr"
+    },
+    {
+      "name": "Wolf Moon",
+      "spotify_id": "1L3BzzjFTTrBozYuwwCEPX"
+    },
+    {
+      "name": "Woodley Taylor",
+      "spotify_id": "66K3148TuCoqgKHYYIatmE"
+    },
+    {
+      "name": "Wyn Starks",
+      "spotify_id": "3rXMN9AbcZXln8vo79ufNQ"
+    },
+    {
+      "name": "YDEA",
+      "spotify_id": "4SKaCmDBWJAQ208RKPFGc5"
+    },
+    {
+      "name": "Yesterday's Gone",
+      "spotify_id": "1eYz8hDl7yJxpS8YkY93E2"
+    },
+    {
+      "name": "Yola",
+      "spotify_id": "2gqMBdyddvN82dzZt4ZF14"
+    },
+    {
+      "name": "YOLERA",
+      "spotify_id": "0qZypMvwEAxwXP5HyNF3m4"
+    },
+    {
+      "name": "YONAKA",
+      "spotify_id": "3Wcyta3gkOdQ4TfY0WyZpu"
+    },
+    {
+      "name": "You Me At Six",
+      "spotify_id": "1kNQXvepPjaPgUfeDAF2h6"
+    },
+    {
+      "name": "Zak Abel",
+      "spotify_id": "6Gk5hoM7eW8NSCYhICMDHw"
+    },
+    {
+      "name": "Zed, The Dreamer",
+      "spotify_id": "7bEXJQKegnmg4G2S7pnqqR"
+    },
+    {
+      "name": "Zoe Wren",
+      "spotify_id": "5aQKsTubiF8WSlIblUkHer"
+    },
+    {
+      "name": "Zucchero",
+      "spotify_id": "2KftmGt9sk1yLjsAoloC3M"
+    }
+  ]
+}
