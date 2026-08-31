@@ -193,7 +193,7 @@ h2 { font: 700 38px/.98 "Playfair Display", serif; letter-spacing: -.035em; marg
 .clash-list li { display: flex; gap: 10px; align-items: baseline; font-size: 14px; color: var(--ink); }
 .clash-list .fb-time { font: 600 12px "DM Mono", monospace; color: #a3341f; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .clash-list .fb-fixture { font-weight: 500; }
-.clash-note { margin: 0; color: #7a4b40; font-size: 12.5px; }
+.football-empty { color: var(--muted); font-size: 13px; margin: 0; }
 
 .football-picker { margin-top: 18px; border-top: 1px solid var(--line); padding-top: 14px; }
 .football-picker summary { color: var(--teal); cursor: pointer; font: 500 11px "DM Mono", monospace; text-transform: uppercase; letter-spacing: .08em; }

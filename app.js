@@ -240,6 +240,17 @@ function clashingMatches(event) {
   });
 }
 
+// Whether a fixture date falls in the currently-selected view range, so the
+// football picker only shows matches for the day(s) of gigs on screen.
+function matchInRange(date) {
+  if (!date) return false;
+  if (state.dateRange === "today") return date === todayKey;
+  if (state.dateRange === "tomorrow") return date === dateAtOffset(1);
+  if (state.dateRange === "week") return date > todayKey && date <= dateAtOffset(7);
+  if (state.dateRange === "custom") return date === state.customDate;
+  return true;
+}
+
 function dateAtOffset(offset) {
   const date = new Date(today);
   date.setDate(date.getDate() + offset);
@@ -397,8 +408,14 @@ function renderFootballPicker() {
     footballPickerEl.hidden = true;
     return;
   }
+  footballPickerEl.hidden = false;
+  const inRange = footballFixtures.filter((match) => matchInRange(match.date));
+  if (!inRange.length) {
+    footballEl.innerHTML = `<p class="football-empty">No televised fixtures for this date.</p>`;
+    return;
+  }
   const byDate = new Map();
-  for (const match of footballFixtures) {
+  for (const match of inRange) {
     if (!byDate.has(match.date)) byDate.set(match.date, []);
     byDate.get(match.date).push(match);
   }
@@ -482,6 +499,7 @@ document.querySelectorAll(".date-pill").forEach((button) => {
     state.customDate = null;
     calendarDateEl.value = "";
     render();
+    renderFootballPicker();
   });
 });
 
@@ -491,6 +509,7 @@ calendarDateEl.addEventListener("change", (event) => {
   state.dateRange = "custom";
   state.customDate = event.target.value;
   render();
+  renderFootballPicker();
 });
 
 function filteredEvents({ includePostcode = true } = {}) {
@@ -561,7 +580,10 @@ function render() {
   excludeCountEl.textContent = state.excludedGenres.size ? `(${state.excludedGenres.size} hidden)` : "";
   const favouriteArtists = activeFavouriteArtists();
   favouriteCountEl.textContent = favouriteArtists.length ? `(${favouriteArtists.length})` : "(none)";
-  if (footballCountEl) footballCountEl.textContent = state.watchedMatches.size ? `(${state.watchedMatches.size} watching)` : "";
+  if (footballCountEl) {
+    const watchingInRange = footballFixtures.filter((match) => matchInRange(match.date) && state.watchedMatches.has(matchKey(match))).length;
+    footballCountEl.textContent = watchingInRange ? `(${watchingInRange} watching)` : "";
+  }
   favouriteStatusEl.textContent = customFavouriteArtists === null
     ? `${favouriteArtists.length} shared artists active · import a CSV to customise this list`
     : `${favouriteArtists.length} imported artists active · use shared list to reset`;
@@ -810,7 +832,7 @@ function renderDetail(visible) {
   const favouriteMark = favourite ? `<span class="favourite-star" title="Favourite artist: ${escapeAttribute(favourite.name)}" aria-label="Favourite artist ${escapeAttribute(favourite.name)}">★</span>` : "";
   const clashes = clashingMatches(selected);
   const clashBubble = clashes.length
-    ? `<div class="clash-bubble"><div class="clash-bubble-head">⚠ Football clash${clashes.length > 1 ? ` · ${clashes.length} matches` : ""}</div><ul class="clash-list">${clashes.map((match) => `<li><span class="fb-time">${escapeHtml(formatTime(match.time))}</span><span class="fb-fixture">${escapeText(match.fixture)}</span></li>`).join("")}</ul><p class="clash-note">Kick-off overlaps this gig — if you're watching on TV you'll miss part of one.</p></div>`
+    ? `<div class="clash-bubble"><div class="clash-bubble-head">⚠ Football clash${clashes.length > 1 ? ` · ${clashes.length} matches` : ""}</div><ul class="clash-list">${clashes.map((match) => `<li><span class="fb-time">${escapeHtml(formatTime(match.time))}</span><span class="fb-fixture">${escapeText(match.fixture)}</span></li>`).join("")}</ul></div>`
     : "";
   detailContentEl.innerHTML = `<div class="detail-media">${mediaMarkup(selected)}</div><div class="detail-meta"><p class="detail-kicker">${escapeHtml(selected.venue_type)} · ${escapeHtml(formatDate(selected.date))} · ${escapeHtml(formatTime(selected.time))}</p><label class="shortlist-toggle"><input class="shortlist-checkbox" data-event-key="${escapeAttribute(eventKey(selected))}" type="checkbox" ${state.shortlisted.has(eventKey(selected)) ? "checked" : ""} /><span>Shortlist</span></label></div><div class="detail-title-line">${favouriteMark}<h3>${escapeText(selected.event_name)}</h3></div><div class="venue-block"><div class="venue">${escapeText(selected.venue)}</div><div class="location">${escapeText(selected.borough)} · ${escapeHtml(selected.postcode)}</div></div>${clashBubble}<p class="description">${escapeText(selected.description || "Details available on the source listing.")}</p><div class="genre-list">${(selected.genres || []).map((genre) => `<span class="genre-tag">${escapeText(genre)}</span>`).join("")}</div><div class="detail-footer"><span class="price">${price}</span><a class="ticket-link" href="${escapeAttribute(booking.url)}" target="_blank" rel="noreferrer">${escapeHtml(booking.label)} ↗</a></div>`;
 }
