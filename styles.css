@@ -184,6 +184,30 @@ h2 { font: 700 38px/.98 "Playfair Display", serif; letter-spacing: -.035em; marg
 .timeline-view .rejected-event .tl-time { border-left-color: var(--muted); }
 .timeline-view .rejected-event .tl-title h3 { text-decoration: line-through; text-decoration-color: rgba(108,120,120,.5); }
 
+/* Football clash: a warning badge on the row, a full list in the detail panel */
+.clash-badge { display: inline-flex; align-items: center; gap: 5px; font: 600 11px "DM Mono", monospace; letter-spacing: .01em; color: #a3341f; background: #fbe6df; border: 1px solid #f0c3b6; border-radius: 8px; padding: 4px 9px; white-space: nowrap; }
+.timeline-view .clashing .tl-time { border-left-color: #d8563a; }
+.clash-bubble { background: #fbe6df; border: 1px solid #f0c3b6; border-radius: 12px; padding: 13px 15px; margin: 16px 0; }
+.clash-bubble-head { font: 700 12px "DM Mono", monospace; letter-spacing: .08em; text-transform: uppercase; color: #a3341f; margin-bottom: 9px; }
+.clash-list { list-style: none; margin: 0 0 8px; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.clash-list li { display: flex; gap: 10px; align-items: baseline; font-size: 14px; color: var(--ink); }
+.clash-list .fb-time { font: 600 12px "DM Mono", monospace; color: #a3341f; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.clash-list .fb-fixture { font-weight: 500; }
+.clash-note { margin: 0; color: #7a4b40; font-size: 12.5px; }
+
+.football-picker { margin-top: 18px; border-top: 1px solid var(--line); padding-top: 14px; }
+.football-picker summary { color: var(--teal); cursor: pointer; font: 500 11px "DM Mono", monospace; text-transform: uppercase; letter-spacing: .08em; }
+.football-picker summary::marker { color: var(--orange); }
+.football-picker summary span { color: var(--orange-dark); }
+.football-inner { padding-top: 13px; }
+.football-inner p { color: var(--muted); font-size: 12px; margin: 0 0 12px; max-width: 660px; }
+.football-filters { display: flex; flex-direction: column; gap: 14px; max-height: 320px; overflow-y: auto; }
+.football-day-head { font: 600 11px "DM Mono", monospace; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin-bottom: 7px; }
+.football-match { display: flex; align-items: center; gap: 9px; padding: 5px 2px; font-size: 13.5px; color: var(--ink); cursor: pointer; }
+.football-match input { accent-color: #1f7a4d; margin: 0; flex: none; }
+.football-match .fb-time { font: 600 12px "DM Mono", monospace; color: #1f7a4d; font-variant-numeric: tabular-nums; min-width: 58px; }
+.football-match .fb-fixture { font-weight: 500; }
+
 @media (max-width: 700px) {
   .tl-row { grid-template-columns: 1fr; align-items: start; gap: 8px; padding: 13px 14px; border-left: 3px solid var(--orange); }
   .tl-time { flex-direction: row; align-items: baseline; gap: 9px; border-left: 0; padding-left: 0; }
