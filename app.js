@@ -222,8 +222,9 @@ function saveWatchedMatches() {
 }
 const matchKey = (match) => `${match.date}|${match.time}|${match.fixture}`;
 
-// A gig clashes with a watched match when their windows overlap on the same
-// day (match ~2h from kick-off, gig ~2.5h from its start time).
+// A gig clashes with a watched match when it starts within an hour either side
+// of kick-off (an 8pm match flags gigs from 7pm to 9pm).
+const CLASH_WINDOW_MINUTES = 60;
 function timeToMinutes(value) {
   const [hours, minutes] = String(value || "").split(":").map(Number);
   return Number.isNaN(hours) ? null : hours * 60 + (minutes || 0);
@@ -231,12 +232,11 @@ function timeToMinutes(value) {
 function clashingMatches(event) {
   const gigStart = timeToMinutes(event.time);
   if (!event.date || gigStart == null) return [];
-  const gigEnd = gigStart + 150;
   return footballFixtures.filter((match) => {
     if (match.date !== event.date || !state.watchedMatches.has(matchKey(match))) return false;
     const kickoff = timeToMinutes(match.time);
     if (kickoff == null) return false;
-    return gigStart < kickoff + 120 && kickoff < gigEnd;
+    return Math.abs(gigStart - kickoff) <= CLASH_WINDOW_MINUTES;
   });
 }
 
