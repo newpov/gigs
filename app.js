@@ -534,9 +534,31 @@ function timeBand(event) {
   return { key: 4, label: "Late", note: "9pm onward" };
 }
 
+function isPick(event) {
+  return !state.rejected.has(eventKey(event))
+    && (state.shortlisted.has(eventKey(event)) || Boolean(favouriteArtistForEvent(event)));
+}
+
 function renderTimeline(visible) {
   if (!visible.length) return "";
-  const sorted = [...visible].sort((a, b) =>
+  // Shortlisted + favourite events are lifted into one pinned cluster at the
+  // very top (ordered by time); the time bands below hold everything else.
+  const picks = visible.filter(isPick);
+  const rest = visible.filter((event) => !isPick(event));
+  return renderPicks(picks) + renderBands(rest);
+}
+
+function renderPicks(picks) {
+  if (!picks.length) return "";
+  const rows = [...picks]
+    .sort((a, b) => (a.time || "99:99").localeCompare(b.time || "99:99"))
+    .map(timelineRow).join("");
+  return `<section class="tl-band tl-picks"><header class="tl-head"><span class="tl-label">★ Your picks</span><span class="tl-note">shortlist &amp; favourites</span><span class="tl-rule"></span><span class="tl-count">${picks.length} ${picks.length === 1 ? "gig" : "gigs"}</span></header><div class="tl-rows">${rows}</div></section>`;
+}
+
+function renderBands(events) {
+  if (!events.length) return "";
+  const sorted = [...events].sort((a, b) =>
     (isDeprioritised(a) ? 1 : 0) - (isDeprioritised(b) ? 1 : 0)
     || (a.time || "99:99").localeCompare(b.time || "99:99"));
   const bands = new Map();
