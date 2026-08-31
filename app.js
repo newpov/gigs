@@ -130,7 +130,7 @@ const state = {
   selectedEventKey: null,
   expressHidden: false,
   shortlisted: new Set(),
-  view: "list"
+  rejected: new Set()
 };
 let mobileListScrollY = 0;
 
@@ -192,9 +192,15 @@ try {
   state.shortlisted = new Set();
 }
 
-// View is intentionally NOT persisted: the planner always opens in List so the
-// landing experience stays predictable, especially on mobile.
-const VIEW_MODES = ["list", "tonight", "cards"];
+const REJECTED_STORAGE_KEY = "gig-planner-rejected-events";
+try {
+  state.rejected = new Set(JSON.parse(localStorage.getItem(REJECTED_STORAGE_KEY) || "[]"));
+} catch {
+  state.rejected = new Set();
+}
+function saveRejected() {
+  try { localStorage.setItem(REJECTED_STORAGE_KEY, JSON.stringify([...state.rejected])); } catch { /* ignore */ }
+}
 
 function dateAtOffset(offset) {
   const date = new Date(today);
@@ -333,21 +339,15 @@ document.querySelector("#includeLarge").addEventListener("change", (event) => {
   render();
 });
 
-const viewButtons = [...document.querySelectorAll(".view-button")];
-function syncViewButtons() {
-  viewButtons.forEach((button) => {
-    const active = button.dataset.view === state.view;
-    button.classList.toggle("active", active);
-    button.setAttribute("aria-pressed", active ? "true" : "false");
-  });
-}
-viewButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    if (!VIEW_MODES.includes(button.dataset.view) || state.view === button.dataset.view) return;
-    state.view = button.dataset.view;
-    syncViewButtons();
-    render();
-  });
+eventsEl.addEventListener("click", (event) => {
+  const rejectButton = event.target.closest(".reject-button");
+  if (!rejectButton) return;
+  event.stopPropagation();
+  const key = rejectButton.dataset.eventKey;
+  if (state.rejected.has(key)) state.rejected.delete(key);
+  else state.rejected.add(key);
+  saveRejected();
+  render();
 });
 
 eventsEl.addEventListener("change", (event) => {
@@ -463,10 +463,17 @@ function eventFlags(event) {
 
 function eventSortRank(event) {
   const flags = eventFlags(event);
+  if (state.rejected.has(eventKey(event))) return 4;
   if (flags.soldOut || flags.tribute) return 3;
   if (state.shortlisted.has(eventKey(event))) return 0;
   if (favouriteArtistForEvent(event)) return 1;
   return 2;
+}
+
+// Rejected, sold-out and tribute rows sink to the bottom of their time band.
+function isDeprioritised(event) {
+  const flags = eventFlags(event);
+  return state.rejected.has(eventKey(event)) || flags.soldOut || flags.tribute;
 }
 
 function render() {
@@ -478,10 +485,7 @@ function render() {
   const visible = filteredEvents();
   countEl.textContent = `${visible.length} ${visible.length === 1 ? "event" : "events"}`;
   emptyEl.hidden = visible.length > 0;
-  eventsEl.className = state.view === "cards" ? "event-grid card-view"
-    : state.view === "tonight" ? "tonight-view"
-    : "event-grid list-view";
-  eventsEl.innerHTML = state.view === "tonight" ? renderTimeline(visible) : visible.map(card).join("");
+  eventsEl.innerHTML = renderTimeline(visible);
   genreSelectionEl.textContent = state.genres.size ? `(${state.genres.size} selected)` : "";
   excludeCountEl.textContent = state.excludedGenres.size ? `(${state.excludedGenres.size} hidden)` : "";
   const favouriteArtists = activeFavouriteArtists();
@@ -533,7 +537,8 @@ function timeBand(event) {
 function renderTimeline(visible) {
   if (!visible.length) return "";
   const sorted = [...visible].sort((a, b) =>
-    (a.time || "99:99").localeCompare(b.time || "99:99") || eventSortRank(a) - eventSortRank(b));
+    (isDeprioritised(a) ? 1 : 0) - (isDeprioritised(b) ? 1 : 0)
+    || (a.time || "99:99").localeCompare(b.time || "99:99"));
   const bands = new Map();
   for (const event of sorted) {
     const band = timeBand(event);
@@ -548,22 +553,34 @@ function renderTimeline(visible) {
 }
 
 function timelineRow(event) {
+  const key = eventKey(event);
   const favourite = favouriteArtistForEvent(event);
   const flags = eventFlags(event);
   const booking = bookingLink(event);
-  const selectedClass = state.selectedEventKey === eventKey(event) ? " selected" : "";
+  const rejected = state.rejected.has(key);
+  const shortlisted = state.shortlisted.has(key);
+  const selectedClass = state.selectedEventKey === key ? " selected" : "";
   const favouriteClass = favourite ? " favourite-event" : "";
   const deprioritisedClass = flags.soldOut || flags.tribute ? " deprioritised-event" : "";
+  const rejectedClass = rejected ? " rejected-event" : "";
   const favouriteMark = favourite ? `<span class="favourite-star" title="Favourite artist: ${escapeAttribute(favourite.name)}" aria-label="Favourite artist ${escapeAttribute(favourite.name)}">★</span>` : "";
   const eventFlagsMarkup = [flags.soldOut ? `<span class="event-flag sold-out-flag">Sold out</span>` : "", flags.tribute ? `<span class="event-flag tribute-flag">Tribute</span>` : ""].join("");
-  return `<article class="tl-row${selectedClass}${favouriteClass}${deprioritisedClass}" data-event-key="${escapeAttribute(eventKey(event))}" tabindex="0" role="button" aria-label="Open details for ${escapeAttribute(event.event_name)}${favourite ? ` · favourite artist ${escapeAttribute(favourite.name)}` : ""}">
+  const price = event.price == null ? `<span class="tl-price tl-price-none" title="Price not listed">—</span>` : `<span class="tl-price">£${event.price.toFixed(2)}</span>`;
+  return `<article class="tl-row${selectedClass}${favouriteClass}${deprioritisedClass}${rejectedClass}" data-event-key="${escapeAttribute(key)}" tabindex="0" role="button" aria-label="Open details for ${escapeAttribute(event.event_name)}${favourite ? ` · favourite artist ${escapeAttribute(favourite.name)}` : ""}">
     <div class="tl-time"><span class="tl-hour">${escapeHtml(formatTime(event.time))}</span><span class="tl-type">${escapeHtml(event.venue_type)}</span></div>
     <div class="tl-body">
       <div class="tl-title">${favouriteMark}<h3>${escapeText(event.event_name)}</h3>${eventFlagsMarkup}</div>
       <div class="tl-where">${escapeText(event.venue)} · ${escapeText(event.borough)} · ${escapeHtml(event.postcode)}</div>
       <div class="tl-tags">${(event.genres || []).map((genre) => `<span class="genre-tag">${escapeText(genre)}</span>`).join("")}</div>
     </div>
-    <a class="tl-book ticket-link" href="${escapeAttribute(booking.url)}" target="_blank" rel="noreferrer">${escapeHtml(booking.label)} ↗</a>
+    <div class="tl-side">
+      ${price}
+      <div class="tl-actions">
+        <label class="shortlist-toggle tl-shortlist"><input class="shortlist-checkbox" data-event-key="${escapeAttribute(key)}" type="checkbox" ${shortlisted ? "checked" : ""} /><span>Shortlist</span></label>
+        <button class="reject-button" type="button" data-event-key="${escapeAttribute(key)}" aria-pressed="${rejected ? "true" : "false"}" title="${rejected ? "Move back up" : "Not interested — move to bottom"}">${rejected ? "Undo" : "Not for me"}</button>
+        <a class="tl-book ticket-link" href="${escapeAttribute(booking.url)}" target="_blank" rel="noreferrer">${escapeHtml(booking.label)} ↗</a>
+      </div>
+    </div>
   </article>`;
 }
 
@@ -733,5 +750,4 @@ function decodeEntities(value) {
 // characters, then re-escape for safe insertion — never inject decoded markup.
 function escapeText(value) { return escapeHtml(decodeEntities(value)); }
 
-syncViewButtons();
 render();

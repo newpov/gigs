@@ -93,11 +93,6 @@
           <h2 id="resultTitle">Tonight in London</h2>
         </div>
         <div class="results-actions">
-          <div class="view-switcher" role="group" aria-label="Choose a view">
-            <button class="view-button active" type="button" data-view="list" aria-pressed="true">List</button>
-            <button class="view-button" type="button" data-view="tonight" aria-pressed="false">Tonight</button>
-            <button class="view-button" type="button" data-view="cards" aria-pressed="false">Cards</button>
-          </div>
           <p id="resultCount" class="result-count"></p>
         </div>
       </section>
@@ -116,11 +111,11 @@
 
       <div class="results-layout">
         <div class="results-list">
-          <section id="events" class="event-grid list-view" aria-live="polite"></section>
+          <section id="events" class="timeline-view" aria-live="polite"></section>
           <p id="emptyState" class="empty-state" hidden>No gigs match those filters. Try widening the venue type or genre selection.</p>
         </div>
-        <aside id="eventDetail" class="event-detail" aria-label="Selected event" hidden>
-          <button id="closeDetail" class="close-detail" type="button">Close details</button>
+        <aside id="eventDetail" class="event-detail" aria-label="Event details" hidden>
+          <button id="closeDetail" class="close-detail" type="button"><span aria-hidden="true">←</span> Back to list</button>
           <div id="detailContent"></div>
         </aside>
       </div>
