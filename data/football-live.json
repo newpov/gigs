@@ -1,0 +1,122 @@
+[
+  {
+    "fixture": "Lecce v Roma",
+    "date": "2026-08-31",
+    "time": "17:30"
+  },
+  {
+    "fixture": "Atalanta v Bologna",
+    "date": "2026-08-31",
+    "time": "19:45"
+  },
+  {
+    "fixture": "Aston Villa v Arsenal",
+    "date": "2026-08-31",
+    "time": "20:00"
+  },
+  {
+    "fixture": "Parma v Cremonese",
+    "date": "2026-09-01",
+    "time": "17:00"
+  },
+  {
+    "fixture": "Torino v Monza",
+    "date": "2026-09-01",
+    "time": "20:00"
+  },
+  {
+    "fixture": "Sassuolo v Frosinone",
+    "date": "2026-09-02",
+    "time": "14:00"
+  },
+  {
+    "fixture": "Udinese v Venezia",
+    "date": "2026-09-02",
+    "time": "17:00"
+  },
+  {
+    "fixture": "Palermo v Mantova",
+    "date": "2026-09-03",
+    "time": "17:00"
+  },
+  {
+    "fixture": "Cagliari v Verona",
+    "date": "2026-09-03",
+    "time": "20:00"
+  },
+  {
+    "fixture": "Genoa v Como",
+    "date": "2026-09-04",
+    "time": "19:45"
+  },
+  {
+    "fixture": "Ipswich Town v Liverpool",
+    "date": "2026-09-04",
+    "time": "20:00"
+  },
+  {
+    "fixture": "Newcastle United v AFC Bournemouth",
+    "date": "2026-09-05",
+    "time": "12:30"
+  },
+  {
+    "fixture": "Inter Milan v Napoli (joins match in progress)",
+    "date": "2026-09-05",
+    "time": "17:00"
+  },
+  {
+    "fixture": "Hull City v Aston Villa",
+    "date": "2026-09-05",
+    "time": "17:30"
+  },
+  {
+    "fixture": "Roma v Atalanta",
+    "date": "2026-09-05",
+    "time": "19:45"
+  },
+  {
+    "fixture": "Everton v Manchester United",
+    "date": "2026-09-06",
+    "time": "14:00"
+  },
+  {
+    "fixture": "Frosinone v Venezia",
+    "date": "2026-09-06",
+    "time": "14:00"
+  },
+  {
+    "fixture": "Parma v Monza",
+    "date": "2026-09-06",
+    "time": "14:00"
+  },
+  {
+    "fixture": "Arsenal v Chelsea",
+    "date": "2026-09-06",
+    "time": "16:30"
+  },
+  {
+    "fixture": "Bologna v Sassuolo",
+    "date": "2026-09-06",
+    "time": "17:00"
+  },
+  {
+    "fixture": "USA Women U20 v Italy Women U20",
+    "date": "2026-09-06",
+    "time": "17:00"
+  },
+  {
+    "fixture": "Juventus v AC Milan",
+    "date": "2026-09-06",
+    "time": "19:45"
+  },
+  {
+    "fixture": "Cagliari v Lecce",
+    "date": "2026-09-07",
+    "time": "17:00"
+  },
+  {
+    "fixture": "Udinese v Lazio",
+    "date": "2026-09-07",
+    "time": "19:45"
+  }
+]

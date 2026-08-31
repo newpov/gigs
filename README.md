@@ -155,6 +155,16 @@ Booking links use this order:
 2. External ticket URL discovered on the event page.
 3. A Google search query containing the event, performers, venue, date and promoter when available.
 
+## Football clash warnings
+
+`scripts/football_extractor.mjs` scrapes upcoming fixtures (Champions League, Europa League, Serie A, Premier League) from live-footballontv.com into `data/football-live.json`, keeping only `{fixture, date, time}` (kick-offs are already UK/London local). It runs in the same daily refresh window as the listings.
+
+```powershell
+node scripts\football_extractor.mjs --days 8 --output data\football-live.json
+```
+
+In the planner, the **Football to watch** control lists those fixtures; tick the matches you plan to watch on TV. Any gig whose time overlaps a ticked match is flagged with a warning badge, and the event's Details panel lists every clashing fixture — so you don't double-book a night. Selections are stored locally in the browser.
+
 ## Credits and acknowledgements
 
 Listings come from [Halibuts](https://halibuts.com), whose work cataloguing London's live music makes this planner possible — thank you. This project is a lightweight companion for scanning what's on; for the full picture (more cities, richer detail and the complete listings) please visit [halibuts.com](https://halibuts.com) directly.

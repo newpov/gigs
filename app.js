@@ -17,6 +17,14 @@ try {
   // Media enrichment is optional; the event list remains usable without it.
 }
 
+let footballFixtures = [];
+try {
+  const response = await fetch("data/football-live.json");
+  if (response.ok) footballFixtures = await response.json();
+} catch {
+  // Football clash warnings are optional; the planner works without the feed.
+}
+
 function mediaKey(value) {
   return String(value || "").toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, " ").trim();
 }
@@ -130,7 +138,8 @@ const state = {
   selectedEventKey: null,
   expressHidden: false,
   shortlisted: new Set(),
-  rejected: new Set()
+  rejected: new Set(),
+  watchedMatches: new Set()
 };
 let mobileListScrollY = 0;
 
@@ -200,6 +209,46 @@ try {
 }
 function saveRejected() {
   try { localStorage.setItem(REJECTED_STORAGE_KEY, JSON.stringify([...state.rejected])); } catch { /* ignore */ }
+}
+
+const WATCHED_MATCHES_STORAGE_KEY = "gig-planner-football-watching";
+try {
+  state.watchedMatches = new Set(JSON.parse(localStorage.getItem(WATCHED_MATCHES_STORAGE_KEY) || "[]"));
+} catch {
+  state.watchedMatches = new Set();
+}
+function saveWatchedMatches() {
+  try { localStorage.setItem(WATCHED_MATCHES_STORAGE_KEY, JSON.stringify([...state.watchedMatches])); } catch { /* ignore */ }
+}
+const matchKey = (match) => `${match.date}|${match.time}|${match.fixture}`;
+
+// A gig clashes with a watched match when it starts within an hour either side
+// of kick-off (an 8pm match flags gigs from 7pm to 9pm).
+const CLASH_WINDOW_MINUTES = 60;
+function timeToMinutes(value) {
+  const [hours, minutes] = String(value || "").split(":").map(Number);
+  return Number.isNaN(hours) ? null : hours * 60 + (minutes || 0);
+}
+function clashingMatches(event) {
+  const gigStart = timeToMinutes(event.time);
+  if (!event.date || gigStart == null) return [];
+  return footballFixtures.filter((match) => {
+    if (match.date !== event.date || !state.watchedMatches.has(matchKey(match))) return false;
+    const kickoff = timeToMinutes(match.time);
+    if (kickoff == null) return false;
+    return Math.abs(gigStart - kickoff) <= CLASH_WINDOW_MINUTES;
+  });
+}
+
+// Whether a fixture date falls in the currently-selected view range, so the
+// football picker only shows matches for the day(s) of gigs on screen.
+function matchInRange(date) {
+  if (!date) return false;
+  if (state.dateRange === "today") return date === todayKey;
+  if (state.dateRange === "tomorrow") return date === dateAtOffset(1);
+  if (state.dateRange === "week") return date > todayKey && date <= dateAtOffset(7);
+  if (state.dateRange === "custom") return date === state.customDate;
+  return true;
 }
 
 function dateAtOffset(offset) {
@@ -350,6 +399,45 @@ eventsEl.addEventListener("click", (event) => {
   render();
 });
 
+const footballEl = document.querySelector("#footballFilters");
+const footballCountEl = document.querySelector("#footballCount");
+const footballPickerEl = document.querySelector(".football-picker");
+function renderFootballPicker() {
+  if (!footballPickerEl) return;
+  if (!footballFixtures.length) {
+    footballPickerEl.hidden = true;
+    return;
+  }
+  footballPickerEl.hidden = false;
+  const inRange = footballFixtures.filter((match) => matchInRange(match.date));
+  if (!inRange.length) {
+    footballEl.innerHTML = `<p class="football-empty">No televised fixtures for this date.</p>`;
+    return;
+  }
+  const byDate = new Map();
+  for (const match of inRange) {
+    if (!byDate.has(match.date)) byDate.set(match.date, []);
+    byDate.get(match.date).push(match);
+  }
+  footballEl.innerHTML = [...byDate.keys()].sort().map((date) => {
+    const rows = byDate.get(date).map((match) => {
+      const key = matchKey(match);
+      return `<label class="football-match"><input type="checkbox" data-match-key="${escapeAttribute(key)}" ${state.watchedMatches.has(key) ? "checked" : ""} /><span class="fb-time">${escapeHtml(formatTime(match.time))}</span><span class="fb-fixture">${escapeText(match.fixture)}</span></label>`;
+    }).join("");
+    return `<div class="football-day"><div class="football-day-head">${escapeHtml(formatDate(date))}</div>${rows}</div>`;
+  }).join("");
+}
+if (footballEl) {
+  footballEl.addEventListener("change", (event) => {
+    const checkbox = event.target.closest("input[data-match-key]");
+    if (!checkbox) return;
+    if (checkbox.checked) state.watchedMatches.add(checkbox.dataset.matchKey);
+    else state.watchedMatches.delete(checkbox.dataset.matchKey);
+    saveWatchedMatches();
+    render();
+  });
+}
+
 eventsEl.addEventListener("change", (event) => {
   const checkbox = event.target.closest(".shortlist-checkbox");
   if (!checkbox) return;
@@ -411,6 +499,7 @@ document.querySelectorAll(".date-pill").forEach((button) => {
     state.customDate = null;
     calendarDateEl.value = "";
     render();
+    renderFootballPicker();
   });
 });
 
@@ -420,6 +509,7 @@ calendarDateEl.addEventListener("change", (event) => {
   state.dateRange = "custom";
   state.customDate = event.target.value;
   render();
+  renderFootballPicker();
 });
 
 function filteredEvents({ includePostcode = true } = {}) {
@@ -490,6 +580,10 @@ function render() {
   excludeCountEl.textContent = state.excludedGenres.size ? `(${state.excludedGenres.size} hidden)` : "";
   const favouriteArtists = activeFavouriteArtists();
   favouriteCountEl.textContent = favouriteArtists.length ? `(${favouriteArtists.length})` : "(none)";
+  if (footballCountEl) {
+    const watchingInRange = footballFixtures.filter((match) => matchInRange(match.date) && state.watchedMatches.has(matchKey(match))).length;
+    footballCountEl.textContent = watchingInRange ? `(${watchingInRange} watching)` : "";
+  }
   favouriteStatusEl.textContent = customFavouriteArtists === null
     ? `${favouriteArtists.length} shared artists active · import a CSV to customise this list`
     : `${favouriteArtists.length} imported artists active · use shared list to reset`;
@@ -534,9 +628,31 @@ function timeBand(event) {
   return { key: 4, label: "Late", note: "9pm onward" };
 }
 
+function isPick(event) {
+  return !state.rejected.has(eventKey(event))
+    && (state.shortlisted.has(eventKey(event)) || Boolean(favouriteArtistForEvent(event)));
+}
+
 function renderTimeline(visible) {
   if (!visible.length) return "";
-  const sorted = [...visible].sort((a, b) =>
+  // Shortlisted + favourite events are lifted into one pinned cluster at the
+  // very top (ordered by time); the time bands below hold everything else.
+  const picks = visible.filter(isPick);
+  const rest = visible.filter((event) => !isPick(event));
+  return renderPicks(picks) + renderBands(rest);
+}
+
+function renderPicks(picks) {
+  if (!picks.length) return "";
+  const rows = [...picks]
+    .sort((a, b) => (a.time || "99:99").localeCompare(b.time || "99:99"))
+    .map(timelineRow).join("");
+  return `<section class="tl-band tl-picks"><header class="tl-head"><span class="tl-label">★ Your picks</span><span class="tl-note">shortlist &amp; favourites</span><span class="tl-rule"></span><span class="tl-count">${picks.length} ${picks.length === 1 ? "gig" : "gigs"}</span></header><div class="tl-rows">${rows}</div></section>`;
+}
+
+function renderBands(events) {
+  if (!events.length) return "";
+  const sorted = [...events].sort((a, b) =>
     (isDeprioritised(a) ? 1 : 0) - (isDeprioritised(b) ? 1 : 0)
     || (a.time || "99:99").localeCompare(b.time || "99:99"));
   const bands = new Map();
@@ -563,13 +679,18 @@ function timelineRow(event) {
   const favouriteClass = favourite ? " favourite-event" : "";
   const deprioritisedClass = flags.soldOut || flags.tribute ? " deprioritised-event" : "";
   const rejectedClass = rejected ? " rejected-event" : "";
+  const clashes = clashingMatches(event);
+  const clashClass = clashes.length ? " clashing" : "";
+  const clashBadge = clashes.length === 1
+    ? `<span class="clash-badge">⚠ ${escapeText(clashes[0].fixture)} · ${escapeHtml(formatTime(clashes[0].time))}</span>`
+    : clashes.length > 1 ? `<span class="clash-badge">⚠ Clashes · ${clashes.length} matches</span>` : "";
   const favouriteMark = favourite ? `<span class="favourite-star" title="Favourite artist: ${escapeAttribute(favourite.name)}" aria-label="Favourite artist ${escapeAttribute(favourite.name)}">★</span>` : "";
   const eventFlagsMarkup = [flags.soldOut ? `<span class="event-flag sold-out-flag">Sold out</span>` : "", flags.tribute ? `<span class="event-flag tribute-flag">Tribute</span>` : ""].join("");
   const price = event.price == null ? `<span class="tl-price tl-price-none" title="Price not listed">—</span>` : `<span class="tl-price">£${event.price.toFixed(2)}</span>`;
-  return `<article class="tl-row${selectedClass}${favouriteClass}${deprioritisedClass}${rejectedClass}" data-event-key="${escapeAttribute(key)}" tabindex="0" role="button" aria-label="Open details for ${escapeAttribute(event.event_name)}${favourite ? ` · favourite artist ${escapeAttribute(favourite.name)}` : ""}">
+  return `<article class="tl-row${selectedClass}${favouriteClass}${deprioritisedClass}${rejectedClass}${clashClass}" data-event-key="${escapeAttribute(key)}" tabindex="0" role="button" aria-label="Open details for ${escapeAttribute(event.event_name)}${favourite ? ` · favourite artist ${escapeAttribute(favourite.name)}` : ""}${clashes.length ? ` · clashes with ${clashes.length} watched ${clashes.length === 1 ? "match" : "matches"}` : ""}">
     <div class="tl-time"><span class="tl-hour">${escapeHtml(formatTime(event.time))}</span><span class="tl-type">${escapeHtml(event.venue_type)}</span></div>
     <div class="tl-body">
-      <div class="tl-title">${favouriteMark}<h3>${escapeText(event.event_name)}</h3>${eventFlagsMarkup}</div>
+      <div class="tl-title">${favouriteMark}<h3>${escapeText(event.event_name)}</h3>${eventFlagsMarkup}${clashBadge}</div>
       <div class="tl-where">${escapeText(event.venue)} · ${escapeText(event.borough)} · ${escapeHtml(event.postcode)}</div>
       <div class="tl-tags">${(event.genres || []).map((genre) => `<span class="genre-tag">${escapeText(genre)}</span>`).join("")}</div>
     </div>
@@ -709,7 +830,11 @@ function renderDetail(visible) {
   const booking = bookingLink(selected);
   const favourite = favouriteArtistForEvent(selected);
   const favouriteMark = favourite ? `<span class="favourite-star" title="Favourite artist: ${escapeAttribute(favourite.name)}" aria-label="Favourite artist ${escapeAttribute(favourite.name)}">★</span>` : "";
-  detailContentEl.innerHTML = `<div class="detail-media">${mediaMarkup(selected)}</div><div class="detail-meta"><p class="detail-kicker">${escapeHtml(selected.venue_type)} · ${escapeHtml(formatDate(selected.date))} · ${escapeHtml(formatTime(selected.time))}</p><label class="shortlist-toggle"><input class="shortlist-checkbox" data-event-key="${escapeAttribute(eventKey(selected))}" type="checkbox" ${state.shortlisted.has(eventKey(selected)) ? "checked" : ""} /><span>Shortlist</span></label></div><div class="detail-title-line">${favouriteMark}<h3>${escapeText(selected.event_name)}</h3></div><div class="venue-block"><div class="venue">${escapeText(selected.venue)}</div><div class="location">${escapeText(selected.borough)} · ${escapeHtml(selected.postcode)}</div></div><p class="description">${escapeText(selected.description || "Details available on the source listing.")}</p><div class="genre-list">${(selected.genres || []).map((genre) => `<span class="genre-tag">${escapeText(genre)}</span>`).join("")}</div><div class="detail-footer"><span class="price">${price}</span><a class="ticket-link" href="${escapeAttribute(booking.url)}" target="_blank" rel="noreferrer">${escapeHtml(booking.label)} ↗</a></div>`;
+  const clashes = clashingMatches(selected);
+  const clashBubble = clashes.length
+    ? `<div class="clash-bubble"><div class="clash-bubble-head">⚠ Football clash${clashes.length > 1 ? ` · ${clashes.length} matches` : ""}</div><ul class="clash-list">${clashes.map((match) => `<li><span class="fb-time">${escapeHtml(formatTime(match.time))}</span><span class="fb-fixture">${escapeText(match.fixture)}</span></li>`).join("")}</ul></div>`
+    : "";
+  detailContentEl.innerHTML = `<div class="detail-media">${mediaMarkup(selected)}</div><div class="detail-meta"><p class="detail-kicker">${escapeHtml(selected.venue_type)} · ${escapeHtml(formatDate(selected.date))} · ${escapeHtml(formatTime(selected.time))}</p><label class="shortlist-toggle"><input class="shortlist-checkbox" data-event-key="${escapeAttribute(eventKey(selected))}" type="checkbox" ${state.shortlisted.has(eventKey(selected)) ? "checked" : ""} /><span>Shortlist</span></label></div><div class="detail-title-line">${favouriteMark}<h3>${escapeText(selected.event_name)}</h3></div><div class="venue-block"><div class="venue">${escapeText(selected.venue)}</div><div class="location">${escapeText(selected.borough)} · ${escapeHtml(selected.postcode)}</div></div>${clashBubble}<p class="description">${escapeText(selected.description || "Details available on the source listing.")}</p><div class="genre-list">${(selected.genres || []).map((genre) => `<span class="genre-tag">${escapeText(genre)}</span>`).join("")}</div><div class="detail-footer"><span class="price">${price}</span><a class="ticket-link" href="${escapeAttribute(booking.url)}" target="_blank" rel="noreferrer">${escapeHtml(booking.label)} ↗</a></div>`;
 }
 
 function instagramResearchUrl(name, role = "artist") {
@@ -750,4 +875,5 @@ function decodeEntities(value) {
 // characters, then re-escape for safe insertion — never inject decoded markup.
 function escapeText(value) { return escapeHtml(decodeEntities(value)); }
 
+renderFootballPicker();
 render();
