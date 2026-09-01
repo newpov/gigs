@@ -150,6 +150,8 @@ h2 { font: 700 38px/.98 "Playfair Display", serif; letter-spacing: -.035em; marg
 .tl-picks .tl-label { color: var(--orange-dark); }
 .tl-picks .tl-rule { background: #e2cfa2; }
 .tl-picks .tl-row:hover { background: #fffdf9; }
+.tl-rejected { margin-top: 18px; padding-top: 14px; border-top: 1px dashed var(--line); }
+.tl-rejected .tl-label { color: var(--muted); }
 .tl-head { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
 .tl-label { color: var(--teal); font: 600 12px "DM Mono", monospace; text-transform: uppercase; letter-spacing: .14em; white-space: nowrap; }
 .tl-note { color: var(--muted); font: 500 11px "DM Mono", monospace; white-space: nowrap; }

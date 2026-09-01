@@ -636,10 +636,20 @@ function isPick(event) {
 function renderTimeline(visible) {
   if (!visible.length) return "";
   // Shortlisted + favourite events are lifted into one pinned cluster at the
-  // very top (ordered by time); the time bands below hold everything else.
+  // very top (ordered by time); "Not for me" rejects sink to a single section
+  // at the very bottom (below every time band); the bands hold everything else.
   const picks = visible.filter(isPick);
-  const rest = visible.filter((event) => !isPick(event));
-  return renderPicks(picks) + renderBands(rest);
+  const rejected = visible.filter((event) => state.rejected.has(eventKey(event)));
+  const rest = visible.filter((event) => !isPick(event) && !state.rejected.has(eventKey(event)));
+  return renderPicks(picks) + renderBands(rest) + renderRejected(rejected);
+}
+
+function renderRejected(events) {
+  if (!events.length) return "";
+  const rows = [...events]
+    .sort((a, b) => (a.time || "99:99").localeCompare(b.time || "99:99"))
+    .map(timelineRow).join("");
+  return `<section class="tl-band tl-rejected"><header class="tl-head"><span class="tl-label">Not for me</span><span class="tl-note">move any back up with Undo</span><span class="tl-rule"></span><span class="tl-count">${events.length} ${events.length === 1 ? "gig" : "gigs"}</span></header><div class="tl-rows">${rows}</div></section>`;
 }
 
 function renderPicks(picks) {
