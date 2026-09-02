@@ -1,15 +1,5 @@
 [
   {
-    "fixture": "Parma v Cremonese",
-    "date": "2026-09-01",
-    "time": "17:00"
-  },
-  {
-    "fixture": "Torino v Monza",
-    "date": "2026-09-01",
-    "time": "20:00"
-  },
-  {
     "fixture": "Sassuolo v Frosinone",
     "date": "2026-09-02",
     "time": "14:00"
@@ -132,6 +122,41 @@
   {
     "fixture": "Real Madrid v Inter Milan",
     "date": "2026-09-08",
+    "time": "20:00"
+  },
+  {
+    "fixture": "Italy Women U20 v New Zealand Women U20",
+    "date": "2026-09-09",
+    "time": "14:00"
+  },
+  {
+    "fixture": "Barcelona v Feyenoord",
+    "date": "2026-09-09",
+    "time": "17:45"
+  },
+  {
+    "fixture": "VfB Stuttgart v VIking FK",
+    "date": "2026-09-09",
+    "time": "17:45"
+  },
+  {
+    "fixture": "Liverpool v Atlético Madrid",
+    "date": "2026-09-09",
+    "time": "20:00"
+  },
+  {
+    "fixture": "Napoli v Arsenal",
+    "date": "2026-09-09",
+    "time": "20:00"
+  },
+  {
+    "fixture": "PSG v Slovan Bratislava",
+    "date": "2026-09-09",
+    "time": "20:00"
+  },
+  {
+    "fixture": "Sporting CP v Galatasaray",
+    "date": "2026-09-09",
     "time": "20:00"
   }
 ]
