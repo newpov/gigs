@@ -1,15 +1,5 @@
 [
   {
-    "fixture": "Sassuolo v Frosinone",
-    "date": "2026-09-02",
-    "time": "14:00"
-  },
-  {
-    "fixture": "Udinese v Venezia",
-    "date": "2026-09-02",
-    "time": "17:00"
-  },
-  {
     "fixture": "Palermo v Mantova",
     "date": "2026-09-03",
     "time": "17:00"
@@ -95,6 +85,11 @@
     "time": "19:45"
   },
   {
+    "fixture": "Real Madrid U19 v Inter Milan U19",
+    "date": "2026-09-08",
+    "time": "15:00"
+  },
+  {
     "fixture": "AEK Athens v LASK",
     "date": "2026-09-08",
     "time": "17:45"
@@ -157,6 +152,36 @@
   {
     "fixture": "Sporting CP v Galatasaray",
     "date": "2026-09-09",
+    "time": "20:00"
+  },
+  {
+    "fixture": "Fenerbahce v Roma",
+    "date": "2026-09-10",
+    "time": "17:45"
+  },
+  {
+    "fixture": "PSV Eindhoven v Shakhtar Donetsk",
+    "date": "2026-09-10",
+    "time": "17:45"
+  },
+  {
+    "fixture": "Bayern Munich v Bodo/Glimt",
+    "date": "2026-09-10",
+    "time": "20:00"
+  },
+  {
+    "fixture": "Como v RB Leipzig",
+    "date": "2026-09-10",
+    "time": "20:00"
+  },
+  {
+    "fixture": "Manchester United v Sabah FC",
+    "date": "2026-09-10",
+    "time": "20:00"
+  },
+  {
+    "fixture": "Slavia Prague v RC Lens",
+    "date": "2026-09-10",
     "time": "20:00"
   }
 ]
