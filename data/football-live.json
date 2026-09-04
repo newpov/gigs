@@ -1,15 +1,5 @@
 [
   {
-    "fixture": "Palermo v Mantova",
-    "date": "2026-09-03",
-    "time": "17:00"
-  },
-  {
-    "fixture": "Cagliari v Verona",
-    "date": "2026-09-03",
-    "time": "20:00"
-  },
-  {
     "fixture": "Genoa v Como",
     "date": "2026-09-04",
     "time": "19:45"
@@ -50,9 +40,19 @@
     "time": "14:00"
   },
   {
+    "fixture": "Modena v Avellino",
+    "date": "2026-09-06",
+    "time": "14:00"
+  },
+  {
     "fixture": "Parma v Monza",
     "date": "2026-09-06",
     "time": "14:00"
+  },
+  {
+    "fixture": "Verona v Arezzo",
+    "date": "2026-09-06",
+    "time": "16:15"
   },
   {
     "fixture": "Arsenal v Chelsea",
@@ -78,6 +78,11 @@
     "fixture": "Cagliari v Lecce",
     "date": "2026-09-07",
     "time": "17:00"
+  },
+  {
+    "fixture": "Palermo v Sampdoria",
+    "date": "2026-09-07",
+    "time": "19:30"
   },
   {
     "fixture": "Udinese v Lazio",
@@ -183,5 +188,10 @@
     "fixture": "Slavia Prague v RC Lens",
     "date": "2026-09-10",
     "time": "20:00"
+  },
+  {
+    "fixture": "Venezia v Fiorentina",
+    "date": "2026-09-11",
+    "time": "19:45"
   }
 ]
