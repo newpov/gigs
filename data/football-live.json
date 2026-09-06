@@ -1,25 +1,5 @@
 [
   {
-    "fixture": "Newcastle United v AFC Bournemouth",
-    "date": "2026-09-05",
-    "time": "12:30"
-  },
-  {
-    "fixture": "Inter Milan v Napoli (joins match in progress)",
-    "date": "2026-09-05",
-    "time": "17:00"
-  },
-  {
-    "fixture": "Hull City v Aston Villa",
-    "date": "2026-09-05",
-    "time": "17:30"
-  },
-  {
-    "fixture": "Roma v Atalanta",
-    "date": "2026-09-05",
-    "time": "19:45"
-  },
-  {
     "fixture": "Everton v Manchester United",
     "date": "2026-09-06",
     "time": "14:00"
@@ -208,5 +188,30 @@
     "fixture": "Sunderland v Arsenal",
     "date": "2026-09-12",
     "time": "20:00"
+  },
+  {
+    "fixture": "Coventry City v Brighton & Hove Albion",
+    "date": "2026-09-13",
+    "time": "14:00"
+  },
+  {
+    "fixture": "Lecce v Monza",
+    "date": "2026-09-13",
+    "time": "14:00"
+  },
+  {
+    "fixture": "Manchester United v Manchester City",
+    "date": "2026-09-13",
+    "time": "16:30"
+  },
+  {
+    "fixture": "Napoli v Bologna",
+    "date": "2026-09-13",
+    "time": "17:00"
+  },
+  {
+    "fixture": "Sassuolo v Juventus",
+    "date": "2026-09-13",
+    "time": "19:45"
   }
 ]
