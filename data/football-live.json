@@ -1,20 +1,5 @@
 [
   {
-    "fixture": "Cagliari v Lecce",
-    "date": "2026-09-07",
-    "time": "17:00"
-  },
-  {
-    "fixture": "Palermo v Sampdoria",
-    "date": "2026-09-07",
-    "time": "19:30"
-  },
-  {
-    "fixture": "Udinese v Lazio",
-    "date": "2026-09-07",
-    "time": "19:45"
-  },
-  {
     "fixture": "Real Madrid U19 v Inter Milan U19",
     "date": "2026-09-08",
     "time": "15:00"
@@ -187,6 +172,16 @@
   {
     "fixture": "Leeds United v Newcastle United",
     "date": "2026-09-14",
+    "time": "20:00"
+  },
+  {
+    "fixture": "Genoa v Sudtirol",
+    "date": "2026-09-15",
+    "time": "17:00"
+  },
+  {
+    "fixture": "Fiorentina v Pisa",
+    "date": "2026-09-15",
     "time": "20:00"
   }
 ]
