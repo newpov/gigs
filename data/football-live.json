@@ -1,35 +1,5 @@
 [
   {
-    "fixture": "Fenerbahce v Roma",
-    "date": "2026-09-10",
-    "time": "17:45"
-  },
-  {
-    "fixture": "PSV Eindhoven v Shakhtar Donetsk",
-    "date": "2026-09-10",
-    "time": "17:45"
-  },
-  {
-    "fixture": "Bayern Munich v Bodo/Glimt",
-    "date": "2026-09-10",
-    "time": "20:00"
-  },
-  {
-    "fixture": "Como v RB Leipzig",
-    "date": "2026-09-10",
-    "time": "20:00"
-  },
-  {
-    "fixture": "Manchester United v Sabah FC",
-    "date": "2026-09-10",
-    "time": "20:00"
-  },
-  {
-    "fixture": "Slavia Prague v RC Lens",
-    "date": "2026-09-10",
-    "time": "20:00"
-  },
-  {
     "fixture": "Venezia v Fiorentina",
     "date": "2026-09-11",
     "time": "19:45"
@@ -202,6 +172,16 @@
   {
     "fixture": "Viktoria Plzen v Union Saint-Gilloise",
     "date": "2026-09-17",
+    "time": "20:00"
+  },
+  {
+    "fixture": "Monza v Sassuolo",
+    "date": "2026-09-18",
+    "time": "19:45"
+  },
+  {
+    "fixture": "Brentford v Chelsea",
+    "date": "2026-09-18",
     "time": "20:00"
   }
 ]
