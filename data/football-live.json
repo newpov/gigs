@@ -1,10 +1,5 @@
 [
   {
-    "fixture": "Venezia v Fiorentina",
-    "date": "2026-09-11",
-    "time": "19:45"
-  },
-  {
     "fixture": "Italy Women U20 v Japan Women U20",
     "date": "2026-09-12",
     "time": "14:00"
@@ -18,6 +13,11 @@
     "fixture": "Tottenham Hotspur v Everton",
     "date": "2026-09-12",
     "time": "17:30"
+  },
+  {
+    "fixture": "Cesena v Cremonese",
+    "date": "2026-09-12",
+    "time": "18:30"
   },
   {
     "fixture": "Atalanta v Cagliari",
@@ -38,6 +38,11 @@
     "fixture": "Lecce v Monza",
     "date": "2026-09-13",
     "time": "14:00"
+  },
+  {
+    "fixture": "Avellino v Palermo",
+    "date": "2026-09-13",
+    "time": "16:15"
   },
   {
     "fixture": "Manchester United v Manchester City",
@@ -183,5 +188,25 @@
     "fixture": "Brentford v Chelsea",
     "date": "2026-09-18",
     "time": "20:00"
+  },
+  {
+    "fixture": "Tottenham Hotspur v Aston Villa",
+    "date": "2026-09-19",
+    "time": "12:30"
+  },
+  {
+    "fixture": "Roma v Inter Milan (joins match in progress)",
+    "date": "2026-09-19",
+    "time": "17:00"
+  },
+  {
+    "fixture": "Nottingham Forest v Coventry City",
+    "date": "2026-09-19",
+    "time": "17:30"
+  },
+  {
+    "fixture": "Venezia v Lazio",
+    "date": "2026-09-19",
+    "time": "19:45"
   }
 ]
