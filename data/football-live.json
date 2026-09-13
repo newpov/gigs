@@ -1,35 +1,5 @@
 [
   {
-    "fixture": "Italy Women U20 v Japan Women U20",
-    "date": "2026-09-12",
-    "time": "14:00"
-  },
-  {
-    "fixture": "Lazio v AC Milan (joins match in progress)",
-    "date": "2026-09-12",
-    "time": "17:00"
-  },
-  {
-    "fixture": "Tottenham Hotspur v Everton",
-    "date": "2026-09-12",
-    "time": "17:30"
-  },
-  {
-    "fixture": "Cesena v Cremonese",
-    "date": "2026-09-12",
-    "time": "18:30"
-  },
-  {
-    "fixture": "Atalanta v Cagliari",
-    "date": "2026-09-12",
-    "time": "19:45"
-  },
-  {
-    "fixture": "Sunderland v Arsenal",
-    "date": "2026-09-12",
-    "time": "20:00"
-  },
-  {
     "fixture": "Coventry City v Brighton & Hove Albion",
     "date": "2026-09-13",
     "time": "14:00"
@@ -207,6 +177,51 @@
   {
     "fixture": "Venezia v Lazio",
     "date": "2026-09-19",
+    "time": "19:45"
+  },
+  {
+    "fixture": "Fiorentina v Napoli",
+    "date": "2026-09-20",
+    "time": "11:30"
+  },
+  {
+    "fixture": "AFC Bournemouth v Liverpool",
+    "date": "2026-09-20",
+    "time": "14:00"
+  },
+  {
+    "fixture": "Frosinone v Como",
+    "date": "2026-09-20",
+    "time": "14:00"
+  },
+  {
+    "fixture": "Leeds United v Crystal Palace",
+    "date": "2026-09-20",
+    "time": "14:00"
+  },
+  {
+    "fixture": "Manchester City v Sunderland",
+    "date": "2026-09-20",
+    "time": "14:00"
+  },
+  {
+    "fixture": "Parma v Genoa",
+    "date": "2026-09-20",
+    "time": "14:00"
+  },
+  {
+    "fixture": "Fulham v Manchester United",
+    "date": "2026-09-20",
+    "time": "16:30"
+  },
+  {
+    "fixture": "Juventus v Atalanta",
+    "date": "2026-09-20",
+    "time": "17:00"
+  },
+  {
+    "fixture": "AC Milan v Lecce",
+    "date": "2026-09-20",
     "time": "19:45"
   }
 ]
