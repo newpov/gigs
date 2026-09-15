@@ -1,25 +1,5 @@
 [
   {
-    "fixture": "Como v Parma",
-    "date": "2026-09-14",
-    "time": "17:30"
-  },
-  {
-    "fixture": "Torino v Roma",
-    "date": "2026-09-14",
-    "time": "17:30"
-  },
-  {
-    "fixture": "Inter Milan v Udinese",
-    "date": "2026-09-14",
-    "time": "19:45"
-  },
-  {
-    "fixture": "Leeds United v Newcastle United",
-    "date": "2026-09-14",
-    "time": "20:00"
-  },
-  {
     "fixture": "Genoa v Sudtirol",
     "date": "2026-09-15",
     "time": "17:00"
@@ -28,6 +8,11 @@
     "fixture": "Fiorentina v Pisa",
     "date": "2026-09-15",
     "time": "20:00"
+  },
+  {
+    "fixture": "Italy Women U20 v China Women U20",
+    "date": "2026-09-16",
+    "time": "17:30"
   },
   {
     "fixture": "Ararat-Armenia v Sparta Prague",
@@ -193,5 +178,10 @@
     "fixture": "AC Milan v Lecce",
     "date": "2026-09-20",
     "time": "19:45"
+  },
+  {
+    "fixture": "Inter Milan Women v Hacken Women",
+    "date": "2026-09-22",
+    "time": "17:45"
   }
 ]
