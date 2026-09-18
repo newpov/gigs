@@ -1,50 +1,5 @@
 [
   {
-    "fixture": "Levski Sofia v RB Salzburg",
-    "date": "2026-09-17",
-    "time": "17:45"
-  },
-  {
-    "fixture": "OFI Crete v Hoffenheim",
-    "date": "2026-09-17",
-    "time": "17:45"
-  },
-  {
-    "fixture": "Besiktas v Marseille",
-    "date": "2026-09-17",
-    "time": "20:00"
-  },
-  {
-    "fixture": "Celtic v Ferencvaros",
-    "date": "2026-09-17",
-    "time": "20:00"
-  },
-  {
-    "fixture": "Crystal Palace v Lech Poznan",
-    "date": "2026-09-17",
-    "time": "20:00"
-  },
-  {
-    "fixture": "Juventus v NEC Nijmegen",
-    "date": "2026-09-17",
-    "time": "20:00"
-  },
-  {
-    "fixture": "Lillestrom v Torreense",
-    "date": "2026-09-17",
-    "time": "20:00"
-  },
-  {
-    "fixture": "Real Sociedad v AFC Bournemouth",
-    "date": "2026-09-17",
-    "time": "20:00"
-  },
-  {
-    "fixture": "Viktoria Plzen v Union Saint-Gilloise",
-    "date": "2026-09-17",
-    "time": "20:00"
-  },
-  {
     "fixture": "Monza v Sassuolo",
     "date": "2026-09-18",
     "time": "19:45"
@@ -58,6 +13,16 @@
     "fixture": "Tottenham Hotspur v Aston Villa",
     "date": "2026-09-19",
     "time": "12:30"
+  },
+  {
+    "fixture": "Palermo v Padova",
+    "date": "2026-09-19",
+    "time": "14:00"
+  },
+  {
+    "fixture": "Sampdoria v US Catanzaro",
+    "date": "2026-09-19",
+    "time": "16:15"
   },
   {
     "fixture": "Roma v Inter Milan (joins match in progress)",
@@ -101,6 +66,11 @@
   },
   {
     "fixture": "Parma v Genoa",
+    "date": "2026-09-20",
+    "time": "14:00"
+  },
+  {
+    "fixture": "Verona v Vicenza",
     "date": "2026-09-20",
     "time": "14:00"
   },
