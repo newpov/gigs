@@ -1,21 +1,16 @@
 [
   {
-    "fixture": "Monza v Sassuolo",
-    "date": "2026-09-18",
-    "time": "19:45"
-  },
-  {
-    "fixture": "Brentford v Chelsea",
-    "date": "2026-09-18",
-    "time": "20:00"
-  },
-  {
     "fixture": "Tottenham Hotspur v Aston Villa",
     "date": "2026-09-19",
     "time": "12:30"
   },
   {
     "fixture": "Palermo v Padova",
+    "date": "2026-09-19",
+    "time": "14:00"
+  },
+  {
+    "fixture": "South Korea Women U20 v Italy Women U20",
     "date": "2026-09-19",
     "time": "14:00"
   },
