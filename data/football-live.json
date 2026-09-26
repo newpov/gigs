@@ -1,13 +1,23 @@
 [
   {
-    "fixture": "Italy v Belgium",
-    "date": "2026-09-25",
-    "time": "19:45"
+    "fixture": "Juventus Women v Napoli Women",
+    "date": "2026-09-26",
+    "time": "11:30"
   },
   {
     "fixture": "Italy Women U20 v Colombia Women U20",
     "date": "2026-09-26",
     "time": "17:00"
+  },
+  {
+    "fixture": "Inter Milan Women v Fiorentina Women",
+    "date": "2026-09-27",
+    "time": "12:00"
+  },
+  {
+    "fixture": "Sassuolo Women v Roma Women",
+    "date": "2026-09-27",
+    "time": "14:00"
   },
   {
     "fixture": "Turkey v Italy",
@@ -28,5 +38,10 @@
     "fixture": "Austria Wien Women v Inter Milan Women",
     "date": "2026-10-01",
     "time": "17:45"
+  },
+  {
+    "fixture": "France v Italy",
+    "date": "2026-10-02",
+    "time": "19:45"
   }
 ]
