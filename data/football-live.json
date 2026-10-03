@@ -1,10 +1,5 @@
 [
   {
-    "fixture": "France v Italy",
-    "date": "2026-10-02",
-    "time": "19:45"
-  },
-  {
     "fixture": "Fiorentina Women v Sassuolo Women",
     "date": "2026-10-03",
     "time": "14:00"
@@ -17,6 +12,26 @@
   {
     "fixture": "Italy v Turkey",
     "date": "2026-10-05",
+    "time": "19:45"
+  },
+  {
+    "fixture": "Arsenal v Leeds United",
+    "date": "2026-10-10",
+    "time": "12:30"
+  },
+  {
+    "fixture": "Inter Milan v Parma (joins match in progress)",
+    "date": "2026-10-10",
+    "time": "17:00"
+  },
+  {
+    "fixture": "Manchester United v Tottenham Hotspur",
+    "date": "2026-10-10",
+    "time": "17:30"
+  },
+  {
+    "fixture": "Napoli v Frosinone",
+    "date": "2026-10-10",
     "time": "19:45"
   }
 ]
