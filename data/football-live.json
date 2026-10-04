@@ -1,15 +1,5 @@
 [
   {
-    "fixture": "Fiorentina Women v Sassuolo Women",
-    "date": "2026-10-03",
-    "time": "14:00"
-  },
-  {
-    "fixture": "Roma Women v Lazio Women",
-    "date": "2026-10-03",
-    "time": "17:00"
-  },
-  {
     "fixture": "Italy v Turkey",
     "date": "2026-10-05",
     "time": "19:45"
@@ -32,6 +22,46 @@
   {
     "fixture": "Napoli v Frosinone",
     "date": "2026-10-10",
+    "time": "19:45"
+  },
+  {
+    "fixture": "Como v Roma",
+    "date": "2026-10-11",
+    "time": "11:30"
+  },
+  {
+    "fixture": "Crystal Palace v Nottingham Forest",
+    "date": "2026-10-11",
+    "time": "14:00"
+  },
+  {
+    "fixture": "Hull City v Everton",
+    "date": "2026-10-11",
+    "time": "14:00"
+  },
+  {
+    "fixture": "Lazio v Monza",
+    "date": "2026-10-11",
+    "time": "14:00"
+  },
+  {
+    "fixture": "Lecce v Bologna",
+    "date": "2026-10-11",
+    "time": "14:00"
+  },
+  {
+    "fixture": "Liverpool v Manchester City",
+    "date": "2026-10-11",
+    "time": "16:30"
+  },
+  {
+    "fixture": "Sassuolo v AC Milan",
+    "date": "2026-10-11",
+    "time": "17:00"
+  },
+  {
+    "fixture": "Cagliari v Juventus",
+    "date": "2026-10-11",
     "time": "19:45"
   }
 ]
