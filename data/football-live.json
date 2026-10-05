@@ -63,5 +63,20 @@
     "fixture": "Cagliari v Juventus",
     "date": "2026-10-11",
     "time": "19:45"
+  },
+  {
+    "fixture": "Atalanta v Venezia",
+    "date": "2026-10-12",
+    "time": "17:30"
+  },
+  {
+    "fixture": "Torino v Udinese",
+    "date": "2026-10-12",
+    "time": "19:45"
+  },
+  {
+    "fixture": "Coventry City v Newcastle United",
+    "date": "2026-10-12",
+    "time": "20:00"
   }
 ]
