@@ -1,10 +1,5 @@
 [
   {
-    "fixture": "Italy v Turkey",
-    "date": "2026-10-05",
-    "time": "19:45"
-  },
-  {
     "fixture": "Arsenal v Leeds United",
     "date": "2026-10-10",
     "time": "12:30"
@@ -77,6 +72,56 @@
   {
     "fixture": "Coventry City v Newcastle United",
     "date": "2026-10-12",
+    "time": "20:00"
+  },
+  {
+    "fixture": "Villarreal U19 v Napoli U19",
+    "date": "2026-10-13",
+    "time": "15:00"
+  },
+  {
+    "fixture": "RC Lens v Sporting CP",
+    "date": "2026-10-13",
+    "time": "17:45"
+  },
+  {
+    "fixture": "Sabah FC v Slavia Prague",
+    "date": "2026-10-13",
+    "time": "17:45"
+  },
+  {
+    "fixture": "Arsenal v Lille",
+    "date": "2026-10-13",
+    "time": "20:00"
+  },
+  {
+    "fixture": "Atlético Madrid v Manchester United",
+    "date": "2026-10-13",
+    "time": "20:00"
+  },
+  {
+    "fixture": "Galatasaray v Barcelona",
+    "date": "2026-10-13",
+    "time": "20:00"
+  },
+  {
+    "fixture": "Inter Milan v Club Brugge",
+    "date": "2026-10-13",
+    "time": "20:00"
+  },
+  {
+    "fixture": "RB Leipzig v PSV Eindhoven",
+    "date": "2026-10-13",
+    "time": "20:00"
+  },
+  {
+    "fixture": "VIking FK v Bayern Munich",
+    "date": "2026-10-13",
+    "time": "20:00"
+  },
+  {
+    "fixture": "Villarreal v Napoli",
+    "date": "2026-10-13",
     "time": "20:00"
   }
 ]
