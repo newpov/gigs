@@ -1,8 +1,18 @@
 [
   {
+    "fixture": "Avellino v Sampdoria",
+    "date": "2026-10-09",
+    "time": "19:30"
+  },
+  {
     "fixture": "Arsenal v Leeds United",
     "date": "2026-10-10",
     "time": "12:30"
+  },
+  {
+    "fixture": "Empoli v Palermo",
+    "date": "2026-10-10",
+    "time": "14:00"
   },
   {
     "fixture": "Inter Milan v Parma (joins match in progress)",
@@ -53,6 +63,11 @@
     "fixture": "Sassuolo v AC Milan",
     "date": "2026-10-11",
     "time": "17:00"
+  },
+  {
+    "fixture": "Modena v Verona",
+    "date": "2026-10-11",
+    "time": "18:30"
   },
   {
     "fixture": "Cagliari v Juventus",
@@ -167,6 +182,101 @@
   {
     "fixture": "Slovan Bratislava v VfB Stuttgart",
     "date": "2026-10-14",
+    "time": "20:00"
+  },
+  {
+    "fixture": "AZ Alkmaar v Hapoel Be&#x27;er Sheva",
+    "date": "2026-10-15",
+    "time": "17:45"
+  },
+  {
+    "fixture": "Celje v Omonia Nicosia",
+    "date": "2026-10-15",
+    "time": "17:45"
+  },
+  {
+    "fixture": "Lech Poznan v Bayer Leverkusen",
+    "date": "2026-10-15",
+    "time": "17:45"
+  },
+  {
+    "fixture": "Lyon v Crystal Palace",
+    "date": "2026-10-15",
+    "time": "17:45"
+  },
+  {
+    "fixture": "RB Salzburg v AC Milan",
+    "date": "2026-10-15",
+    "time": "17:45"
+  },
+  {
+    "fixture": "Sparta Prague v Lillestrom",
+    "date": "2026-10-15",
+    "time": "17:45"
+  },
+  {
+    "fixture": "Torreense v Sunderland",
+    "date": "2026-10-15",
+    "time": "17:45"
+  },
+  {
+    "fixture": "Union Saint-Gilloise v Real Sociedad",
+    "date": "2026-10-15",
+    "time": "17:45"
+  },
+  {
+    "fixture": "AFC Bournemouth v Sturm Graz",
+    "date": "2026-10-15",
+    "time": "20:00"
+  },
+  {
+    "fixture": "Atalanta v Pafos",
+    "date": "2026-10-15",
+    "time": "20:00"
+  },
+  {
+    "fixture": "Benfica v Celtic",
+    "date": "2026-10-15",
+    "time": "20:00"
+  },
+  {
+    "fixture": "Celta Vigo v Juventus",
+    "date": "2026-10-15",
+    "time": "20:00"
+  },
+  {
+    "fixture": "Dinamo Zagreb v Anderlecht",
+    "date": "2026-10-15",
+    "time": "20:00"
+  },
+  {
+    "fixture": "Ferencvaros v Viktoria Plzen",
+    "date": "2026-10-15",
+    "time": "20:00"
+  },
+  {
+    "fixture": "Hoffenheim v Besiktas",
+    "date": "2026-10-15",
+    "time": "20:00"
+  },
+  {
+    "fixture": "Jagiellonia Bialystok v Ararat-Armenia",
+    "date": "2026-10-15",
+    "time": "20:00"
+  },
+  {
+    "fixture": "Marseille v Olympiakos",
+    "date": "2026-10-15",
+    "time": "20:00"
+  },
+  {
+    "fixture": "NEC Nijmegen v Levski Sofia",
+    "date": "2026-10-15",
+    "time": "20:00"
+  },
+  {
+    "fixture": "Rennes v OFI Crete",
+    "date": "2026-10-15",
     "time": "20:00"
   }
 ]
