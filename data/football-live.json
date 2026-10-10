@@ -1,10 +1,5 @@
 [
   {
-    "fixture": "Avellino v Sampdoria",
-    "date": "2026-10-09",
-    "time": "19:30"
-  },
-  {
     "fixture": "Arsenal v Leeds United",
     "date": "2026-10-10",
     "time": "12:30"
@@ -278,5 +273,30 @@
     "fixture": "Rennes v OFI Crete",
     "date": "2026-10-15",
     "time": "20:00"
+  },
+  {
+    "fixture": "Frosinone v Sassuolo",
+    "date": "2026-10-16",
+    "time": "19:45"
+  },
+  {
+    "fixture": "Everton v Chelsea",
+    "date": "2026-10-17",
+    "time": "12:30"
+  },
+  {
+    "fixture": "Bologna v Inter Milan (joins match in progress)",
+    "date": "2026-10-17",
+    "time": "17:00"
+  },
+  {
+    "fixture": "Newcastle United v Aston Villa",
+    "date": "2026-10-17",
+    "time": "17:30"
+  },
+  {
+    "fixture": "Roma v Genoa",
+    "date": "2026-10-17",
+    "time": "19:45"
   }
 ]
