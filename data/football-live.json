@@ -1,13 +1,13 @@
 [
   {
-    "fixture": "Frosinone v Sassuolo",
-    "date": "2026-10-16",
-    "time": "19:45"
-  },
-  {
     "fixture": "Everton v Chelsea",
     "date": "2026-10-17",
     "time": "12:30"
+  },
+  {
+    "fixture": "Mantova v Palermo",
+    "date": "2026-10-17",
+    "time": "16:15"
   },
   {
     "fixture": "Bologna v Inter Milan (joins match in progress)",
@@ -63,6 +63,11 @@
     "fixture": "Inter Milan Women v Parma Women",
     "date": "2026-10-18",
     "time": "17:00"
+  },
+  {
+    "fixture": "Sampdoria v Arezzo",
+    "date": "2026-10-18",
+    "time": "18:30"
   },
   {
     "fixture": "Juventus v Lazio",
@@ -283,5 +288,25 @@
     "fixture": "Ipswich Town v Nottingham Forest",
     "date": "2026-10-23",
     "time": "20:00"
+  },
+  {
+    "fixture": "Aston Villa v Manchester City",
+    "date": "2026-10-24",
+    "time": "12:30"
+  },
+  {
+    "fixture": "Napoli v Roma (joins match in progress)",
+    "date": "2026-10-24",
+    "time": "17:00"
+  },
+  {
+    "fixture": "Chelsea v Tottenham Hotspur",
+    "date": "2026-10-24",
+    "time": "17:30"
+  },
+  {
+    "fixture": "Lazio v Parma",
+    "date": "2026-10-24",
+    "time": "19:45"
   }
 ]
