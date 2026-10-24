@@ -1,15 +1,5 @@
 [
   {
-    "fixture": "Torino v Monza",
-    "date": "2026-10-23",
-    "time": "19:45"
-  },
-  {
-    "fixture": "Ipswich Town v Nottingham Forest",
-    "date": "2026-10-23",
-    "time": "20:00"
-  },
-  {
     "fixture": "AC Milan Women v Ternana Women",
     "date": "2026-10-24",
     "time": "11:30"
@@ -33,6 +23,11 @@
     "fixture": "Juventus Women v Roma Women",
     "date": "2026-10-24",
     "time": "17:30"
+  },
+  {
+    "fixture": "Arezzo v Benevento",
+    "date": "2026-10-24",
+    "time": "18:30"
   },
   {
     "fixture": "Lazio v Parma",
@@ -75,6 +70,11 @@
     "time": "14:00"
   },
   {
+    "fixture": "Palermo v Carrarese",
+    "date": "2026-10-25",
+    "time": "14:00"
+  },
+  {
     "fixture": "Sunderland v Leeds United",
     "date": "2026-10-25",
     "time": "16:30"
@@ -93,6 +93,11 @@
     "fixture": "Sassuolo v Lazio",
     "date": "2026-10-27",
     "time": "17:30"
+  },
+  {
+    "fixture": "Ascoli v Sampdoria",
+    "date": "2026-10-27",
+    "time": "19:00"
   },
   {
     "fixture": "Roma v Cagliari",
@@ -148,5 +153,35 @@
     "fixture": "Fiorentina v Atalanta",
     "date": "2026-10-29",
     "time": "19:45"
+  },
+  {
+    "fixture": "Ternana Women v Como Women",
+    "date": "2026-10-31",
+    "time": "11:30"
+  },
+  {
+    "fixture": "Chelsea v Manchester United",
+    "date": "2026-10-31",
+    "time": "12:30"
+  },
+  {
+    "fixture": "Udinese v Roma (joins match in progress)",
+    "date": "2026-10-31",
+    "time": "17:00"
+  },
+  {
+    "fixture": "Tottenham Hotspur v Crystal Palace",
+    "date": "2026-10-31",
+    "time": "17:30"
+  },
+  {
+    "fixture": "AC Milan v Inter Milan",
+    "date": "2026-10-31",
+    "time": "19:45"
+  },
+  {
+    "fixture": "Aston Villa v Fulham",
+    "date": "2026-10-31",
+    "time": "20:00"
   }
 ]
