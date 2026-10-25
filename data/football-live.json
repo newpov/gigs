@@ -1,40 +1,5 @@
 [
   {
-    "fixture": "AC Milan Women v Ternana Women",
-    "date": "2026-10-24",
-    "time": "11:30"
-  },
-  {
-    "fixture": "Aston Villa v Manchester City",
-    "date": "2026-10-24",
-    "time": "12:30"
-  },
-  {
-    "fixture": "Napoli v Roma (joins match in progress)",
-    "date": "2026-10-24",
-    "time": "17:00"
-  },
-  {
-    "fixture": "Chelsea v Tottenham Hotspur",
-    "date": "2026-10-24",
-    "time": "17:30"
-  },
-  {
-    "fixture": "Juventus Women v Roma Women",
-    "date": "2026-10-24",
-    "time": "17:30"
-  },
-  {
-    "fixture": "Arezzo v Benevento",
-    "date": "2026-10-24",
-    "time": "18:30"
-  },
-  {
-    "fixture": "Lazio v Parma",
-    "date": "2026-10-24",
-    "time": "19:45"
-  },
-  {
     "fixture": "Inter Milan v Fiorentina",
     "date": "2026-10-25",
     "time": "11:30"
@@ -183,5 +148,40 @@
     "fixture": "Aston Villa v Fulham",
     "date": "2026-10-31",
     "time": "20:00"
+  },
+  {
+    "fixture": "Como v Venezia",
+    "date": "2026-11-01",
+    "time": "11:30"
+  },
+  {
+    "fixture": "Inter Milan Women v Lazio Women",
+    "date": "2026-11-01",
+    "time": "11:30"
+  },
+  {
+    "fixture": "Frosinone v Torino",
+    "date": "2026-11-01",
+    "time": "14:00"
+  },
+  {
+    "fixture": "Lazio v Cagliari",
+    "date": "2026-11-01",
+    "time": "14:00"
+  },
+  {
+    "fixture": "Liverpool v Arsenal",
+    "date": "2026-11-01",
+    "time": "16:30"
+  },
+  {
+    "fixture": "Lecce v Genoa",
+    "date": "2026-11-01",
+    "time": "17:00"
+  },
+  {
+    "fixture": "Juventus v Napoli",
+    "date": "2026-11-01",
+    "time": "19:45"
   }
 ]
