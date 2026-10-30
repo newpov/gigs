@@ -1,15 +1,5 @@
 [
   {
-    "fixture": "Frosinone v Lecce",
-    "date": "2026-10-29",
-    "time": "17:30"
-  },
-  {
-    "fixture": "Fiorentina v Atalanta",
-    "date": "2026-10-29",
-    "time": "19:45"
-  },
-  {
     "fixture": "Ternana Women v Como Women",
     "date": "2026-10-31",
     "time": "11:30"
@@ -20,6 +10,11 @@
     "time": "12:30"
   },
   {
+    "fixture": "Cremonese v Benevento",
+    "date": "2026-10-31",
+    "time": "14:00"
+  },
+  {
     "fixture": "Udinese v Roma (joins match in progress)",
     "date": "2026-10-31",
     "time": "17:00"
@@ -28,6 +23,11 @@
     "fixture": "Tottenham Hotspur v Crystal Palace",
     "date": "2026-10-31",
     "time": "17:30"
+  },
+  {
+    "fixture": "Sampdoria v Entella",
+    "date": "2026-10-31",
+    "time": "18:30"
   },
   {
     "fixture": "AC Milan v Inter Milan",
@@ -68,6 +68,11 @@
     "fixture": "Lecce v Genoa",
     "date": "2026-11-01",
     "time": "17:00"
+  },
+  {
+    "fixture": "Palermo v Vicenza",
+    "date": "2026-11-01",
+    "time": "18:30"
   },
   {
     "fixture": "Juventus v Napoli",
@@ -138,6 +143,11 @@
     "fixture": "Villarreal v PSG",
     "date": "2026-11-03",
     "time": "20:00"
+  },
+  {
+    "fixture": "Rennes v Olympiakos",
+    "date": "2026-11-04",
+    "time": "15:30"
   },
   {
     "fixture": "AEK Athens v Real Madrid",
@@ -225,11 +235,6 @@
     "time": "17:45"
   },
   {
-    "fixture": "Rennes v Olympiakos",
-    "date": "2026-11-05",
-    "time": "17:45"
-  },
-  {
     "fixture": "Sparta Prague v AFC Bournemouth",
     "date": "2026-11-05",
     "time": "17:45"
@@ -277,6 +282,16 @@
   {
     "fixture": "Torreense v Ararat-Armenia",
     "date": "2026-11-05",
+    "time": "20:00"
+  },
+  {
+    "fixture": "Venezia v Udinese",
+    "date": "2026-11-06",
+    "time": "19:45"
+  },
+  {
+    "fixture": "Everton v Coventry City",
+    "date": "2026-11-06",
     "time": "20:00"
   }
 ]
