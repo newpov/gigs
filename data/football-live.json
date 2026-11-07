@@ -1,18 +1,13 @@
 [
   {
-    "fixture": "Venezia v Udinese",
-    "date": "2026-11-06",
-    "time": "19:45"
-  },
-  {
-    "fixture": "Everton v Coventry City",
-    "date": "2026-11-06",
-    "time": "20:00"
-  },
-  {
     "fixture": "Leeds United v Tottenham Hotspur",
     "date": "2026-11-07",
     "time": "12:30"
+  },
+  {
+    "fixture": "Mantova v Verona",
+    "date": "2026-11-07",
+    "time": "16:15"
   },
   {
     "fixture": "Parma v Bologna (joins match in progress)",
@@ -63,6 +58,11 @@
     "fixture": "Sunderland v Chelsea",
     "date": "2026-11-08",
     "time": "14:00"
+  },
+  {
+    "fixture": "Carrarese v Sampdoria",
+    "date": "2026-11-08",
+    "time": "16:15"
   },
   {
     "fixture": "Manchester United v Aston Villa",
