@@ -1,17 +1,12 @@
 [
   {
-    "fixture": "Inter Milan Women v Manchester City Women",
-    "date": "2026-11-10",
-    "time": "20:00"
-  },
-  {
-    "fixture": "Roma Women v Servette Women",
-    "date": "2026-11-10",
-    "time": "20:00"
-  },
-  {
     "fixture": "Italy v France",
     "date": "2026-11-12",
     "time": "19:45"
+  },
+  {
+    "fixture": "Real Madrid Women v Inter Milan Women",
+    "date": "2026-11-18",
+    "time": "17:45"
   }
 ]
