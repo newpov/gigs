@@ -1,5 +1,20 @@
 [
   {
+    "fixture": "Napoli Women v AC Milan Women",
+    "date": "2026-11-14",
+    "time": "11:30"
+  },
+  {
+    "fixture": "Inter Milan Women v Juventus Women",
+    "date": "2026-11-15",
+    "time": "11:30"
+  },
+  {
+    "fixture": "Inter Milan Women v Juventus Women",
+    "date": "2026-11-15",
+    "time": "14:00"
+  },
+  {
     "fixture": "Belgium v Italy",
     "date": "2026-11-15",
     "time": "19:45"
@@ -13,5 +28,25 @@
     "fixture": "Benfica Women v Roma Women",
     "date": "2026-11-19",
     "time": "20:00"
+  },
+  {
+    "fixture": "Manchester City v Fulham",
+    "date": "2026-11-21",
+    "time": "12:30"
+  },
+  {
+    "fixture": "Parma v Roma (joins match in progress)",
+    "date": "2026-11-21",
+    "time": "17:00"
+  },
+  {
+    "fixture": "Newcastle United v Arsenal",
+    "date": "2026-11-21",
+    "time": "17:30"
+  },
+  {
+    "fixture": "Napoli v Torino",
+    "date": "2026-11-21",
+    "time": "19:45"
   }
 ]
