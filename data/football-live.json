@@ -1,13 +1,18 @@
 [
   {
-    "fixture": "Italy U17 v Jamaica U17",
-    "date": "2026-11-20",
-    "time": "15:00"
+    "fixture": "Parma Women v Napoli Women",
+    "date": "2026-11-21",
+    "time": "11:30"
   },
   {
     "fixture": "Manchester City v Fulham",
     "date": "2026-11-21",
     "time": "12:30"
+  },
+  {
+    "fixture": "US Catanzaro v Palermo",
+    "date": "2026-11-21",
+    "time": "16:15"
   },
   {
     "fixture": "Parma v Roma (joins match in progress)",
@@ -20,6 +25,11 @@
     "time": "17:30"
   },
   {
+    "fixture": "Empoli v Pisa",
+    "date": "2026-11-21",
+    "time": "18:30"
+  },
+  {
     "fixture": "Napoli v Torino",
     "date": "2026-11-21",
     "time": "19:45"
@@ -30,7 +40,17 @@
     "time": "11:30"
   },
   {
+    "fixture": "Ternana Women v Inter Milan Women",
+    "date": "2026-11-22",
+    "time": "11:30"
+  },
+  {
     "fixture": "Bologna v Udinese",
+    "date": "2026-11-22",
+    "time": "14:00"
+  },
+  {
+    "fixture": "Fiorentina Women v Como Women",
     "date": "2026-11-22",
     "time": "14:00"
   },
@@ -90,6 +110,11 @@
     "time": "17:45"
   },
   {
+    "fixture": "Cesena v Ascoli",
+    "date": "2026-11-24",
+    "time": "19:00"
+  },
+  {
     "fixture": "Arsenal v Borussia Dortmund",
     "date": "2026-11-24",
     "time": "20:00"
@@ -138,6 +163,16 @@
     "fixture": "Slavia Prague v Villarreal",
     "date": "2026-11-25",
     "time": "17:45"
+  },
+  {
+    "fixture": "Cremonese v Avellino",
+    "date": "2026-11-25",
+    "time": "18:00"
+  },
+  {
+    "fixture": "Pisa v Modena",
+    "date": "2026-11-25",
+    "time": "19:00"
   },
   {
     "fixture": "Atlético Madrid v VIking FK",
@@ -283,5 +318,20 @@
     "fixture": "Nottingham Forest v Chelsea",
     "date": "2026-11-27",
     "time": "20:00"
+  },
+  {
+    "fixture": "Torino v Lazio (joins match in progress)",
+    "date": "2026-11-28",
+    "time": "17:00"
+  },
+  {
+    "fixture": "Ipswich Town v Aston Villa",
+    "date": "2026-11-28",
+    "time": "17:30"
+  },
+  {
+    "fixture": "Inter Milan v Genoa",
+    "date": "2026-11-28",
+    "time": "19:45"
   }
 ]
