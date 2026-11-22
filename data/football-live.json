@@ -1,40 +1,5 @@
 [
   {
-    "fixture": "Parma Women v Napoli Women",
-    "date": "2026-11-21",
-    "time": "11:30"
-  },
-  {
-    "fixture": "Manchester City v Fulham",
-    "date": "2026-11-21",
-    "time": "12:30"
-  },
-  {
-    "fixture": "US Catanzaro v Palermo",
-    "date": "2026-11-21",
-    "time": "16:15"
-  },
-  {
-    "fixture": "Parma v Roma (joins match in progress)",
-    "date": "2026-11-21",
-    "time": "17:00"
-  },
-  {
-    "fixture": "Newcastle United v Arsenal",
-    "date": "2026-11-21",
-    "time": "17:30"
-  },
-  {
-    "fixture": "Empoli v Pisa",
-    "date": "2026-11-21",
-    "time": "18:30"
-  },
-  {
-    "fixture": "Napoli v Torino",
-    "date": "2026-11-21",
-    "time": "19:45"
-  },
-  {
     "fixture": "Juventus v Venezia",
     "date": "2026-11-22",
     "time": "11:30"
@@ -332,6 +297,56 @@
   {
     "fixture": "Inter Milan v Genoa",
     "date": "2026-11-28",
+    "time": "19:45"
+  },
+  {
+    "fixture": "Udinese v Fiorentina",
+    "date": "2026-11-29",
+    "time": "11:30"
+  },
+  {
+    "fixture": "Everton v Liverpool",
+    "date": "2026-11-29",
+    "time": "12:00"
+  },
+  {
+    "fixture": "Sassuolo v Napoli",
+    "date": "2026-11-29",
+    "time": "14:00"
+  },
+  {
+    "fixture": "Brighton & Hove Albion v Newcastle United",
+    "date": "2026-11-29",
+    "time": "14:05"
+  },
+  {
+    "fixture": "Crystal Palace v Hull City",
+    "date": "2026-11-29",
+    "time": "14:05"
+  },
+  {
+    "fixture": "Fulham v AFC Bournemouth",
+    "date": "2026-11-29",
+    "time": "14:05"
+  },
+  {
+    "fixture": "Sunderland v Tottenham Hotspur",
+    "date": "2026-11-29",
+    "time": "14:05"
+  },
+  {
+    "fixture": "Arsenal v Manchester City",
+    "date": "2026-11-29",
+    "time": "16:30"
+  },
+  {
+    "fixture": "Roma v Monza",
+    "date": "2026-11-29",
+    "time": "17:00"
+  },
+  {
+    "fixture": "Como v Juventus",
+    "date": "2026-11-29",
     "time": "19:45"
   }
 ]
