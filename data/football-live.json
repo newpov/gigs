@@ -1,50 +1,5 @@
 [
   {
-    "fixture": "Juventus v Venezia",
-    "date": "2026-11-22",
-    "time": "11:30"
-  },
-  {
-    "fixture": "Ternana Women v Inter Milan Women",
-    "date": "2026-11-22",
-    "time": "11:30"
-  },
-  {
-    "fixture": "Bologna v Udinese",
-    "date": "2026-11-22",
-    "time": "14:00"
-  },
-  {
-    "fixture": "Fiorentina Women v Como Women",
-    "date": "2026-11-22",
-    "time": "14:00"
-  },
-  {
-    "fixture": "Hull City v Brighton & Hove Albion",
-    "date": "2026-11-22",
-    "time": "14:00"
-  },
-  {
-    "fixture": "Sassuolo v Genoa",
-    "date": "2026-11-22",
-    "time": "14:00"
-  },
-  {
-    "fixture": "Liverpool v Manchester United",
-    "date": "2026-11-22",
-    "time": "16:30"
-  },
-  {
-    "fixture": "AC Milan v Frosinone",
-    "date": "2026-11-22",
-    "time": "17:00"
-  },
-  {
-    "fixture": "Atalanta v Inter Milan",
-    "date": "2026-11-22",
-    "time": "19:45"
-  },
-  {
     "fixture": "Italy U17 v Ivory Coast U17",
     "date": "2026-11-23",
     "time": "14:30"
@@ -347,6 +302,16 @@
   {
     "fixture": "Como v Juventus",
     "date": "2026-11-29",
+    "time": "19:45"
+  },
+  {
+    "fixture": "Lecce v Atalanta",
+    "date": "2026-11-30",
+    "time": "17:30"
+  },
+  {
+    "fixture": "Cagliari v AC Milan",
+    "date": "2026-11-30",
     "time": "19:45"
   }
 ]
