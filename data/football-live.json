@@ -1,20 +1,5 @@
 [
   {
-    "fixture": "Italy U17 v Ivory Coast U17",
-    "date": "2026-11-23",
-    "time": "14:30"
-  },
-  {
-    "fixture": "Monza v Fiorentina",
-    "date": "2026-11-23",
-    "time": "19:45"
-  },
-  {
-    "fixture": "Brentford v Everton",
-    "date": "2026-11-23",
-    "time": "20:00"
-  },
-  {
     "fixture": "Manchester City U19 v Napoli U19",
     "date": "2026-11-24",
     "time": "15:00"
@@ -240,6 +225,11 @@
     "time": "20:00"
   },
   {
+    "fixture": "Empoli v Verona",
+    "date": "2026-11-28",
+    "time": "14:00"
+  },
+  {
     "fixture": "Torino v Lazio (joins match in progress)",
     "date": "2026-11-28",
     "time": "17:00"
@@ -290,6 +280,11 @@
     "time": "14:05"
   },
   {
+    "fixture": "Sampdoria v Cremonese",
+    "date": "2026-11-29",
+    "time": "16:15"
+  },
+  {
     "fixture": "Arsenal v Manchester City",
     "date": "2026-11-29",
     "time": "16:30"
@@ -298,6 +293,11 @@
     "fixture": "Roma v Monza",
     "date": "2026-11-29",
     "time": "17:00"
+  },
+  {
+    "fixture": "Arezzo v Pisa",
+    "date": "2026-11-29",
+    "time": "18:30"
   },
   {
     "fixture": "Como v Juventus",
@@ -313,5 +313,15 @@
     "fixture": "Cagliari v AC Milan",
     "date": "2026-11-30",
     "time": "19:45"
+  },
+  {
+    "fixture": "Coventry City v Ipswich Town",
+    "date": "2026-12-01",
+    "time": "20:00"
+  },
+  {
+    "fixture": "Inter Milan v Genoa",
+    "date": "2026-12-01",
+    "time": "20:00"
   }
 ]
