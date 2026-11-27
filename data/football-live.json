@@ -1,105 +1,5 @@
 [
   {
-    "fixture": "Uzbekistan U17 v Italy U17",
-    "date": "2026-11-26",
-    "time": "14:00"
-  },
-  {
-    "fixture": "Besiktas v Hapoel Be&#x27;er Sheva",
-    "date": "2026-11-26",
-    "time": "17:45"
-  },
-  {
-    "fixture": "Celta Vigo v AFC Bournemouth",
-    "date": "2026-11-26",
-    "time": "17:45"
-  },
-  {
-    "fixture": "Dinamo Zagreb v Bayer Leverkusen",
-    "date": "2026-11-26",
-    "time": "17:45"
-  },
-  {
-    "fixture": "Marseille v Levski Sofia",
-    "date": "2026-11-26",
-    "time": "17:45"
-  },
-  {
-    "fixture": "Olympiakos v AC Milan",
-    "date": "2026-11-26",
-    "time": "17:45"
-  },
-  {
-    "fixture": "RB Salzburg v Ararat-Armenia",
-    "date": "2026-11-26",
-    "time": "17:45"
-  },
-  {
-    "fixture": "Union Saint-Gilloise v Lech Poznan",
-    "date": "2026-11-26",
-    "time": "17:45"
-  },
-  {
-    "fixture": "Viktoria Plzen v Benfica",
-    "date": "2026-11-26",
-    "time": "17:45"
-  },
-  {
-    "fixture": "Crystal Palace v Real Sociedad",
-    "date": "2026-11-26",
-    "time": "20:00"
-  },
-  {
-    "fixture": "Ferencvaros v Celje",
-    "date": "2026-11-26",
-    "time": "20:00"
-  },
-  {
-    "fixture": "FK Borac v Atalanta",
-    "date": "2026-11-26",
-    "time": "20:00"
-  },
-  {
-    "fixture": "Hoffenheim v Sturm Graz",
-    "date": "2026-11-26",
-    "time": "20:00"
-  },
-  {
-    "fixture": "Juventus v Omonia Nicosia",
-    "date": "2026-11-26",
-    "time": "20:00"
-  },
-  {
-    "fixture": "Lyon v Lillestrom",
-    "date": "2026-11-26",
-    "time": "20:00"
-  },
-  {
-    "fixture": "NEC Nijmegen v Rennes",
-    "date": "2026-11-26",
-    "time": "20:00"
-  },
-  {
-    "fixture": "OFI Crete v Anderlecht",
-    "date": "2026-11-26",
-    "time": "20:00"
-  },
-  {
-    "fixture": "Sparta Prague v AZ Alkmaar",
-    "date": "2026-11-26",
-    "time": "20:00"
-  },
-  {
-    "fixture": "Sunderland v Jagiellonia Bialystok",
-    "date": "2026-11-26",
-    "time": "20:00"
-  },
-  {
-    "fixture": "Torreense v Celtic",
-    "date": "2026-11-26",
-    "time": "20:00"
-  },
-  {
     "fixture": "Venezia v Bologna",
     "date": "2026-11-27",
     "time": "19:45"
@@ -263,5 +163,15 @@
     "fixture": "Tottenham Hotspur v Fulham",
     "date": "2026-12-03",
     "time": "20:00"
+  },
+  {
+    "fixture": "Pisa v Sampdoria",
+    "date": "2026-12-04",
+    "time": "19:30"
+  },
+  {
+    "fixture": "Bologna v Roma",
+    "date": "2026-12-04",
+    "time": "19:45"
   }
 ]
