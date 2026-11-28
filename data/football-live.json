@@ -1,15 +1,5 @@
 [
   {
-    "fixture": "Venezia v Bologna",
-    "date": "2026-11-27",
-    "time": "19:45"
-  },
-  {
-    "fixture": "Nottingham Forest v Chelsea",
-    "date": "2026-11-27",
-    "time": "20:00"
-  },
-  {
     "fixture": "Empoli v Verona",
     "date": "2026-11-28",
     "time": "14:00"
@@ -173,5 +163,35 @@
     "fixture": "Bologna v Roma",
     "date": "2026-12-04",
     "time": "19:45"
+  },
+  {
+    "fixture": "Chelsea v Liverpool",
+    "date": "2026-12-05",
+    "time": "12:30"
+  },
+  {
+    "fixture": "Padova v Vicenza",
+    "date": "2026-12-05",
+    "time": "16:15"
+  },
+  {
+    "fixture": "Frosinone v Inter Milan (joins match in progress)",
+    "date": "2026-12-05",
+    "time": "17:00"
+  },
+  {
+    "fixture": "Nottingham Forest v Brighton & Hove Albion",
+    "date": "2026-12-05",
+    "time": "17:30"
+  },
+  {
+    "fixture": "Napoli v Lecce",
+    "date": "2026-12-05",
+    "time": "19:45"
+  },
+  {
+    "fixture": "Brentford v Manchester City",
+    "date": "2026-12-05",
+    "time": "20:00"
   }
 ]
